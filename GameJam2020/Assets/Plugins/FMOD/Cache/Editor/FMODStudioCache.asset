@@ -17,7 +17,7 @@ MonoBehaviour:
   lastModified: 637161074856732895
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-1599758581893943190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../proyectofmodStudio/gameJamFmodStudio/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637161074856752840
+  lastModified: 637161082890082052
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -52,15 +52,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -1599758581893943190}
-  - {fileID: -8525999649971709618}
+  - {fileID: 4523440709757439070}
   EditorEvents:
   - {fileID: 4157546810746255905}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -8525999649971709618}
+  - {fileID: 4523440709757439070}
   StringsBanks:
   - {fileID: -1599758581893943190}
-  stringsBankWriteTime: 637161074856752840
+  stringsBankWriteTime: 637161082890082052
   cacheVersion: 3
 --- !u!114 &4157546810746255905
 MonoBehaviour:
@@ -77,7 +77,7 @@ MonoBehaviour:
   Path: event:/test
   guid: 5da74357f618d14194418254769fbe94
   Banks:
-  - {fileID: -8525999649971709618}
+  - {fileID: 4523440709757439070}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -85,3 +85,21 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+--- !u!114 &4523440709757439070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../proyectofmodStudio/gameJamFmodStudio/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637161082890071023
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
