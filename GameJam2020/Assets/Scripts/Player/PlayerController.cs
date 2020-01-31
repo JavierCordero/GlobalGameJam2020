@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    static public PlayerController Instance;
+
     [SerializeField] private float aimSensitivity = 10f;
     [Range(0f, 1f)] [SerializeField] private float buildUpRot;
     [SerializeField] private float minInput;
+    [SerializeField] private Vector3 pickUpZoneSize = new Vector3(3,1,3);
 
     // Aim
-    private Vector3 aimTarget;
     private Vector3 forward;
     private Vector3 right;
 
@@ -34,6 +36,11 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this.gameObject);
+
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward.Normalize();
@@ -54,7 +61,7 @@ public class PlayerController : MonoBehaviour
         if (EditorApplication.isPlaying)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(Vector3Int.RoundToInt(transform.position + transform.forward), Vector3.one);
+            Gizmos.DrawWireCube(Vector3Int.RoundToInt(transform.position + transform.forward), new Vector3(3, 1, 3));
         }
     }
 
@@ -67,32 +74,70 @@ public class PlayerController : MonoBehaviour
     {
         if (currentItem == null)
         {
-            Vector2Int pos = GetAimPos2D();
-            if (LevelManager.Instance.HasItem(pos))
-            {
-                currentItem = LevelManager.Instance.GetItem(pos);
-                LevelManager.Instance.RemoveItem(pos);
+            GameObject interactable = GetInteractable();
 
-                // Set item in player hand
-                currentItem.transform.parent = playerHand;
-                currentItem.transform.localPosition = Vector3.zero;
-                currentItem.transform.localRotation = Quaternion.identity;
+            if (interactable != null)
+            {
+                interactable.GetComponent<Item>().Interact();
             }
         }
+    }
+
+    GameObject GetInteractable()
+    {
+        GameObject interactable = null;
+
+        Collider[] objects = Physics.OverlapBox(transform.position + transform.forward, pickUpZoneSize);
+
+        Vector3 aimTarget = transform.position + transform.forward;
+
+        float minDistance = float.MaxValue;
+        foreach (Collider o in objects)
+        {
+            if (o.CompareTag("Interactable"))
+            {
+                float objDistance = Vector3.Distance(aimTarget, o.transform.position);
+                if (objDistance < minDistance)
+                {
+                    minDistance = objDistance;
+                    interactable = o.gameObject;
+                }
+            }
+        }
+
+        return interactable;
+    }
+
+    bool CanReleaseItem()
+    {
+        Vector2 pos = GetAimPos2D();
+
+        Collider[] objects = Physics.OverlapBox(new Vector3(pos.x, 1, pos.y), new Vector3(0.9f, 0.9f, 0.9f));
+
+        foreach (Collider o in objects)
+        {
+            if (o.CompareTag("Interactable"))
+                return false;
+        }
+
+        return true;
     }
 
     private void ReleaseItem()
     {
         if (currentItem != null)
         {
-            Vector2Int pos = GetAimPos2D();
-            if (!LevelManager.Instance.HasItem(pos))
+            Debug.Log("Release");
+
+            if (CanReleaseItem())
             {
-                LevelManager.Instance.AddItem(pos, currentItem);
+                // ToDo: RELEASE ITEM
+                Vector2 pos = GetAimPos2D();
 
                 currentItem.transform.position = new Vector3(pos.x, 1, pos.y);
                 currentItem.transform.parent = null;
                 currentItem.transform.localRotation = Quaternion.identity;
+                currentItem.GetComponent<BoxCollider>().enabled = true;
 
                 currentItem = null;
             }
@@ -105,5 +150,16 @@ public class PlayerController : MonoBehaviour
             PickUpItem();
         else
             ReleaseItem();
+    }
+
+    // Set item in player hand
+    public void HoldItem(Transform item)
+    {
+        currentItem = item.GetComponent<Item>();
+        item.GetComponent<BoxCollider>().enabled = false;
+
+        item.parent = playerHand;
+        item.localPosition = Vector3.zero;
+        item.localRotation = Quaternion.identity;
     }
 }

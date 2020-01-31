@@ -1,6 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!114 &-8525999649971709618
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+--- !u!114 &-5077376735748292071
+=======
+<<<<<<< HEAD
+--- !u!114 &-4445872408926139531
+=======
+--- !u!114 &-5485701345340716339
+>>>>>>> 758cac3cac0bf18dbbf5ff6d060fa296e8515da7
+>>>>>>> c38bc8757ce3e616bb61adc1f5b5b781a84e7819
+>>>>>>> master
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,6 +51,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 730
   Exists: 1
+<<<<<<< HEAD
+=======
+--- !u!114 &-63148134755199466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../proyectofmodStudio/gameJamFmodStudio/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637160994565200429
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+=======
+>>>>>>> b48ff99085bcbf92440340cd8f9ac02f5e8fa41b
+>>>>>>> master
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   EditorBanks:
   - {fileID: -1599758581893943190}
   - {fileID: -8525999649971709618}
@@ -85,3 +122,12 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 500
+=======
+  EditorBanks: []
+  EditorEvents: []
+  EditorParameters: []
+  MasterBanks: []
+  StringsBanks: []
+  stringsBankWriteTime: 0
+  cacheVersion: 3
+>>>>>>> b48ff99085bcbf92440340cd8f9ac02f5e8fa41b

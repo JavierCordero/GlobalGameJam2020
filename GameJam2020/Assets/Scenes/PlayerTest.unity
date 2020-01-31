@@ -458,10 +458,11 @@ GameObject:
   - component: {fileID: 1299259549}
   - component: {fileID: 1299259548}
   - component: {fileID: 1299259547}
+  - component: {fileID: 1299259550}
   - component: {fileID: 1299259546}
   m_Layer: 0
-  m_Name: ItemTEST
-  m_TagString: Untagged
+  m_Name: TreeTEST
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,6 +479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3ae3e6572bb33418123eea36a0a395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 6869131670175117256, guid: fd2a6d74e142f4a43b0f560bd24f5366,
+    type: 3}
   weight: 0
 --- !u!23 &1299259547
 MeshRenderer:
@@ -540,6 +543,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1299259550
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299259545}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1542670571
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,7 +836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1769083462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,6 +1044,7 @@ MonoBehaviour:
   aimSensitivity: 10
   buildUpRot: 0.2
   minInput: 0.1
+  pickUpZoneSize: {x: 3, y: 1, z: 3}
 --- !u!114 &2139955861
 MonoBehaviour:
   m_ObjectHideFlags: 0
