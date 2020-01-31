@@ -49,46 +49,6 @@ public class PlayerController : MonoBehaviour
         //UpdatePlayerRotation();
     }
 
-    //private void UpdateAimTarget()
-    //{
-    //    if (playerInput.isAiming)
-    //    {
-    //        // Input
-    //        Vector2 aimInput = playerInput.aimInput;
-    //        if (aimInput.magnitude < minInput) aimInput = Vector2.zero;
-
-    //        Vector3 hAim = right * aimInput.x;
-    //        Vector3 vAim = forward * aimInput.y;
-
-    //        if (aimInput.magnitude > minInput)
-    //        {
-    //            aimTarget += (hAim + vAim) * aimSensitivity * Time.deltaTime;
-    //        }
-
-    //    }
-    //}
-
-    //void UpdatePlayerRotation()
-    //{
-    //    if (playerInput.isAiming)
-    //    {
-    //        Vector3 dir = (aimTarget - transform.position).normalized;
-
-    //        Vector2 aimInput = new Vector2(dir.x, dir.z);
-    //        if (aimInput.magnitude < minInput) aimInput = Vector2.zero;
-
-    //        if (aimInput.magnitude > minInput)
-    //        {
-    //            Vector3 heading = Vector3.Normalize(dir);
-    //            float realBuildUpRot = 1f - Mathf.Pow(1f - buildUpRot, Time.deltaTime * 60);
-    //            Vector3 finalHeading = Vector3.Lerp(transform.forward, heading, realBuildUpRot);
-    //            float angleDiff = Vector3.Angle(heading, transform.forward);
-
-    //            transform.forward = (angleDiff < 160) ? finalHeading : heading;
-    //        }
-    //    }
-    //}
-
     void OnDrawGizmos()
     {
         if (EditorApplication.isPlaying)
@@ -103,7 +63,7 @@ public class PlayerController : MonoBehaviour
         return VectorOperations.Vector3ToVector2Int(transform.position + transform.forward);
     }
 
-    public void PickUpItem()
+    private void PickUpItem()
     {
         if (currentItem == null)
         {
@@ -121,7 +81,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ReleaseItem()
+    private void ReleaseItem()
     {
         if (currentItem != null)
         {
@@ -137,5 +97,13 @@ public class PlayerController : MonoBehaviour
                 currentItem = null;
             }
         }
+    }
+
+    public void PickUpRelease()
+    {
+        if(currentItem == null)
+            PickUpItem();
+        else
+            ReleaseItem();
     }
 }

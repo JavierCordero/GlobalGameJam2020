@@ -57,7 +57,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void PickUpRealease_Performed(InputAction.CallbackContext context)
     {
-        playerController.PickUpItem();
+        playerController.PickUpRelease();
     }
 
     private void Use_Performed(InputAction.CallbackContext context)
