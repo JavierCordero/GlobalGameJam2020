@@ -52,6 +52,9 @@ public class LevelManager : MonoBehaviour
     private int cowsToSpawn = 0;
     private int cowsSpawned = 0;
 
+	private int treesToCraft = 0;
+	private int treesCrafted = 0;
+
     private int treesToWater = 0;
     private int treesWatered = 0;
 
@@ -70,6 +73,8 @@ public class LevelManager : MonoBehaviour
             actionsList.Add(action);
             if (action.actionType == ActionType.PlantTree)
                 treesToPlant++;
+			if (action.actionType == ActionType.CraftTree)
+				treesToCraft++;
         }
 
         actionsBeforeStart.Invoke();
@@ -81,7 +86,7 @@ public class LevelManager : MonoBehaviour
         {
             if (actionType == actionsList[0].actionType)
             {
-                LevelAction action = levelActions[0];
+                LevelAction action = actionsList[0];
                 actionsList.RemoveAt(0);
 
                 switch (actionType)
@@ -104,20 +109,25 @@ public class LevelManager : MonoBehaviour
                     case ActionType.TreeDied:
                         treesPlanted--;
                         break;
+					case ActionType.CraftTree:
+						treesCrafted++;
+						break;
                 }
 
                 action.functionsWhenFinished.Invoke();
-                CheckIfLevelCompleted();
+             
             }
         }
-    }
+		CheckIfLevelCompleted();
+	}
 
     public void CheckIfLevelCompleted()
     {
         if (treesPlanted >= treesToPlant && 
             treesWatered >= treesToWater &&
             bridgesBuilt >= bridgesToBuild &&
-            cowsSpawned >= cowsToSpawn)
+            cowsSpawned >= cowsToSpawn &&
+			treesCrafted >= treesToCraft)
         {
             Debug.Log("LevelFinished!");
 
