@@ -6,13 +6,13 @@ public class Constructable : Interactable
 {
     [SerializeField] private ItemType itemNeeded;
     [SerializeField] public GameObject objectPrefab;
+    [SerializeField] public ActionType actionPerformed;
 
     public override void Interact()
     {
         if (PlayerController.Instance.HasItem() && PlayerController.Instance.GetCurrentItem().GetItemType() == itemNeeded)
         {
-            if (PlayerController.Instance.GetCurrentItem().GetItemType() == ItemType.TreeSappling)
-                LevelManager.Instance.PerformAction(ActionType.PlantTree);
+            LevelManager.Instance.PerformAction(actionPerformed);
 
             PlayerController.Instance.ClearHand();
 			objectPrefab.SetActive(true);

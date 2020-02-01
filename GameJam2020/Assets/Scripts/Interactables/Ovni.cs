@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ struct Recipe
     public ItemType itemType;
     public GameObject outputPrefab;
     public Sprite hintPNG;
+    public bool locked;
 }
 
 public class Ovni : Interactable
@@ -20,7 +22,7 @@ public class Ovni : Interactable
     private SpriteRenderer hintRenderer;
 
 
-    void Start()
+    void Awake()
     {
         recipesDict = new Dictionary<ItemType, Recipe>();
 
@@ -43,7 +45,7 @@ public class Ovni : Interactable
         {
             ItemType itemType = PlayerController.Instance.GetCurrentItem().GetItemType();
 
-            if (recipesDict.ContainsKey(itemType))
+            if (recipesDict.ContainsKey(itemType) && !recipesDict[itemType].locked)
             {
                 PlayerController.Instance.ClearHand();
 
@@ -67,5 +69,38 @@ public class Ovni : Interactable
     public void HideHint()
     {
         hint.SetActive(false);
+    }
+
+    public void LockRecipe(ItemType itemType)
+    {
+        if (recipesDict.ContainsKey(itemType))
+        {
+            Recipe recipe = recipesDict[itemType];
+            recipe.locked = true;
+            recipesDict[itemType] = recipe;
+            Debug.Log(recipesDict[itemType].locked);
+        }
+    }
+
+    public void UnlockRecipe(ItemType itemType)
+    {
+        if (recipesDict.ContainsKey(itemType))
+        {
+            Recipe recipe = recipesDict[itemType];
+            recipe.locked = false;
+            recipesDict[itemType] = recipe;
+        }
+    }
+
+    public void UnlockRecipe(string itemType)
+    {
+        ItemType.TryParse(itemType, out ItemType t);
+        UnlockRecipe(t);
+    }
+
+    public void LockRecipe(string itemType)
+    {
+        ItemType.TryParse(itemType, out ItemType t);
+        LockRecipe(t);
     }
 }

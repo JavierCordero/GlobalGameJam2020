@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
+    [SerializeField] private UnityEvent actionsBeforeStart = new UnityEvent();
     [SerializeField] private LevelAction[] levelActions;
 
     private List<LevelAction> actionsList;
@@ -36,7 +37,7 @@ public class LevelManager : MonoBehaviour
     private int cowsToSpawn = 0;
     private int cowsSpawned = 0;
 
-    void Awake()
+    void Start()
     {
         if (Instance == null)
             Instance = this;
@@ -50,6 +51,8 @@ public class LevelManager : MonoBehaviour
             if (action.actionType == ActionType.PlantTree)
                 treesToPlant++;
         }
+
+        actionsBeforeStart.Invoke();
     }
 
     public void PerformAction(ActionType actionType)
