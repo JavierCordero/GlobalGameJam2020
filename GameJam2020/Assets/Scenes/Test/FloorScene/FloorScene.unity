@@ -1533,7 +1533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myZone: {fileID: 1282933188}
-  _timeBetweenAnimation: 0.1
+  _timeBetweenPoblateAnimation: 0.5
+  _timeBetweenDespoblateAnimation: 1
   _newFloor: {fileID: 213344794982693463, guid: a83abf1bb4efce7449b6865c418c0027,
     type: 3}
 --- !u!1001 &833770874
@@ -2324,7 +2325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _myZone: {fileID: 2112411992}
-  _timeBetweenAnimation: 0.1
+  _timeBetweenPoblateAnimation: 0.5
+  _timeBetweenDespoblateAnimation: 1
   _newFloor: {fileID: 213344794982693463, guid: a83abf1bb4efce7449b6865c418c0027,
     type: 3}
 --- !u!1001 &1098909704
@@ -2567,6 +2569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1259835963}
   - component: {fileID: 1259835962}
+  - component: {fileID: 1259835964}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2600,6 +2603,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1259835964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259835961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5bc3a026572a8341be2d1f5aa669050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1282933188
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,6 +4518,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GroundTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441407831827175239, guid: ea0fa0af3f78cd040bfb5deae16b5ca8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea0fa0af3f78cd040bfb5deae16b5ca8, type: 3}

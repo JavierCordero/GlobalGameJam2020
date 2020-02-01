@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
         else return currentItem.GetWeight();
     }
 
+    public Item GetCurrentItem() { return currentItem; }
+    public bool HasItem() { return currentItem != null; }
+
     #endregion
 
     void Awake()
@@ -50,18 +53,12 @@ public class PlayerController : MonoBehaviour
         playerHand = transform.Find("Hand");
     }
 
-    void Update()
-    {
-        //UpdateAimTarget();
-        //UpdatePlayerRotation();
-    }
-
     void OnDrawGizmos()
     {
         if (EditorApplication.isPlaying)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(Vector3Int.RoundToInt(transform.position + transform.forward), new Vector3(3, 1, 3));
+            Gizmos.DrawWireCube(Vector3Int.RoundToInt(transform.position + transform.forward), pickUpZoneSize);
         }
     }
 
@@ -74,12 +71,17 @@ public class PlayerController : MonoBehaviour
     {
         if (currentItem == null)
         {
-            GameObject interactable = GetInteractable();
+            Interact();
+        }
+    }
 
-            if (interactable != null)
-            {
-                interactable.GetComponent<Item>().Interact();
-            }
+    private void Interact()
+    {
+        GameObject interactable = GetInteractable();
+
+        if (interactable != null)
+        {
+            interactable.GetComponent<Interactable>().Interact();
         }
     }
 
@@ -127,11 +129,8 @@ public class PlayerController : MonoBehaviour
     {
         if (currentItem != null)
         {
-            Debug.Log("Release");
-
             if (CanReleaseItem())
             {
-                // ToDo: RELEASE ITEM
                 Vector2 pos = GetAimPos2D();
 
                 currentItem.transform.position = new Vector3(pos.x, 1, pos.y);
@@ -149,7 +148,23 @@ public class PlayerController : MonoBehaviour
         if(currentItem == null)
             PickUpItem();
         else
+        {
+            if(TryInteract())
+                return;
+
             ReleaseItem();
+        }
+    }
+
+    // Returns true if the player has interacted
+    private bool TryInteract()
+    {
+        if (!CanReleaseItem())
+        {
+            Interact();
+        }
+
+        return false;
     }
 
     // Set item in player hand
@@ -161,5 +176,11 @@ public class PlayerController : MonoBehaviour
         item.parent = playerHand;
         item.localPosition = Vector3.zero;
         item.localRotation = Quaternion.identity;
+    }
+
+    public void ClearHand()
+    {
+        Destroy(currentItem.gameObject);
+        currentItem = null;
     }
 }

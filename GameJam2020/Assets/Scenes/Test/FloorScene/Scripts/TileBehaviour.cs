@@ -6,8 +6,8 @@ public class TileBehaviour : MonoBehaviour
 {
 	public float maxSize = 1;
 	public float increaseSize = 1;
+	public float decreaseSize = 0.1f;
 	public float overFloorLevel = 0.1f;
-	private GameObject parent;
 
 	private void Start()
 	{
@@ -21,18 +21,26 @@ public class TileBehaviour : MonoBehaviour
 			gameObject.transform.localScale = new Vector3(transform.localScale.x + increaseSize / 100, transform.localScale.y, transform.localScale.z + increaseSize / 100);
 			yield return null;
 		}
-
-		DestroyImmediate(parent);
-		Destroy(this);
 	}
 
-	public void setParent(GameObject p)
+	IEnumerator startDecreasingSize()
 	{
-		parent = p;
+		while (gameObject.transform.localScale.x > 0)
+		{
+			gameObject.transform.localScale = new Vector3(transform.localScale.x - decreaseSize / 100, transform.localScale.y, transform.localScale.z - decreaseSize / 100);
+			yield return null;
+		}
 	}
 
-	public void startAnimation()
+	public void startGrowAnimation()
 	{
+		StopAllCoroutines();
 		StartCoroutine(startGrouwingSize());
+	}
+
+	public void startDecreaseAnimation()
+	{
+		StopAllCoroutines();
+		StartCoroutine(startDecreasingSize());
 	}
 }

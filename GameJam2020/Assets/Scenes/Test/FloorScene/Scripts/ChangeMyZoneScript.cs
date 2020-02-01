@@ -4,26 +4,58 @@ using UnityEngine;
 
 public class ChangeMyZoneScript : MonoBehaviour
 {
-
 	public GameObject _myZone;
-	public float _timeBetweenAnimation = 0.5f;
-	public GameObject _newFloor;
-	private List<GameObject> _tiles;
+	public float _timeBetweenPoblateAnimation = 0.5f, _timeBetweenDespoblateAnimation = 1f;
+	private List<GameObject> _tiles, _auxTiles;
+	private bool expandingZone = false;
 
-	private void Awake()
+	public void Awake()
 	{
 		_tiles = new List<GameObject>();
+		_auxTiles = new List<GameObject>();
+		FillTiles();
+	}
 
-		foreach (Transform t in _myZone.transform.GetComponentsInChildren<Transform>())
+	public void poblateZone()
+	{
+		if (!expandingZone)
 		{
-			if(t != _myZone.transform)
-				_tiles.Add(t.gameObject);
+			StopAllCoroutines();
+			expandingZone = true;
+
+			//Debug.Log(_auxTiles);
+
+			foreach (GameObject g in _auxTiles)
+				_tiles.Add(g);
+			StartCoroutine(PoblateZone());
 		}
 	}
 
-	public void ChangeMyZone()
+	public void despoblateZone()
 	{
-		StartCoroutine(PoblateZone());
+		if (!expandingZone)
+		{
+			StopAllCoroutines();
+			expandingZone = false;
+			FindObjectOfType<NumOfZonesCleaned>().decreaseNumberOfZonesCleaned();
+
+			foreach (GameObject g in _auxTiles)
+				_tiles.Add(g);
+
+			StartCoroutine(DespoblateZone());
+		}
+	}
+
+	private void FillTiles()
+	{
+		foreach (Transform t in _myZone.transform.GetComponentsInChildren<Transform>())
+		{
+			if (t != _myZone.transform && t.GetComponent<TileBehaviour>())
+			{
+				_tiles.Add(t.gameObject);
+				_auxTiles.Add(t.gameObject);
+			}
+		}
 	}
 
 	IEnumerator PoblateZone()
@@ -32,18 +64,36 @@ public class ChangeMyZoneScript : MonoBehaviour
 		{
 			int rnd = Random.Range(0, _tiles.Count);
 
-			GameObject g = Instantiate(_newFloor, _tiles[rnd].transform.position, Quaternion.identity);
+			GameObject g = _tiles[rnd].gameObject;
 
 			TileBehaviour tb = g.GetComponent<TileBehaviour>();
 
-			tb.setParent(_tiles[rnd]);
-			tb.startAnimation();
+			tb.startGrowAnimation();
 
 			_tiles.RemoveAt(rnd);
 
-			yield return new WaitForSeconds(_timeBetweenAnimation);
+			yield return new WaitForSeconds(_timeBetweenPoblateAnimation);
 		}
 
-		DestroyImmediate(this);
+		expandingZone = false;
+		FindObjectOfType<NumOfZonesCleaned>().increaseNumberOfZonesCleaned(gameObject);
+	}
+
+	IEnumerator DespoblateZone()
+	{
+		while (_tiles.Count > 0)
+		{
+			int rnd = Random.Range(0, _tiles.Count);
+
+			GameObject g = _tiles[rnd].gameObject;
+
+			TileBehaviour tb = g.GetComponent<TileBehaviour>();
+
+			tb.startDecreaseAnimation();
+
+			_tiles.RemoveAt(rnd);
+
+			yield return new WaitForSeconds(_timeBetweenDespoblateAnimation);
+		}
 	}
 }

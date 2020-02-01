@@ -128,11 +128,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1240489623624021705, guid: 29bde562525b90f4ebed82a053814235,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5693285141476956130, guid: 29bde562525b90f4ebed82a053814235,
         type: 3}
       propertyPath: m_Name
       value: MainMenuUfo
       objectReference: {fileID: 0}
+    - target: {fileID: 7085702626229309162, guid: 29bde562525b90f4ebed82a053814235,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f095a122a79bf34a98a4eaf7563ef66, type: 2}
     - target: {fileID: 8744237249516316145, guid: 29bde562525b90f4ebed82a053814235,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -141,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 8744237249516316145, guid: 29bde562525b90f4ebed82a053814235,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8744237249516316145, guid: 29bde562525b90f4ebed82a053814235,
         type: 3}
@@ -335,7 +345,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 18.1
+  orthographic size: 1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -359,7 +369,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873206308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.8, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
