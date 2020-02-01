@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VoxelAnimator : MonoBehaviour
 {
+    [SerializeField] private Material material;
     [SerializeField] private VoxelAnimation[] animations;
     [SerializeField] private string initialAnimation;
 
@@ -19,16 +20,19 @@ public class VoxelAnimator : MonoBehaviour
             animationsDict.Add(anim.animationName, anim);
         }
 
-        meshFilter = GetComponent<MeshFilter>();     
+        meshFilter = GetComponent<MeshFilter>();
+        GetComponent<MeshRenderer>().material = material;
 
         PlayAnimation(initialAnimation);
     }
 
     public void PlayAnimation(string animationName)
     {
-        if (animationsDict.ContainsKey(animationName))
+        if ((currentAnimation == null || animationName != currentAnimation.animationName) 
+            && animationsDict.ContainsKey(animationName))
         {
             currentAnimation = animationsDict[animationName];
+            StopAllCoroutines();
             StartCoroutine(AnimationRoutine());
         }
     }
