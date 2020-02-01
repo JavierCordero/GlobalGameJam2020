@@ -38,4 +38,9 @@ public class SmoothCamera : MonoBehaviour
         looking = look;
     }
 
+    public void setLooking(bool look = true)
+    {
+        looking = look;
+    }
+
 }

@@ -9,12 +9,21 @@ public class ChangeMyZoneScript : MonoBehaviour
 	private List<GameObject> _tiles, _auxTiles;
 	private bool expandingZone = false;
 	public GameObject _brokenTree, _treePlaceholder;
+	public bool _tutorialLevel;
 
 	public void Awake()
 	{
 		_tiles = new List<GameObject>();
 		_auxTiles = new List<GameObject>();
 		FillTiles();
+	}
+
+	private void Start()
+	{
+		if (_tutorialLevel)
+		{
+			poblateZone();
+		}
 	}
 
 	public void poblateZone()
