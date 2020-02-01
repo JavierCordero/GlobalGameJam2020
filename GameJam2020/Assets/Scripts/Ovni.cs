@@ -27,14 +27,17 @@ public class Ovni : Interactable
 
     public override void Interact()
     {
-        ItemType itemType = PlayerController.Instance.GetCurrentItem().GetItemType();
-
-        if (recipesDict.ContainsKey(itemType))
+        if (PlayerController.Instance.HasItem())
         {
-            PlayerController.Instance.ClearHand();
+            ItemType itemType = PlayerController.Instance.GetCurrentItem().GetItemType();
 
-            Transform itemToHold = Instantiate(recipesDict[itemType]).transform;
-            PlayerController.Instance.HoldItem(itemToHold);
+            if (recipesDict.ContainsKey(itemType))
+            {
+                PlayerController.Instance.ClearHand();
+
+                Transform itemToHold = Instantiate(recipesDict[itemType]).transform;
+                PlayerController.Instance.HoldItem(itemToHold);
+            }
         }
     }
 }
