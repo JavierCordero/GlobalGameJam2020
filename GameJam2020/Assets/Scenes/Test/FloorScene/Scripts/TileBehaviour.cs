@@ -24,6 +24,8 @@ public class TileBehaviour : MonoBehaviour
 		}
 
 	    gameObject.transform.localScale = new Vector3(maxSize, transform.localScale.y, maxSize);
+		if (GetComponent<lastFlowerBehaviour>())
+			GetComponent<lastFlowerBehaviour>().increase();
 	}
 
 	IEnumerator startDecreasingSize()
@@ -36,6 +38,8 @@ public class TileBehaviour : MonoBehaviour
 		}
 
 	    gameObject.transform.localScale = new Vector3(0, transform.localScale.y, 0);
+		if (GetComponent<lastFlowerBehaviour>())
+			GetComponent<lastFlowerBehaviour>().decrease();
 	}
 
 	public void startGrowAnimation()

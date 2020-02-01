@@ -34,7 +34,7 @@ public class MainMenuUfo : MonoBehaviour
     }
     private void ExitGameAnim(InputAction.CallbackContext context)
     {
-
+        StartCoroutine(ExitAnimation());
     }
     IEnumerator StartGameAnimation()
     {
@@ -42,5 +42,12 @@ public class MainMenuUfo : MonoBehaviour
         animator.SetTrigger("Leave");
         yield return new WaitForSeconds(2f);
         levelLoader.LoadNextLevel();
+    }
+
+    IEnumerator ExitAnimation()
+    {
+        animator.SetTrigger("Exit");
+        yield return new WaitForSeconds(2f);
+        Debug.Log("HOLA");
     }
 }

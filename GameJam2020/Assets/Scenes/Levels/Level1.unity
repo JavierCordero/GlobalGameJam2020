@@ -2911,6 +2911,20 @@ PrefabInstance:
       propertyPath: _myZone
       value: 
       objectReference: {fileID: 197771445}
+    - target: {fileID: 1928983748, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1, type: 3}
+      propertyPath: _brokenTree
+      value: 
+      objectReference: {fileID: 2269397857501264826, guid: 776588e5e075ba944a31aa141f198f8a,
+        type: 3}
+    - target: {fileID: 1928983748, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1, type: 3}
+      propertyPath: _treePlaceholder
+      value: 
+      objectReference: {fileID: 1136706101375453227, guid: dcf84507c3e4c4044aefae30873251e5,
+        type: 3}
+    - target: {fileID: 1928983748, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1, type: 3}
+      propertyPath: _timeBetweenDespoblateAnimation
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4537494827917996946, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13588,6 +13602,20 @@ PrefabInstance:
       propertyPath: _myZone
       value: 
       objectReference: {fileID: 1698710896}
+    - target: {fileID: 1928983748, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1, type: 3}
+      propertyPath: _brokenTree
+      value: 
+      objectReference: {fileID: 2269397857501264826, guid: 776588e5e075ba944a31aa141f198f8a,
+        type: 3}
+    - target: {fileID: 1928983748, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1, type: 3}
+      propertyPath: _treePlaceholder
+      value: 
+      objectReference: {fileID: 1136706101375453227, guid: dcf84507c3e4c4044aefae30873251e5,
+        type: 3}
+    - target: {fileID: 1928983748, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1, type: 3}
+      propertyPath: _timeBetweenDespoblateAnimation
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4537494827917996946, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1,
         type: 3}
       propertyPath: m_LocalPosition.x
