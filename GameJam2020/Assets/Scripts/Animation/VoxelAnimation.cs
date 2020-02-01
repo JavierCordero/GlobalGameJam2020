@@ -7,5 +7,5 @@ public class VoxelAnimation : ScriptableObject
 {
     [SerializeField] public string animationName;
     [SerializeField] public Mesh[] frames;
-    [SerializeField] public float framesPerSecond = 5;
+    [SerializeField] public float framesPerSecond = 4;
 }
