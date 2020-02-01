@@ -17233,6 +17233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 2126856217}
   playerTransform: {fileID: 1913021329}
+  seagullsTransform: {fileID: 1935796799}
   offset: {x: 0, y: 0, z: -252}
 --- !u!65 &448258930
 BoxCollider:
@@ -31889,6 +31890,38 @@ Transform:
   m_Father: {fileID: 191994043}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &582174840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582174841}
+  m_Layer: 0
+  m_Name: Targets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &582174841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582174840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2043378522}
+  - {fileID: 2053311068}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &593725964
 GameObject:
   m_ObjectHideFlags: 0
@@ -37863,7 +37896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &705679995
 Transform:
   m_ObjectHideFlags: 0
@@ -61212,7 +61245,7 @@ GameObject:
   - component: {fileID: 1387304818}
   - component: {fileID: 1387304817}
   m_Layer: 0
-  m_Name: SeagullController (3)
+  m_Name: SeagullController1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61227,20 +61260,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1387304816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 461e460ebd31cc4478467e88444e9ccc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1788f5dcf954a9f43852b5cdc0a3e20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boidPrefab: {fileID: 6116860731569742163, guid: 2f6896db32679b24cad51cb7c16a6a2b,
+  settings: {fileID: 11400000, guid: de5296dc7ac37bb409799364a17dc67d, type: 2}
+  target1: {fileID: 2043378522}
+  target2: {fileID: 2053311068}
+  target1Active: 1
+  boidObject: {fileID: 6116860731569742163, guid: 2f6896db32679b24cad51cb7c16a6a2b,
     type: 3}
-  spawnCount: 1
-  spawnRadius: 5
-  velocity: 6
-  velocityVariation: 0.824
-  rotationCoeff: 0.1
-  neighborDist: 6.39
-  searchLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  boidsNumber: 300
+  spawnRadius: 1200
+  seagullsGroup: {fileID: 1935796799}
 --- !u!4 &1387304818
 Transform:
   m_ObjectHideFlags: 0
@@ -61249,7 +61280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387304816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 124, y: 30, z: 40}
+  m_LocalPosition: {x: 781, y: 30, z: 27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63702,6 +63733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 2126856217}
   playerTransform: {fileID: 1913021329}
+  seagullsTransform: {fileID: 1935796799}
   offset: {x: 0, y: 0, z: 252}
 --- !u!1 &1647990186
 GameObject:
@@ -63751,6 +63783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 2126856217}
   playerTransform: {fileID: 1913021329}
+  seagullsTransform: {fileID: 1935796799}
   offset: {x: -252, y: 0, z: 0}
 --- !u!65 &1647990189
 BoxCollider:
@@ -64254,6 +64287,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675438289}
   m_Mesh: {fileID: -2432090755550338912, guid: b315f6382e26f124e8ceb73b58d65b77, type: 3}
+--- !u!1 &1682820448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1682820450}
+  - component: {fileID: 1682820449}
+  m_Layer: 0
+  m_Name: SeagullController2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1682820449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682820448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1788f5dcf954a9f43852b5cdc0a3e20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: de5296dc7ac37bb409799364a17dc67d, type: 2}
+  target1: {fileID: 2043378522}
+  target2: {fileID: 2053311068}
+  target1Active: 0
+  boidObject: {fileID: 6116860731569742163, guid: 2f6896db32679b24cad51cb7c16a6a2b,
+    type: 3}
+  boidsNumber: 300
+  spawnRadius: 1200
+  seagullsGroup: {fileID: 1935796799}
+--- !u!4 &1682820450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682820448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -633, y: 30, z: 25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1737534894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65392,6 +65477,36 @@ Transform:
   - {fileID: 1057577054}
   m_Father: {fileID: 191994043}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1935796798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1935796799}
+  m_Layer: 0
+  m_Name: Seagulls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1935796799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935796798}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.5, y: 10, z: -32.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1953424621
 GameObject:
@@ -70942,6 +71057,66 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042162113}
   m_Mesh: {fileID: -2432090755550338912, guid: b315f6382e26f124e8ceb73b58d65b77, type: 3}
+--- !u!1 &2043378521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043378522}
+  m_Layer: 0
+  m_Name: Target1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043378522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043378521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -210, y: 13, z: 177}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 582174841}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2053311067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053311068}
+  m_Layer: 0
+  m_Name: Target2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2053311068
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053311067}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 344, y: 13, z: -263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 582174841}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057898055
 GameObject:
   m_ObjectHideFlags: 0
@@ -70990,6 +71165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 2126856217}
   playerTransform: {fileID: 1913021329}
+  seagullsTransform: {fileID: 1935796799}
   offset: {x: 252, y: 0, z: 0}
 --- !u!65 &2057898058
 BoxCollider:
@@ -71214,7 +71390,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -50
+  near clip plane: -100
   far clip plane: 1000
   field of view: 51.7
   orthographic: 1
