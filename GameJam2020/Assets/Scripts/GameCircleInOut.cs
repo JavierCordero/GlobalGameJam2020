@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleInOut : MonoBehaviour
+public class GameCircleInOut : MonoBehaviour
 {
     public float speedIn = 2.5f;
     public float speedOut = 2.5f;
-
     public float scaleLimit = 10f;
-
-    public float exitMaskPosition = 50f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +17,7 @@ public class CircleInOut : MonoBehaviour
     public void sceneOut()
     {
         StartCoroutine("circleIn");
-    }
-
-    public void setExit()
-    {
-        transform.position = transform.position + transform.up * exitMaskPosition;
-    }
+    }    
 
     IEnumerator circleOut()
     {
@@ -37,15 +29,11 @@ public class CircleInOut : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        yield return new WaitForEndOfFrame();
-
-        LevelSelectorManager.instance.activePlayer(true);
+        yield return new WaitForEndOfFrame();        
     }
 
     IEnumerator circleIn()
     {
-        LevelSelectorManager.instance.activePlayer(false);
-
         yield return new WaitForSeconds(0.5f);
 
         while (transform.localScale.x > 0)
@@ -58,6 +46,6 @@ public class CircleInOut : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        LevelSelectorManager.instance.changeScene();
+        //LevelManager.Instance.changeScene();
     }
 }
