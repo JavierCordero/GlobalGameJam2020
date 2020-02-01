@@ -7,6 +7,8 @@ public enum ItemType
     Wood,
     TreeSappling,
     Bucket,
+    Bone,
+    Cow,
     None
 }
 

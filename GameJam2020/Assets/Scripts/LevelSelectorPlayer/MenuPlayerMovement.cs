@@ -6,8 +6,11 @@ public class MenuPlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float launchSpeed;
+    [SerializeField] private float landSpeed;
     [SerializeField] private float rotSpeed;
     [SerializeField] private float accFactor;
+    [SerializeField] private float flightSpeed;
+    [SerializeField] private float redFactor;
     [Range(0f, 1f)] [SerializeField] private float buildUpSpeed;
 
     private float minInput;
@@ -26,8 +29,14 @@ public class MenuPlayerMovement : MonoBehaviour
     [SerializeField] private bool moveIsometric;
     
     private float originalY;
+    private float offsetY = 0;
+    private float timeAccumulated = 0;
+
     private bool active = false;
     private bool launching = false;
+    private bool landing = false;
+
+    public GameObject mesh;
 
     void Awake()
     {
@@ -88,7 +97,10 @@ public class MenuPlayerMovement : MonoBehaviour
         Vector3 finalMovement = Vector3.ClampMagnitude((hMovement + vMovement), 1.0f) * speed * Time.deltaTime;
 
         transform.position += finalMovement;
-        transform.position = new Vector3(transform.position.x, originalY, transform.position.z);
+
+        timeAccumulated += Time.deltaTime * flightSpeed;
+        //transform.position = new Vector3(transform.position.x, originalY + Mathf.Cos(timeAccumulated) / redFactor, transform.position.z);
+        mesh.transform.position = new Vector3(transform.position.x, originalY + Mathf.Cos(timeAccumulated) / redFactor, transform.position.z);
 
         // Rotation ---------------------------------------------------
         if (newMovementInput.magnitude > minInput)
@@ -115,16 +127,26 @@ public class MenuPlayerMovement : MonoBehaviour
         }
     }
 
+    public void land()
+    {
+        if (!landing)
+        {
+            landing = true;
+            Debug.Log("Land");
+            StartCoroutine("landRoutine");
+        }
+    }
+
     IEnumerator launchRoutine()
     {
         float dist = 0;
 
-        while (dist < 5)
+        while (dist < 7.5f)
         {
             dist += Time.deltaTime * launchSpeed;
 
             transform.position -= new Vector3(0, Time.deltaTime * launchSpeed);
-            transform.Rotate(new Vector3(0, 1, 0), Time.deltaTime * rotSpeed);
+            transform.Rotate(new Vector3(0, 1, 0), rotSpeed * Time.deltaTime);
 
             yield return new WaitForEndOfFrame();
 
@@ -138,11 +160,41 @@ public class MenuPlayerMovement : MonoBehaviour
             dist += Time.deltaTime * launchSpeed;
 
             transform.position += new Vector3(0, Time.deltaTime * launchSpeed * 5);
-            launchSpeed += Time.deltaTime * accFactor;            
+            launchSpeed += Time.deltaTime * accFactor;
 
             yield return new WaitForEndOfFrame();
 
         }
     }
-    
+
+    IEnumerator landRoutine()
+    {
+        float dist = 0;
+
+        while (dist < 10)
+        {
+            dist += Time.deltaTime * landSpeed;
+
+            transform.position -= new Vector3(Time.deltaTime * landSpeed, 0, Time.deltaTime * landSpeed);
+
+            yield return new WaitForEndOfFrame();
+
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        dist = 0;
+
+        while (dist < 10)
+        {
+            dist += Time.deltaTime * launchSpeed;
+
+            transform.position -= new Vector3(0, Time.deltaTime * landSpeed);
+            launchSpeed -= Time.deltaTime * accFactor * 2;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        LevelSelectorManager.instance.sceneOut();
+    }
+
 }

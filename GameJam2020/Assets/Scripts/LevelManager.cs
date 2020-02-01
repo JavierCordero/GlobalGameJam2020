@@ -10,7 +10,8 @@ public enum ActionType
     BuildBridge,
     WaterTree,
     SpawnCow,
-    CraftTree
+    CraftTree,
+    CowDied
 }
 
 [System.Serializable]
@@ -30,9 +31,13 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    public GameCircleInOut inOut;
+    [SerializeField] private float timeToChangeScene = 4f;
+    [SerializeField] private GameCircleInOut inOut;
 
+    [Header("Functions called at level start")]
     [SerializeField] private UnityEvent actionsBeforeStart = new UnityEvent();
+
+    [Header("Action to complete the level")]
     [SerializeField] private LevelAction[] levelActions;
 
     private List<LevelAction> actionsList;
@@ -48,6 +53,8 @@ public class LevelManager : MonoBehaviour
 
     private int treesToWater = 0;
     private int treesWatered = 0;
+
+    public bool AllTreesArePlanted() { return treesPlanted >= treesToPlant; }
 
     void Start()
     {
@@ -90,6 +97,9 @@ public class LevelManager : MonoBehaviour
                     case ActionType.SpawnCow:
                         cowsSpawned++;
                         break;
+                    case ActionType.CowDied:
+                        cowsSpawned--;
+                        break;
                 }
 
                 action.functionsWhenFinished.Invoke();
@@ -107,7 +117,7 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("LevelFinished!");
 
-            Invoke(nameof(loadScene), 3f);
+            Invoke(nameof(loadScene), timeToChangeScene);
             unlockNextLevel();
         }
     }
