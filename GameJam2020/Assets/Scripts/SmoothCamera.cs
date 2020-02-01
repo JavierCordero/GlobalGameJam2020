@@ -10,16 +10,20 @@ public class SmoothCamera : MonoBehaviour
     public Vector3 offset;
 
     private bool looking = true;
+    private bool active = true;
 
     private void FixedUpdate()
     {
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        if (active)
+        {
+            Vector3 desiredPosition = target.position + offset;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
 
-        transform.position = smoothedPosition;
+            transform.position = smoothedPosition;
 
-        if(looking)
-            transform.LookAt(target);        
+            if (looking)
+                transform.LookAt(target);
+        }
     }
 
     public void setSpeed(float v)
@@ -41,6 +45,11 @@ public class SmoothCamera : MonoBehaviour
     public void setLooking(bool look = true)
     {
         looking = look;
+    }
+
+    public void setActive(bool v)
+    {
+        active = v;
     }
 
 }
