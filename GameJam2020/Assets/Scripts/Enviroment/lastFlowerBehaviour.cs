@@ -8,7 +8,7 @@ public class lastFlowerBehaviour : MonoBehaviour
 
     public void increase()
 	{
-		if (FindObjectOfType<NumOfZonesCleaned>())
+        if (FindObjectOfType<NumOfZonesCleaned>())
 			FindObjectOfType<NumOfZonesCleaned>().increaseNumberOfZonesCleaned(myFather);
 	}
 
