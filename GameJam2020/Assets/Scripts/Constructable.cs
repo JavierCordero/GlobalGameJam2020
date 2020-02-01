@@ -12,8 +12,8 @@ public class Constructable : Interactable
         if (PlayerController.Instance.GetCurrentItem().GetItemType() == itemNeeded)
         {
             PlayerController.Instance.ClearHand();
-            Transform constructedObject =  Instantiate(objectPrefab).transform;
-            constructedObject.position = transform.position;
+			objectPrefab.SetActive(true);
+			objectPrefab.GetComponent<ChangeMyZoneScript>().poblateZone();
             Destroy(this.gameObject);
         }
     }

@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerController playerController;
     private PlayerInputHandler playerInput;
+    private VoxelAnimator animator;
 
     void Awake()
     {
@@ -34,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         minInput = playerController.GetMinInput();
         buildUpRot = playerController.GetBuildUpRot();
+        animator = GetComponent<VoxelAnimator>();
     }
 
     void FixedUpdate()
@@ -73,6 +75,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.position += finalMovement;
+
+        string holding = (playerController.HasItem() ? "Holding" : "");
+        if (finalMovement.magnitude > 0)
+            animator.PlayAnimation("Walking" + holding);
+        else
+            animator.PlayAnimation("Idle" + holding);
 
         // Rotation ---------------------------------------------------
         if (newMovementInput.magnitude > minInput)
