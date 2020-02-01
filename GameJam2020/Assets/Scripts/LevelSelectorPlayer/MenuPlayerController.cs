@@ -69,7 +69,7 @@ public class MenuPlayerController : MonoBehaviour
         if(levelToChange != null)
         {
             Debug.Log("Cambio al nivel: " + levelToChange);
-            SceneManager.LoadScene(levelToChange);
+            LevelSelectorManager.instance.loadScene(levelToChange);
         }
         else
         {
