@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeMyZoneScript : MonoBehaviour
 {
 	public GameObject _myZone;
-	public float _timeBetweenPoblateAnimation = 0.5f, _timeBetweenDespoblateAnimation = 1f;
+	public float _timeBetweenPoblateAnimation = 1f, _timeBetweenDespoblateAnimation = 100f;
 	private List<GameObject> _tiles, _auxTiles;
 	int[] selectedFlowerInTile;
 	private bool expandingZone = false;
