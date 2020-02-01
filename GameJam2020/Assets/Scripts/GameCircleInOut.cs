@@ -46,6 +46,6 @@ public class GameCircleInOut : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        //LevelManager.Instance.changeScene();
+        LevelManager.Instance.changeScene();
     }
 }

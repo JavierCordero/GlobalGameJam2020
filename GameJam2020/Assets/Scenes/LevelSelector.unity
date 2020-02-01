@@ -64621,7 +64621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedIn: 30
-  speedOut: 7.5
+  speedOut: 12.5
   scaleLimit: 15
   exitMaskPosition: 50
 --- !u!1 &1800582458

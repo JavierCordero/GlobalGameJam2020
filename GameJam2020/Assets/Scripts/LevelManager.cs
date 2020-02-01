@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public enum ActionType
 {
@@ -27,6 +28,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
+    public GameCircleInOut inOut;
+
     [SerializeField] private UnityEvent actionsBeforeStart = new UnityEvent();
     [SerializeField] private LevelAction[] levelActions;
 
@@ -35,7 +38,7 @@ public class LevelManager : MonoBehaviour
     private int treesPlanted = 0;
 
     private int cowsToSpawn = 0;
-    private int cowsSpawned = 0;
+    private int cowsSpawned = 0;    
 
     void Start()
     {
@@ -90,6 +93,25 @@ public class LevelManager : MonoBehaviour
         if (treesPlanted >= treesToPlant && cowsSpawned >= cowsToSpawn)
         {
             Debug.Log("LevelFinished!");
+
+            Invoke(nameof(loadScene), 1.5f);
+            unlockNextLevel();
         }
+    }
+
+    private void unlockNextLevel()
+    {
+        PlayerPrefs.SetInt("lastLevelDone", 1);
+        PlayerPrefs.Save();
+    }
+
+    public void loadScene()
+    {
+        inOut.sceneOut();
+    }
+
+    public void changeScene()
+    {
+        SceneManager.LoadScene("LevelSelector");
     }
 }
