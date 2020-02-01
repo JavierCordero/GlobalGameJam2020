@@ -147,7 +147,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 		Instantiate(_brokenTree, transform.position, Quaternion.identity);
 		GameObject ga = Instantiate(_treePlaceholder, transform.position, Quaternion.identity);
-		ga.GetComponent<Constructable>().objectPrefab = this.gameObject;
+		ga.GetComponent<Constructable>().contructedObject = this.gameObject;
 		ga.SetActive(false);
 		gameObject.SetActive(false);
 	}
