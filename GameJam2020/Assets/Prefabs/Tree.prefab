@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5919388515053903770
+--- !u!1 &3410851075898505054
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,89 +8,71 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4537494827917996946}
-  - component: {fileID: 1619119662}
-  - component: {fileID: 1928983749}
-  - component: {fileID: 1928983748}
+  - component: {fileID: 4866219695207455574}
+  - component: {fileID: 9038762413601646793}
+  - component: {fileID: 9038762413601646794}
   m_Layer: 0
-  m_Name: Alive_Tree_1
-  m_TagString: Interactable
+  m_Name: Tree
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4537494827917996946
+--- !u!4 &4866219695207455574
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5919388515053903770}
+  m_GameObject: {fileID: 3410851075898505054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 0.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8123418922624041699}
+  - {fileID: 994183907019696679}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1619119662
+--- !u!65 &9038762413601646793
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5919388515053903770}
+  m_GameObject: {fileID: 3410851075898505054}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!65 &1928983749
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5919388515053903770}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &1928983748
+--- !u!114 &9038762413601646794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5919388515053903770}
+  m_GameObject: {fileID: 3410851075898505054}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a39ee7972099bd340bc620e07bde21ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _myZone: {fileID: 0}
-  _timeBetweenPoblateAnimation: 0.01
-  _timeBetweenDespoblateAnimation: 1
-  _brokenTree: {fileID: 0}
-  _treePlaceholder: {fileID: 0}
-  _tutorialLevel: 0
+  _timeBetweenPoblateAnimation: 1
+  _timeBetweenDespoblateAnimation: 100
+  _brokenTree: {fileID: 2269397857501264826, guid: 776588e5e075ba944a31aa141f198f8a,
+    type: 3}
+  _treePlaceholder: {fileID: 1136706101375453227, guid: dcf84507c3e4c4044aefae30873251e5,
+    type: 3}
+  _tutorialLevel: 1
   numFlowers: 5
-  _flowers:
-  - {fileID: 5037901670247601812, guid: b076a3c30adb40b4bb3e872f5b396dae, type: 3}
-  - {fileID: 5520449706967465220, guid: f2af782b0d7e86541bdce539e79949a1, type: 3}
-  - {fileID: 129227862406637133, guid: fce4db5dbdc401f4fba4dac11a66d70b, type: 3}
-  - {fileID: 2289864528351976257, guid: fb05ada76f857d9438a773def4cb3d77, type: 3}
-  - {fileID: 3540745226174294536, guid: 3cc36d71bb491904ea12f3daa59b6a9d, type: 3}
---- !u!1001 &3874954639852497401
+--- !u!1001 &5239577734850019645
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 4537494827917996946}
+    m_TransformParent: {fileID: 4866219695207455574}
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: f1166f483f2fd104aacdabbca5abb96f,
         type: 3}
@@ -152,11 +134,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5a8605c402f11f4587bca8aa3421024, type: 2}
-    - target: {fileID: -2416733968201007103, guid: f1166f483f2fd104aacdabbca5abb96f,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f1166f483f2fd104aacdabbca5abb96f,
         type: 3}
       propertyPath: m_Name
@@ -164,9 +141,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1166f483f2fd104aacdabbca5abb96f, type: 3}
---- !u!4 &8123418922624041699 stripped
+--- !u!4 &994183907019696679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f1166f483f2fd104aacdabbca5abb96f,
     type: 3}
-  m_PrefabInstance: {fileID: 3874954639852497401}
+  m_PrefabInstance: {fileID: 5239577734850019645}
   m_PrefabAsset: {fileID: 0}

@@ -7,9 +7,13 @@ public class ChangeMyZoneScript : MonoBehaviour
 	public GameObject _myZone;
 	public float _timeBetweenPoblateAnimation = 0.5f, _timeBetweenDespoblateAnimation = 1f;
 	private List<GameObject> _tiles, _auxTiles;
+	int[] selectedFlowerInTile;
 	private bool expandingZone = false;
 	public GameObject _brokenTree, _treePlaceholder;
 	public bool _tutorialLevel;
+	public int numFlowers = 5;
+	public GameObject [] _flowers;
+
 
 	public void Awake()
 	{
@@ -63,10 +67,23 @@ public class ChangeMyZoneScript : MonoBehaviour
 				_auxTiles.Add(t.gameObject);
 			}
 		}
+
+		selectedFlowerInTile = new int[_auxTiles.Count];
+
+		int random = numFlowers + 25;
+
+		for(int i = 0; i < selectedFlowerInTile.Length; i++)
+		{
+			int rnd = Random.Range(0, random);
+
+			selectedFlowerInTile[i] = rnd;
+		}
+
 	}
 
 	IEnumerator PoblateZone()
 	{
+
 		while(_tiles.Count > 0)
 		{
 			int rnd = Random.Range(0, _tiles.Count);
@@ -75,6 +92,17 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 			TileBehaviour tb = g.GetComponent<TileBehaviour>();
 
+			int index = _auxTiles.FindIndex(x => x == g);
+
+			if (selectedFlowerInTile[index] < numFlowers)
+			{
+				GameObject f = Instantiate(_flowers[selectedFlowerInTile[index]], transform.position, Quaternion.identity);
+
+				f.transform.parent = g.transform;
+				f.transform.localPosition = new Vector3(0, 0.5f, 0);
+				f.transform.localScale = new Vector3(1, 25, 1);
+				//g.transform.GetChild(selectedFlowerInTile[index]).gameObject.SetActive(true);
+			}
 			tb.startGrowAnimation();
 
 			_tiles.RemoveAt(rnd);

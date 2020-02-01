@@ -13,6 +13,7 @@ public class NumOfZonesCleaned : MonoBehaviour
 
 		if (numOfZonesCleaned < totalNumOfZonesCleaned)
 			obj.GetComponent<ChangeMyZoneScript>().despoblateZone();
+
 		else if(numOfZonesCleaned >= totalNumOfZonesCleaned)
 		{
 			ChangeMyZoneScript [] cm = FindObjectsOfType<ChangeMyZoneScript>();
@@ -22,6 +23,8 @@ public class NumOfZonesCleaned : MonoBehaviour
 				c.poblateZone();
 			}
 		}
+
+		Destroy(this);
 	}
 
 	public void decreaseNumberOfZonesCleaned()

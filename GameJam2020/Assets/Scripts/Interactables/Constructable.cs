@@ -5,7 +5,7 @@ using UnityEngine;
 public class Constructable : Interactable
 {
     [SerializeField] private ItemType itemNeeded;
-    [SerializeField] [HideInInspector] public GameObject objectPrefab;
+    [SerializeField] public GameObject objectPrefab;
 
     public override void Interact()
     {

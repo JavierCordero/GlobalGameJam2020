@@ -35,4 +35,12 @@ public class Bucket : Item
             bucketIsFull = false;
         }
     }
+
+    public override void Interact()
+    {
+        if (!PlayerController.Instance.HasItem())
+        {
+            PlayerController.Instance.HoldItem(transform);
+        }
+    }
 }
