@@ -53,8 +53,10 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(FMODUnity.StudioEventEmitter emitter)
+    public void PlaySound(FMODUnity.StudioEventEmitter emitter, string ev)
     {
+        emitter.Stop();
+        emitter.Event = ev;
         emitter.Play();
     }
 
