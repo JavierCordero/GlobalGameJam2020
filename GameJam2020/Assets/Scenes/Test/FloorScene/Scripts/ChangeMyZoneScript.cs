@@ -7,9 +7,11 @@ public class ChangeMyZoneScript : MonoBehaviour
 	public GameObject _myZone;
 	public float _timeBetweenPoblateAnimation = 0.5f, _timeBetweenDespoblateAnimation = 1f;
 	private List<GameObject> _tiles, _auxTiles;
+	int[] selectedFlowerInTile;
 	private bool expandingZone = false;
 	public GameObject _brokenTree, _treePlaceholder;
 	public bool _tutorialLevel;
+	public int numFlowers = 5;
 
 	public void Awake()
 	{
@@ -63,6 +65,18 @@ public class ChangeMyZoneScript : MonoBehaviour
 				_auxTiles.Add(t.gameObject);
 			}
 		}
+
+		selectedFlowerInTile = new int[_auxTiles.Count];
+
+		int random = numFlowers + 25;
+
+		for(int i = 0; i < selectedFlowerInTile.Length; i++)
+		{
+			int rnd = Random.Range(0, random);
+
+			selectedFlowerInTile[i] = rnd;
+		}
+
 	}
 
 	IEnumerator PoblateZone()
@@ -77,6 +91,12 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 			tb.startGrowAnimation();
 
+			int index = _auxTiles.FindIndex(x => x == g);
+
+			if (selectedFlowerInTile[index] < numFlowers)
+			{
+				g.transform.GetChild(selectedFlowerInTile[index]).gameObject.SetActive(true);
+			}
 			_tiles.RemoveAt(rnd);
 
 			yield return new WaitForSeconds(_timeBetweenPoblateAnimation * Time.deltaTime);
