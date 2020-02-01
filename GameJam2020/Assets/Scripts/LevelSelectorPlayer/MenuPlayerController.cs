@@ -26,6 +26,7 @@ public class MenuPlayerController : MonoBehaviour
     public float GetBuildUpRot() { return buildUpRot; }
 
     private string levelToChange = null;
+    private int levelToChangeIdx = -1;
 
     public float GetItemWeight()
     {
@@ -51,6 +52,7 @@ public class MenuPlayerController : MonoBehaviour
         if (other.TryGetComponent(out LevelSelector result))
         {
             levelToChange = result.getLevel();
+            levelToChangeIdx = result.getLevelIdx();
             Debug.Log(levelToChange);
         }
     }
@@ -69,6 +71,7 @@ public class MenuPlayerController : MonoBehaviour
         if(levelToChange != null)
         {
             Debug.Log("Cambio al nivel: " + levelToChange);
+            PlayerPrefs.SetInt("maxUnlockedIndex", levelToChangeIdx);
             LevelSelectorManager.instance.loadScene(levelToChange);
         }
         else

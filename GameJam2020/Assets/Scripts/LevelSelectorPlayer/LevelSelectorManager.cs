@@ -53,6 +53,17 @@ public class LevelSelectorManager : MonoBehaviour
 
         maxUnlockedIndex = PlayerPrefs.GetInt("maxUnlockedIndex");
 
+        if (PlayerPrefs.GetInt("lastLevelDone") == 1)
+        {
+            // Animacion
+            PlayerPrefs.SetInt("lastLevelDone", 0);
+            PlayerPrefs.Save();
+
+            menuPlayerMovement.setActive(false);
+
+            StartCoroutine("unlockNextLevel");
+        }        
+
         if (maxUnlockedIndex >= originalPositions.Length)
             maxUnlockedIndex = originalPositions.Length - 1;
 
@@ -81,17 +92,6 @@ public class LevelSelectorManager : MonoBehaviour
             {
                 restPositions[i][j].setState(levelState.blocked);
             }
-        }
-
-        if (PlayerPrefs.GetInt("lastLevelDone") == 1)
-        {
-            // Animacion
-            PlayerPrefs.SetInt("lastLevelDone", 0);
-            PlayerPrefs.Save();
-
-            menuPlayerMovement.setActive(false);
-
-            StartCoroutine("unlockNextLevel");
         }
     }
 
@@ -142,21 +142,7 @@ public class LevelSelectorManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            maxUnlockedIndex += 1;
-            if (maxUnlockedIndex == originalPositions.Length)
-                maxUnlockedIndex = originalPositions.Length - 1;
-            PlayerPrefs.SetInt("maxUnlockedIndex",maxUnlockedIndex);
-            PlayerPrefs.Save();
-            Debug.Log(maxUnlockedIndex);
-        }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            PlayerPrefs.SetInt("lastLevelDone", 1);
-            PlayerPrefs.Save();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             exitToMenu();
         }
