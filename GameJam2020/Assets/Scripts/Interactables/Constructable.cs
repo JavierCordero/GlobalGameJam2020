@@ -24,4 +24,14 @@ public class Constructable : Interactable
             Destroy(this.gameObject);
         }
     }
+
+    public void EnableObject()
+    {
+        transform.gameObject.SetActive(true);
+    }
+
+    public void DisableObject()
+    {
+        transform.gameObject.SetActive(false);
+    }
 }

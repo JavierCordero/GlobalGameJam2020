@@ -9,7 +9,8 @@ public enum ActionType
     PlantTree,
     BuildBridge,
     WaterTree,
-    SpawnCow
+    SpawnCow,
+    CraftTree
 }
 
 [System.Serializable]
@@ -29,17 +30,28 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    public GameCircleInOut inOut;
+    [SerializeField] private float timeToChangeScene = 4f;
+    [SerializeField] private GameCircleInOut inOut;
 
+    [Header("Functions called at level start")]
     [SerializeField] private UnityEvent actionsBeforeStart = new UnityEvent();
+
+    [Header("Action to complete the level")]
     [SerializeField] private LevelAction[] levelActions;
 
     private List<LevelAction> actionsList;
+
     private int treesToPlant = 0;
     private int treesPlanted = 0;
 
+    private int bridgesToBuild = 0;
+    private int bridgesBuilt = 0;
+
     private int cowsToSpawn = 0;
-    private int cowsSpawned = 0;    
+    private int cowsSpawned = 0;
+
+    private int treesToWater = 0;
+    private int treesWatered = 0;
 
     void Start()
     {
@@ -73,6 +85,12 @@ public class LevelManager : MonoBehaviour
                     case ActionType.PlantTree:
                         treesPlanted++;
                         break;
+                    case ActionType.BuildBridge:
+                        bridgesBuilt++;
+                        break;
+                    case ActionType.WaterTree:
+                        treesWatered++;
+                        break;
                     case ActionType.SpawnCow:
                         cowsSpawned++;
                         break;
@@ -86,11 +104,14 @@ public class LevelManager : MonoBehaviour
 
     public void CheckIfLevelCompleted()
     {
-        if (treesPlanted >= treesToPlant && cowsSpawned >= cowsToSpawn)
+        if (treesPlanted >= treesToPlant && 
+            treesWatered >= treesToWater &&
+            bridgesBuilt >= bridgesToBuild &&
+            cowsSpawned >= cowsToSpawn)
         {
             Debug.Log("LevelFinished!");
 
-            Invoke(nameof(loadScene), 3f);
+            Invoke(nameof(loadScene), timeToChangeScene);
             unlockNextLevel();
         }
     }
