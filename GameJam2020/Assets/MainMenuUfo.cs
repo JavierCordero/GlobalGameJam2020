@@ -48,6 +48,5 @@ public class MainMenuUfo : MonoBehaviour
     {
         animator.SetTrigger("Exit");
         yield return new WaitForSeconds(2f);
-        Debug.Log("HOLA");
     }
 }
