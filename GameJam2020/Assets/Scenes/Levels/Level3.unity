@@ -8000,8 +8000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNeeded: 0
-  objectPrefab: {fileID: 1042863334}
   actionPerformed: 1
+  contructedObject: {fileID: 0}
 --- !u!65 &882787884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9243,12 +9243,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 390c521b773e629458533b1801569a4b, type: 3}
---- !u!1 &1042863334 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3740827828840953190, guid: 390c521b773e629458533b1801569a4b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1042863333}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1045980837 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7736076211654422734, guid: eb0b70aedd2f89b41a4148821cf65d23,
@@ -18513,7 +18507,6 @@ GameObject:
   - component: {fileID: 2134846174}
   - component: {fileID: 2134846173}
   - component: {fileID: 2134846172}
-  - component: {fileID: 2134846178}
   - component: {fileID: 2134846177}
   m_Layer: 8
   m_Name: MainCamera
@@ -18704,19 +18697,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 0
   OverrideMaxDistance: 0
---- !u!114 &2134846178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134846171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: -1
 --- !u!4 &2136127982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7736076211654422734, guid: eb0b70aedd2f89b41a4148821cf65d23,
