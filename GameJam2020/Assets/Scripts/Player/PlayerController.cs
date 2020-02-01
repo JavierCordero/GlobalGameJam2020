@@ -62,6 +62,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    Vector2Int GetCenterPos2D()
+    {
+        return VectorOperations.Vector3ToVector2Int(transform.position + transform.forward * 0.4f);
+    }
+
     Vector2Int GetAimPos2D()
     {
         return VectorOperations.Vector3ToVector2Int(transform.position + transform.forward);
@@ -112,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
     bool CanReleaseItem()
     {
-        Vector2 pos = GetAimPos2D();
+        Vector2 pos = GetCenterPos2D();
 
         Collider[] objects = Physics.OverlapBox(new Vector3(pos.x, 1, pos.y), new Vector3(0.9f, 0.9f, 0.9f));
 
@@ -131,9 +136,9 @@ public class PlayerController : MonoBehaviour
         {
             if (CanReleaseItem())
             {
-                Vector2 pos = GetAimPos2D();
+                Vector2 pos = GetCenterPos2D();
 
-                currentItem.transform.position = new Vector3(pos.x, 1, pos.y);
+                currentItem.transform.position = new Vector3(pos.x, 0.5f, pos.y);
                 currentItem.transform.parent = null;
                 currentItem.transform.localRotation = Quaternion.identity;
                 currentItem.GetComponent<BoxCollider>().enabled = true;
