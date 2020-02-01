@@ -11,7 +11,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 	private bool expandingZone = false;
 	public GameObject _brokenTree, _treePlaceholder;
 	public bool _tutorialLevel;
-	public int numFlowers = 5;
 	public GameObject [] _flowers;
 
 
@@ -48,7 +47,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 		if (!expandingZone)
 		{
 			StopAllCoroutines();
-			expandingZone = false;
 
 			foreach (GameObject g in _auxTiles)
 				_tiles.Add(g);
@@ -70,7 +68,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 		selectedFlowerInTile = new int[_auxTiles.Count];
 
-		int random = numFlowers + 25;
+		int random = _flowers.Length + 20;
 
 		for(int i = 0; i < selectedFlowerInTile.Length; i++)
 		{
@@ -83,6 +81,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 	IEnumerator PoblateZone()
 	{
+		GameObject last = null;
 
 		while(_tiles.Count > 0)
 		{
@@ -94,7 +93,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 			int index = _auxTiles.FindIndex(x => x == g);
 
-			if (selectedFlowerInTile[index] < numFlowers)
+			if (selectedFlowerInTile[index] < _flowers.Length)
 			{
 				GameObject f = Instantiate(_flowers[selectedFlowerInTile[index]], transform.position, Quaternion.identity);
 
@@ -108,14 +107,21 @@ public class ChangeMyZoneScript : MonoBehaviour
 			_tiles.RemoveAt(rnd);
 
 			yield return new WaitForSeconds(_timeBetweenPoblateAnimation * Time.deltaTime);
+
+			last = g;
 		}
 
 		expandingZone = false;
-		FindObjectOfType<NumOfZonesCleaned>().increaseNumberOfZonesCleaned(gameObject);
+
+		last.AddComponent<lastFlowerBehaviour>();
+		last.GetComponent<lastFlowerBehaviour>().myFather = gameObject;
+
 	}
 
 	IEnumerator DespoblateZone()
 	{
+		GameObject last = null;
+
 		while (_tiles.Count > 0)
 		{
 			int rnd = Random.Range(0, _tiles.Count);
@@ -129,9 +135,13 @@ public class ChangeMyZoneScript : MonoBehaviour
 			_tiles.RemoveAt(rnd);
 
 			yield return new WaitForSeconds(_timeBetweenDespoblateAnimation * Time.deltaTime);
+
+			last = g;
 		}
 
-		FindObjectOfType<NumOfZonesCleaned>().decreaseNumberOfZonesCleaned();
+		last.AddComponent<lastFlowerBehaviour>();
+		last.GetComponent<lastFlowerBehaviour>().myFather = gameObject;
+
 		Instantiate(_brokenTree, transform.position, Quaternion.identity);
 		GameObject ga = Instantiate(_treePlaceholder, transform.position, Quaternion.identity);
 		ga.GetComponent<Constructable>().objectPrefab = this.gameObject;

@@ -1,29 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MainMenuUfo : MonoBehaviour
 {
     public LevelLoader levelLoader;
     private Animator animator;
+    private PlayerInputActions playerInputActions;
 
+    private void Awake()
+    {
+        if (playerInputActions == null)
+            playerInputActions = new PlayerInputActions();
+    }
     private void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void OnEnable()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            StartCoroutine(MenuAnimation());
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            StartCoroutine(ExitAnimation());
-        }
+        playerInputActions.Enable();
+
+        playerInputActions.MainMenuController.StartGame.performed += StartGameAnim;
+        playerInputActions.MainMenuController.ExitGame.performed += ExitGameAnim;
     }
-    IEnumerator MenuAnimation()
+
+
+    private void StartGameAnim(InputAction.CallbackContext context)
+    {
+        StartCoroutine(StartGameAnimation());
+    }
+    private void ExitGameAnim(InputAction.CallbackContext context)
+    {
+        StartCoroutine(ExitAnimation());
+    }
+    IEnumerator StartGameAnimation()
     {
 
         animator.SetTrigger("Leave");
