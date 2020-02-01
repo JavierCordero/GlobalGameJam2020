@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 6787189640715120047}
   - component: {fileID: 882787883}
   m_Layer: 0
-  m_Name: bridgePlaceHolder
+  m_Name: ConstructBridge
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
