@@ -9,7 +9,7 @@ public class Constructable : Interactable
 
     private bool constructed = false;
     private GameObject transparentObject;
-    public GameObject contructedObject;
+    [HideInInspector] public GameObject contructedObject;
 
     void Awake()
     {
