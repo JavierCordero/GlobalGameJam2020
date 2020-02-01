@@ -18,12 +18,14 @@ public class NumOfZonesCleaned : MonoBehaviour
 				c.poblateZone();
 			}
 
-			Destroy(this);
+			DestroyImmediate(this);
 		}
 	}
 
 	public void increaseNumberOfZonesCleaned(GameObject obj)
 	{
+		checkIfLevelCompleted();
+
 		numOfZonesCleaned++;
 
         if (numOfZonesCleaned < totalNumOfZonesCleaned)
