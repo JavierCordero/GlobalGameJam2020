@@ -57,7 +57,8 @@ public class Ovni : Interactable
 
                 HideHint();
 
-                SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/shiprepair");
+                if(SoundManager.Instance != null)
+                    SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/shiprepair");
             }
         }
     }
