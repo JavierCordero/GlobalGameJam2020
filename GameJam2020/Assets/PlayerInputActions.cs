@@ -278,6 +278,74 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MainMenuController"",
+            ""id"": ""085b3b67-e963-4f2e-b0de-e1b3fc4f52c7"",
+            ""actions"": [
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""df026530-0fce-4bf5-8f0b-d33762a78e46"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ExitGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ef6c90d-2eb6-4c15-b2ff-6640f1767ae7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fcda2d78-6b9f-4245-835a-11dbd87d00d7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8304d52-fcda-46ff-a5a4-1941b1ca48f0"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42118ff4-bcbc-47fb-9d9e-f62143f2df07"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ExitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f150dc8d-5c7c-45d9-81d5-51a5557ef808"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""ExitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -319,6 +387,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_MenuPlayerControls = asset.FindActionMap("MenuPlayerControls", throwIfNotFound: true);
         m_MenuPlayerControls_Move = m_MenuPlayerControls.FindAction("Move", throwIfNotFound: true);
         m_MenuPlayerControls_Use = m_MenuPlayerControls.FindAction("Use", throwIfNotFound: true);
+        // MainMenuController
+        m_MainMenuController = asset.FindActionMap("MainMenuController", throwIfNotFound: true);
+        m_MainMenuController_StartGame = m_MainMenuController.FindAction("StartGame", throwIfNotFound: true);
+        m_MainMenuController_ExitGame = m_MainMenuController.FindAction("ExitGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -454,6 +526,47 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public MenuPlayerControlsActions @MenuPlayerControls => new MenuPlayerControlsActions(this);
+
+    // MainMenuController
+    private readonly InputActionMap m_MainMenuController;
+    private IMainMenuControllerActions m_MainMenuControllerActionsCallbackInterface;
+    private readonly InputAction m_MainMenuController_StartGame;
+    private readonly InputAction m_MainMenuController_ExitGame;
+    public struct MainMenuControllerActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public MainMenuControllerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StartGame => m_Wrapper.m_MainMenuController_StartGame;
+        public InputAction @ExitGame => m_Wrapper.m_MainMenuController_ExitGame;
+        public InputActionMap Get() { return m_Wrapper.m_MainMenuController; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MainMenuControllerActions set) { return set.Get(); }
+        public void SetCallbacks(IMainMenuControllerActions instance)
+        {
+            if (m_Wrapper.m_MainMenuControllerActionsCallbackInterface != null)
+            {
+                @StartGame.started -= m_Wrapper.m_MainMenuControllerActionsCallbackInterface.OnStartGame;
+                @StartGame.performed -= m_Wrapper.m_MainMenuControllerActionsCallbackInterface.OnStartGame;
+                @StartGame.canceled -= m_Wrapper.m_MainMenuControllerActionsCallbackInterface.OnStartGame;
+                @ExitGame.started -= m_Wrapper.m_MainMenuControllerActionsCallbackInterface.OnExitGame;
+                @ExitGame.performed -= m_Wrapper.m_MainMenuControllerActionsCallbackInterface.OnExitGame;
+                @ExitGame.canceled -= m_Wrapper.m_MainMenuControllerActionsCallbackInterface.OnExitGame;
+            }
+            m_Wrapper.m_MainMenuControllerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @StartGame.started += instance.OnStartGame;
+                @StartGame.performed += instance.OnStartGame;
+                @StartGame.canceled += instance.OnStartGame;
+                @ExitGame.started += instance.OnExitGame;
+                @ExitGame.performed += instance.OnExitGame;
+                @ExitGame.canceled += instance.OnExitGame;
+            }
+        }
+    }
+    public MainMenuControllerActions @MainMenuController => new MainMenuControllerActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -482,5 +595,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
+    }
+    public interface IMainMenuControllerActions
+    {
+        void OnStartGame(InputAction.CallbackContext context);
+        void OnExitGame(InputAction.CallbackContext context);
     }
 }
