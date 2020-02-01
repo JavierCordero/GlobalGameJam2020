@@ -19,4 +19,7 @@ public class CreditsScroll : MonoBehaviour
     {
         transform.position -= new Vector3(0, scrollSpeed, 0) * Time.deltaTime;
     }
+
+
+
 }
