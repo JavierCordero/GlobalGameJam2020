@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6426684856583961542}
   - component: {fileID: 6426684856583961537}
   - component: {fileID: 6830282058941108789}
+  - component: {fileID: -6288259972923607559}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -258,6 +259,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b73f38424a7077441825a7e6c91516fd, type: 2}
   - {fileID: 11400000, guid: 4471550b616481946929fbe9bdbe8cea, type: 2}
   initialAnimation: Idle
+--- !u!114 &-6288259972923607559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426684856583961536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!1 &6426684857109532323
 GameObject:
   m_ObjectHideFlags: 0
