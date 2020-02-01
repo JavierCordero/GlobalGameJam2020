@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class ChangeMyZoneScript : MonoBehaviour
 {
-	private enum Action { Poblate, Despoblate }
-
 	public GameObject _myZone;
 	public float _timeBetweenPoblateAnimation = 0.5f, _timeBetweenDespoblateAnimation = 1f;
-	public GameObject _newFloor;
-	private List<GameObject> _tiles;
+	private List<GameObject> _tiles, _auxTiles;
 	private bool expandingZone = false;
+
+	public void Awake()
+	{
+		_tiles = new List<GameObject>();
+		_auxTiles = new List<GameObject>();
+		FillTiles();
+	}
 
 	public void poblateZone()
 	{
-		StopAllCoroutines();
-		expandingZone = true;
-		StartCoroutine(FillTiles(Action.Poblate));
+		if (!expandingZone)
+		{
+			StopAllCoroutines();
+			expandingZone = true;
+
+			//Debug.Log(_auxTiles);
+
+			foreach (GameObject g in _auxTiles)
+				_tiles.Add(g);
+			StartCoroutine(PoblateZone());
+		}
 	}
 
 	public void despoblateZone()
@@ -26,26 +38,24 @@ public class ChangeMyZoneScript : MonoBehaviour
 			StopAllCoroutines();
 			expandingZone = false;
 			FindObjectOfType<NumOfZonesCleaned>().decreaseNumberOfZonesCleaned();
-			StartCoroutine(FillTiles(Action.Despoblate));
+
+			foreach (GameObject g in _auxTiles)
+				_tiles.Add(g);
+
+			StartCoroutine(DespoblateZone());
 		}
 	}
 
-	IEnumerator FillTiles(Action a)
+	private void FillTiles()
 	{
-		_tiles = new List<GameObject>();
-
 		foreach (Transform t in _myZone.transform.GetComponentsInChildren<Transform>())
 		{
 			if (t != _myZone.transform && t.GetComponent<TileBehaviour>())
+			{
 				_tiles.Add(t.gameObject);
-
-			yield return null;
+				_auxTiles.Add(t.gameObject);
+			}
 		}
-
-		if(a == Action.Poblate)
-			StartCoroutine(PoblateZone());
-		else if(a == Action.Despoblate)
-			StartCoroutine(DespoblateZone());
 	}
 
 	IEnumerator PoblateZone()
@@ -75,7 +85,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 		{
 			int rnd = Random.Range(0, _tiles.Count);
 
-			GameObject g = _tiles[rnd].gameObject; //Instantiate(_newFloor, _tiles[rnd].transform.position, Quaternion.identity);
+			GameObject g = _tiles[rnd].gameObject;
 
 			TileBehaviour tb = g.GetComponent<TileBehaviour>();
 
