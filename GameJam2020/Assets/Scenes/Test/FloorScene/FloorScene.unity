@@ -1535,8 +1535,9 @@ MonoBehaviour:
   _myZone: {fileID: 1282933188}
   _timeBetweenPoblateAnimation: 0.5
   _timeBetweenDespoblateAnimation: 1
-  _newFloor: {fileID: 213344794982693463, guid: a83abf1bb4efce7449b6865c418c0027,
-    type: 3}
+  _brokenTree: {fileID: 0}
+  _treePlaceholder: {fileID: 0}
+  _tutorialLevel: 0
 --- !u!1001 &833770874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2327,8 +2328,9 @@ MonoBehaviour:
   _myZone: {fileID: 2112411992}
   _timeBetweenPoblateAnimation: 0.5
   _timeBetweenDespoblateAnimation: 1
-  _newFloor: {fileID: 213344794982693463, guid: a83abf1bb4efce7449b6865c418c0027,
-    type: 3}
+  _brokenTree: {fileID: 0}
+  _treePlaceholder: {fileID: 0}
+  _tutorialLevel: 0
 --- !u!1001 &1098909704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2615,6 +2617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5bc3a026572a8341be2d1f5aa669050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalNumOfZonesCleaned: 2
 --- !u!1 &1282933188
 GameObject:
   m_ObjectHideFlags: 0
