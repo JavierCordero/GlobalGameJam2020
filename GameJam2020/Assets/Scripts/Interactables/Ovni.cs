@@ -84,7 +84,6 @@ public class Ovni : Interactable
             Recipe recipe = recipesDict[itemType];
             recipe.locked = true;
             recipesDict[itemType] = recipe;
-            Debug.Log(recipesDict[itemType].locked);
         }
     }
 
