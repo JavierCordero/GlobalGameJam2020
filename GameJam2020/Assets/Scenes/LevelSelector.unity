@@ -65224,6 +65224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   launchSpeed: 50
+  landSpeed: 25
   rotSpeed: 1000
   accFactor: 20
   flightSpeed: 5

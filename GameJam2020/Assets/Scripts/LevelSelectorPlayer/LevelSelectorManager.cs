@@ -133,7 +133,7 @@ public class LevelSelectorManager : MonoBehaviour
 
         camera.setTarget(menuPlayerMovement.transform, false);
 
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.85f);
 
         menuPlayerMovement.setActive(true);
         camera.setLooking();
@@ -151,6 +151,14 @@ public class LevelSelectorManager : MonoBehaviour
     public void loadScene(string name)
     {
         sceneToChange = name;
+        menuPlayerMovement.land();
+        activePlayer(false);
+        camera.setLooking(false);
+        camera.setActive(false);
+    }
+
+    public void sceneOut()
+    {
         inOut.sceneOut();
     }
 
