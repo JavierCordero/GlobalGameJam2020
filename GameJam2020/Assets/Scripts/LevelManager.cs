@@ -35,11 +35,18 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private LevelAction[] levelActions;
 
     private List<LevelAction> actionsList;
+
     private int treesToPlant = 0;
     private int treesPlanted = 0;
 
+    private int bridgesToBuild = 0;
+    private int bridgesBuilt = 0;
+
     private int cowsToSpawn = 0;
-    private int cowsSpawned = 0;    
+    private int cowsSpawned = 0;
+
+    private int treesToWater = 0;
+    private int treesWatered = 0;
 
     void Start()
     {
@@ -73,6 +80,12 @@ public class LevelManager : MonoBehaviour
                     case ActionType.PlantTree:
                         treesPlanted++;
                         break;
+                    case ActionType.BuildBridge:
+                        bridgesBuilt++;
+                        break;
+                    case ActionType.WaterTree:
+                        treesWatered++;
+                        break;
                     case ActionType.SpawnCow:
                         cowsSpawned++;
                         break;
@@ -86,7 +99,10 @@ public class LevelManager : MonoBehaviour
 
     public void CheckIfLevelCompleted()
     {
-        if (treesPlanted >= treesToPlant && cowsSpawned >= cowsToSpawn)
+        if (treesPlanted >= treesToPlant && 
+            treesWatered >= treesToWater &&
+            bridgesBuilt >= bridgesToBuild &&
+            cowsSpawned >= cowsToSpawn)
         {
             Debug.Log("LevelFinished!");
 
