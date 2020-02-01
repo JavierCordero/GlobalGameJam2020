@@ -224,7 +224,7 @@ MonoBehaviour:
   aimSensitivity: 10
   buildUpRot: 0.2
   minInput: 0.1
-  pickUpZoneSize: {x: 3, y: 1, z: 3}
+  pickUpZoneSize: {x: 1.2, y: 1, z: 1.2}
 --- !u!114 &6426684856583961537
 MonoBehaviour:
   m_ObjectHideFlags: 0
