@@ -185,10 +185,12 @@ public class PlayerController : MonoBehaviour
     {
         currentItem = item.GetComponent<Item>();
         item.GetComponent<BoxCollider>().enabled = false;
-        SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Pick");
         item.parent = playerHand;
         item.localPosition = Vector3.zero;
         item.localRotation = Quaternion.identity;
+
+        if(SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Pick");
     }
 
     public void ClearHand()
