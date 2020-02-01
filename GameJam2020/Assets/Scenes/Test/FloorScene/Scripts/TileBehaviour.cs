@@ -16,11 +16,13 @@ public class TileBehaviour : MonoBehaviour
 
 	IEnumerator startGrouwingSize()
 	{
-		while(gameObject.transform.localScale.x < maxSize)
+        while (gameObject.transform.localScale.x < maxSize)
 		{
 			gameObject.transform.localScale = new Vector3(transform.localScale.x + increaseSize / 100, transform.localScale.y, transform.localScale.z + increaseSize / 100);
 			yield return null;
 		}
+
+	    gameObject.transform.localScale = new Vector3(maxSize, transform.localScale.y, maxSize);
 	}
 
 	IEnumerator startDecreasingSize()
@@ -30,6 +32,8 @@ public class TileBehaviour : MonoBehaviour
 			gameObject.transform.localScale = new Vector3(transform.localScale.x - decreaseSize / 100, transform.localScale.y, transform.localScale.z - decreaseSize / 100);
 			yield return null;
 		}
+
+	    gameObject.transform.localScale = new Vector3(0, transform.localScale.y, 0);
 	}
 
 	public void startGrowAnimation()
