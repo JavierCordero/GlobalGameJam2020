@@ -153,8 +153,12 @@ MonoBehaviour:
   planetsToSpawn:
   - {fileID: 1862175612128772805, guid: 20f075ee72b06394daa9c738a7359482, type: 3}
   - {fileID: 4766413628815828891, guid: 6f928424e1c313f4399781a54e86d3eb, type: 3}
-  spawnerTimeMin: 0.2
-  spawnerTimeMax: 0.7
+  - {fileID: 1915915260347141548, guid: 462ae5bebf8aa0046847339db4b473ce, type: 3}
+  - {fileID: 6330965637047317753, guid: 1750888b69ff57141af18e1d8b3ef7ca, type: 3}
+  - {fileID: 4180572032444236760, guid: 10b3b1e9357bf134089603583284e76c, type: 3}
+  - {fileID: 2551025506955142158, guid: 163ad34c0acd2f8429635702a16d56f0, type: 3}
+  spawnerTimeMin: 6
+  spawnerTimeMax: 10
   objVelocity: -0.2
 --- !u!4 &12497012
 Transform:
@@ -164,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12497009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.96, y: 0.7, z: 26.594133}
+  m_LocalPosition: {x: 1.96, y: 0.7, z: 30.31}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -195,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86696256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.39, y: -0.76, z: 26.594133}
+  m_LocalPosition: {x: 3.39, y: -0.4, z: 27.43}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
@@ -216,8 +220,12 @@ MonoBehaviour:
   planetsToSpawn:
   - {fileID: 1862175612128772805, guid: 20f075ee72b06394daa9c738a7359482, type: 3}
   - {fileID: 4766413628815828891, guid: 6f928424e1c313f4399781a54e86d3eb, type: 3}
-  spawnerTimeMin: 1
-  spawnerTimeMax: 2
+  - {fileID: 1915915260347141548, guid: 462ae5bebf8aa0046847339db4b473ce, type: 3}
+  - {fileID: 6330965637047317753, guid: 1750888b69ff57141af18e1d8b3ef7ca, type: 3}
+  - {fileID: 4180572032444236760, guid: 10b3b1e9357bf134089603583284e76c, type: 3}
+  - {fileID: 2551025506955142158, guid: 163ad34c0acd2f8429635702a16d56f0, type: 3}
+  spawnerTimeMin: 3
+  spawnerTimeMax: 5
   objVelocity: -2
 --- !u!1 &131422201
 GameObject:
@@ -244,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131422201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.02, y: -0.03, z: 26.594133}
+  m_LocalPosition: {x: -3.02, y: -0.03, z: 29.04}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -265,8 +273,12 @@ MonoBehaviour:
   planetsToSpawn:
   - {fileID: 1862175612128772805, guid: 20f075ee72b06394daa9c738a7359482, type: 3}
   - {fileID: 4766413628815828891, guid: 6f928424e1c313f4399781a54e86d3eb, type: 3}
-  spawnerTimeMin: 0.8
-  spawnerTimeMax: 1.2
+  - {fileID: 1915915260347141548, guid: 462ae5bebf8aa0046847339db4b473ce, type: 3}
+  - {fileID: 6330965637047317753, guid: 1750888b69ff57141af18e1d8b3ef7ca, type: 3}
+  - {fileID: 4180572032444236760, guid: 10b3b1e9357bf134089603583284e76c, type: 3}
+  - {fileID: 2551025506955142158, guid: 163ad34c0acd2f8429635702a16d56f0, type: 3}
+  spawnerTimeMin: 4
+  spawnerTimeMax: 6
   objVelocity: 1
 --- !u!1 &187376947
 GameObject:
