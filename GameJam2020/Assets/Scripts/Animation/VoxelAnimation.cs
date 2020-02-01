@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewAnim", menuName = "Animation/VoxelAnimation", order = 1)]
+[CreateAssetMenu(fileName = "NewAnim", menuName = "VoxelAnimation/VoxelAnimation", order = 1)]
 public class VoxelAnimation : ScriptableObject
 {
     [SerializeField] public string animationName;
