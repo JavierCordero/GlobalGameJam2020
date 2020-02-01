@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using FMOD;
 using UnityEditor;
 using UnityEngine;
 
@@ -144,7 +145,7 @@ public class PlayerController : MonoBehaviour
                 currentItem.transform.localRotation = Quaternion.identity;
                 currentItem.GetComponent<BoxCollider>().enabled = true;
 
-                if (currentItem != null)
+                if (currentItem != null && SoundManager.Instance != null)
                 {
                     SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Drop");
                 }
