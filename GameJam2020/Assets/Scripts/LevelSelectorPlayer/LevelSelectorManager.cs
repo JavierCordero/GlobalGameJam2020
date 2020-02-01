@@ -107,6 +107,10 @@ public class LevelSelectorManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         originalPositions[maxUnlockedIndex].setState(levelState.done);
+        for (int j = 0; j < restPositions0.Length; j++)
+        {
+            restPositions[maxUnlockedIndex][j].setState(levelState.done);
+        }
         originalPositions[maxUnlockedIndex].activeParticles(particles.green);
 
         if (maxUnlockedIndex < originalPositions.Length)
@@ -117,7 +121,11 @@ public class LevelSelectorManager : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
 
-            originalPositions[maxUnlockedIndex+1].setState(levelState.available);
+            originalPositions[maxUnlockedIndex + 1].setState(levelState.available);
+            for (int j = 0; j < restPositions0.Length; j++)
+            {
+                restPositions[maxUnlockedIndex + 1][j].setState(levelState.available);
+            }
             originalPositions[maxUnlockedIndex + 1].activeParticles(particles.red);
         }
 
@@ -125,7 +133,7 @@ public class LevelSelectorManager : MonoBehaviour
 
         camera.setTarget(menuPlayerMovement.transform, false);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         menuPlayerMovement.setActive(true);
         camera.setLooking();

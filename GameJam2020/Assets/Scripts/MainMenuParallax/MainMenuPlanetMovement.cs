@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainMenuPlanetMovement : MonoBehaviour
 {
+    [HideInInspector]
     public float velocity;
     void Update()
     {
