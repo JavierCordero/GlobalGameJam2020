@@ -16,7 +16,10 @@ public class Constructable : Interactable
 
             PlayerController.Instance.ClearHand();
 			objectPrefab.SetActive(true);
-			objectPrefab.GetComponent<ChangeMyZoneScript>().poblateZone();
+
+            ChangeMyZoneScript zone = objectPrefab.GetComponent<ChangeMyZoneScript>();
+            if(zone != null)
+                zone.poblateZone();
             
             Destroy(this.gameObject);
         }
