@@ -6,7 +6,7 @@ public enum ItemType
 {
     Wood,
     TreeSappling,
-    Example3
+    None
 }
 
 public class Item : Interactable
