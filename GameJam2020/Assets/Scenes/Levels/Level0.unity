@@ -5296,7 +5296,7 @@ PrefabInstance:
     - target: {fileID: 5919388515053903770, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1,
         type: 3}
       propertyPath: m_Name
-      value: Alive_Tree_1
+      value: Tree1
       objectReference: {fileID: 0}
     - target: {fileID: 5919388515053903770, guid: e4aa9d111e29bac4f95d8fcc2b7e46a1,
         type: 3}
