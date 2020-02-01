@@ -30,15 +30,13 @@ public class BoidManager : MonoBehaviour
     public int spawnRadius;
     public Transform seagullsGroup;
 
+    private Collider boxColl;
+
     public static BoidManager Instance { get { return instance; } }
     static BoidManager instance;
 
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, spawnRadius);
-    }
+   
     private void Awake()
     {
         if (Instance == null) instance = this;
@@ -48,20 +46,20 @@ public class BoidManager : MonoBehaviour
             currTarg = target1;
         else currTarg = target2;
 
-        for (int i = 0; i < boidsNumber; i++)
-        {
-            GameObject go = Spawn();
-            Boid b = go.GetComponent<Boid>();
-            
-            b.Initialize(settings, currTarg);
-            AddBoidToArray(b);
-        }
-    }
-    public GameObject Spawn()
-    {
-        return Spawn(transform.position + Random.insideUnitSphere * spawnRadius);
-    }
+       
 
+        
+    }
+    public GameObject SpawnInit()
+    {
+       
+        return Spawn(new Vector3
+            (Random.Range(boxColl.bounds.min.x, boxColl.bounds.max.x), Random.Range(boxColl.bounds.min.y, boxColl.bounds.max.y),
+            Random.Range(boxColl.bounds.min.z, boxColl.bounds.max.z)));
+
+        //return Spawn(transform.position + Random.insideUnitSphere * spawnRadius);
+    }
+    
     public GameObject Spawn(Vector3 position)
     {
         //var rotation = Quaternion.Slerp(transform.rotation, Random.rotation, 0.3f);
@@ -72,6 +70,18 @@ public class BoidManager : MonoBehaviour
     }
     private void Start()
     {
+        boxColl = GetComponent<BoxCollider>();
+
+        for (int i = 0; i < boidsNumber; i++)
+        {
+            GameObject go = SpawnInit();
+            Boid b = go.GetComponent<Boid>();
+
+            b.Initialize(settings, currTarg);
+            AddBoidToArray(b);
+        }
+
+
         changeTargetPoint();
     }
     public void RemoveBoid(Boid b)

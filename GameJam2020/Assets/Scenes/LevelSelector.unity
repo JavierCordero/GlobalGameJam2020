@@ -527,6 +527,72 @@ Transform:
   m_Father: {fileID: 191994043}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &56184904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 56184907}
+  - component: {fileID: 56184906}
+  - component: {fileID: 56184905}
+  m_Layer: 0
+  m_Name: SeagullController2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &56184905
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56184904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 100, y: 113.72, z: 600}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &56184906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56184904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1788f5dcf954a9f43852b5cdc0a3e20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: de5296dc7ac37bb409799364a17dc67d, type: 2}
+  target1: {fileID: 2043378522}
+  target2: {fileID: 2053311068}
+  target1Active: 1
+  boidObject: {fileID: 6116860731569742163, guid: 2f6896db32679b24cad51cb7c16a6a2b,
+    type: 3}
+  boidsNumber: 100
+  spawnRadius: 1200
+  seagullsGroup: {fileID: 1935796799}
+--- !u!4 &56184907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56184904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -242, y: 63, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &78928617
 GameObject:
   m_ObjectHideFlags: 0
@@ -61244,6 +61310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1387304818}
   - component: {fileID: 1387304817}
+  - component: {fileID: 1387304819}
   m_Layer: 0
   m_Name: SeagullController1
   m_TagString: Untagged
@@ -61266,10 +61333,10 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: de5296dc7ac37bb409799364a17dc67d, type: 2}
   target1: {fileID: 2043378522}
   target2: {fileID: 2053311068}
-  target1Active: 1
+  target1Active: 0
   boidObject: {fileID: 6116860731569742163, guid: 2f6896db32679b24cad51cb7c16a6a2b,
     type: 3}
-  boidsNumber: 300
+  boidsNumber: 100
   spawnRadius: 1200
   seagullsGroup: {fileID: 1935796799}
 --- !u!4 &1387304818
@@ -61280,12 +61347,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1387304816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 781, y: 30, z: 27}
+  m_LocalPosition: {x: 357, y: 63, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1387304819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387304816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 100, y: 113.72, z: 600}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1394260041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64287,58 +64367,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675438289}
   m_Mesh: {fileID: -2432090755550338912, guid: b315f6382e26f124e8ceb73b58d65b77, type: 3}
---- !u!1 &1682820448
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1682820450}
-  - component: {fileID: 1682820449}
-  m_Layer: 0
-  m_Name: SeagullController2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1682820449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682820448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1788f5dcf954a9f43852b5cdc0a3e20a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: de5296dc7ac37bb409799364a17dc67d, type: 2}
-  target1: {fileID: 2043378522}
-  target2: {fileID: 2053311068}
-  target1Active: 0
-  boidObject: {fileID: 6116860731569742163, guid: 2f6896db32679b24cad51cb7c16a6a2b,
-    type: 3}
-  boidsNumber: 300
-  spawnRadius: 1200
-  seagullsGroup: {fileID: 1935796799}
---- !u!4 &1682820450
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682820448}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -633, y: 30, z: 25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1737534894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71081,7 +71109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043378521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -210, y: 13, z: 177}
+  m_LocalPosition: {x: 262, y: 13, z: -156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 582174841}
@@ -71111,7 +71139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053311067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 344, y: 13, z: -263}
+  m_LocalPosition: {x: -164, y: 13, z: 143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 582174841}
@@ -71390,7 +71418,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -100
+  near clip plane: -250
   far clip plane: 1000
   field of view: 51.7
   orthographic: 1
