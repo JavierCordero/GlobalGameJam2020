@@ -111,7 +111,8 @@ public class ChangeMyZoneScript : MonoBehaviour
 			last = g;
 		}
 
-		FindObjectOfType<NumOfZonesCleaned>().checkIfLevelCompleted();
+        if(FindObjectOfType<NumOfZonesCleaned>())
+		    FindObjectOfType<NumOfZonesCleaned>().checkIfLevelCompleted();
 
 		expandingZone = false;
 
