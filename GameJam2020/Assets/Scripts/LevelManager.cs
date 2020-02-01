@@ -8,6 +8,7 @@ public enum ActionType
 {
     PlantTree,
     BuildBridge,
+    WaterTree,
     SpawnCow
 }
 
@@ -83,18 +84,13 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void TestFuntion()
-    {
-        Debug.Log("Test");
-    }
-
     public void CheckIfLevelCompleted()
     {
         if (treesPlanted >= treesToPlant && cowsSpawned >= cowsToSpawn)
         {
             Debug.Log("LevelFinished!");
 
-            Invoke(nameof(loadScene), 1.5f);
+            Invoke(nameof(loadScene), 3f);
             unlockNextLevel();
         }
     }
