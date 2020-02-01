@@ -34,7 +34,7 @@ public class MenuPlayerMovement : MonoBehaviour
 
     private bool active = false;
     private bool launching = false;
-    private bool landing = false;
+    private bool landing = false;    
 
     public GameObject mesh;
 
@@ -90,8 +90,8 @@ public class MenuPlayerMovement : MonoBehaviour
         }
         else
         {
-            hMovement = right * movementInput.x;
-            vMovement = forward * movementInput.y;
+            hMovement = Quaternion.Euler(new Vector3(0, -15, 0)) * right * movementInput.x;
+            vMovement = Quaternion.Euler(new Vector3(0, -15, 0)) * forward * movementInput.y;
         }
 
         Vector3 finalMovement = Vector3.ClampMagnitude((hMovement + vMovement), 1.0f) * speed * Time.deltaTime;
