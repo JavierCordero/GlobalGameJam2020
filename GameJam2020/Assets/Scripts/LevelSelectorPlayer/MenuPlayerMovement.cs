@@ -21,8 +21,9 @@ public class MenuPlayerMovement : MonoBehaviour
     private MenuInputHandler playerInput;
 
     [SerializeField] private bool moveIsometric;
-
     
+    private float originalY;
+    private bool active = false;
 
     void Awake()
     {
@@ -36,9 +37,24 @@ public class MenuPlayerMovement : MonoBehaviour
         playerController = GetComponent<MenuPlayerController>();
         minInput = playerController.GetMinInput();
         buildUpRot = playerController.GetBuildUpRot();
+
+        originalY = transform.position.y;        
+    }
+
+    private void Start()
+    {
+        move();
     }
 
     void FixedUpdate()
+    {
+        if (active)
+        {
+            move();
+        }
+    }
+
+    void move()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -65,9 +81,10 @@ public class MenuPlayerMovement : MonoBehaviour
             vMovement = forward * movementInput.y;
         }
 
-        Vector3 finalMovement = Vector3.ClampMagnitude((hMovement + vMovement), 1.0f) * speed * Time.deltaTime;        
+        Vector3 finalMovement = Vector3.ClampMagnitude((hMovement + vMovement), 1.0f) * speed * Time.deltaTime;
 
         transform.position += finalMovement;
+        transform.position = new Vector3(transform.position.x, originalY, transform.position.z);
 
         // Rotation ---------------------------------------------------
         if (newMovementInput.magnitude > minInput)
@@ -78,5 +95,10 @@ public class MenuPlayerMovement : MonoBehaviour
 
             transform.forward = (angleDiff < 160) ? finalHeading : heading;
         }
+    }
+
+    public void setActive(bool v)
+    {
+        active = v;
     }
 }
