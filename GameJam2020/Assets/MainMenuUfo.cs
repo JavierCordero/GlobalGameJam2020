@@ -18,6 +18,10 @@ public class MainMenuUfo : MonoBehaviour
         {
             StartCoroutine(MenuAnimation());
         }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(ExitAnimation());
+        }
     }
     IEnumerator MenuAnimation()
     {
@@ -25,5 +29,12 @@ public class MainMenuUfo : MonoBehaviour
         animator.SetTrigger("Leave");
         yield return new WaitForSeconds(2f);
         levelLoader.LoadNextLevel();
+    }
+
+    IEnumerator ExitAnimation()
+    {
+        animator.SetTrigger("Exit");
+        yield return new WaitForSeconds(2f);
+        Debug.Log("HOLA");
     }
 }
