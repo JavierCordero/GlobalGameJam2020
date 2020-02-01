@@ -15,25 +15,16 @@ public class MenuPlayerController : MonoBehaviour
     private Vector3 forward;
     private Vector3 right;
 
-    private PlayerInputHandler playerInput;    
-
-    // Items
-    private Transform playerHand;
-    private Item currentItem;
+    private MenuInputHandler playerInput;    
+    
 
     #region Gets
     public float GetMinInput() { return minInput; }
     public float GetBuildUpRot() { return buildUpRot; }
 
     private string levelToChange = null;
-    private int levelToChangeIdx = -1;
-
-    public float GetItemWeight()
-    {
-        if (currentItem == null) return 0;
-        else return currentItem.GetWeight();
-    }
-
+    private int levelToChangeIdx = -1;    
+    
     #endregion
 
     void Awake()
@@ -43,8 +34,7 @@ public class MenuPlayerController : MonoBehaviour
         forward.Normalize();
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
 
-        playerInput = GetComponent<PlayerInputHandler>();
-        playerHand = transform.Find("Hand");
+        playerInput = GetComponent<MenuInputHandler>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,7 +54,7 @@ public class MenuPlayerController : MonoBehaviour
             levelToChange = null;
             Debug.Log(levelToChange);
         }
-    }
+    }    
 
     public void chooseLevel()
     {

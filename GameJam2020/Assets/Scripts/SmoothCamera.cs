@@ -12,6 +12,13 @@ public class SmoothCamera : MonoBehaviour
     private bool looking = true;
     private bool active = true;
 
+    private MenuPlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = target.GetComponent<MenuPlayerController>();
+    }
+
     private void FixedUpdate()
     {
         if (active)
