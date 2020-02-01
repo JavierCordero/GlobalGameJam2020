@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class NumOfZonesCleaned : MonoBehaviour
 {
-	private int numOfZonesCleaned = 0, totalNumOfZonesCleaned;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-		totalNumOfZonesCleaned = FindObjectsOfType<ChangeMyZoneScript>().Length;
-	}
+	private int numOfZonesCleaned = 0;
+	public int totalNumOfZonesCleaned = 0;
 
 	public void increaseNumberOfZonesCleaned(GameObject obj)
 	{
