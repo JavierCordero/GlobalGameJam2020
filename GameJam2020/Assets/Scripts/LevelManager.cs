@@ -16,7 +16,7 @@ public enum ActionType
 }
 
 [System.Serializable]
-struct LevelAction
+public struct LevelAction
 {
     LevelAction(ActionType action)
     {
@@ -43,8 +43,13 @@ public class LevelManager : MonoBehaviour
 
     private List<LevelAction> actionsList;
 
-    private int treesToPlant = 0;
-    private int treesPlanted = 0;
+	public void addToActionList(LevelAction l)
+	{
+		actionsList.Add(l);
+	}
+
+    public int treesToPlant = 0;
+    public int treesPlanted = 0;
 
     private int bridgesToBuild = 0;
     private int bridgesBuilt = 0;
