@@ -10,7 +10,8 @@ public enum ActionType
     BuildBridge,
     WaterTree,
     SpawnCow,
-    CraftTree
+    CraftTree,
+    CowDied
 }
 
 [System.Serializable]
@@ -53,6 +54,8 @@ public class LevelManager : MonoBehaviour
     private int treesToWater = 0;
     private int treesWatered = 0;
 
+    public bool AllTreesArePlanted() { return treesPlanted >= treesToPlant; }
+
     void Start()
     {
         if (Instance == null)
@@ -93,6 +96,9 @@ public class LevelManager : MonoBehaviour
                         break;
                     case ActionType.SpawnCow:
                         cowsSpawned++;
+                        break;
+                    case ActionType.CowDied:
+                        cowsSpawned--;
                         break;
                 }
 
