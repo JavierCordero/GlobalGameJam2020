@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4537494827917996946}
-  - component: {fileID: 899326120643814404}
+  - component: {fileID: 1619119662}
+  - component: {fileID: 1928983749}
+  - component: {fileID: 1928983748}
   m_Layer: 0
   m_Name: Alive_Tree_1
   m_TagString: Interactable
@@ -32,7 +34,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &899326120643814404
+--- !u!65 &1619119662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919388515053903770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!65 &1928983749
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919388515053903770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &1928983748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +69,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5919388515053903770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e089e81464b2e794a91f7f6943dc0a41, type: 3}
+  m_Script: {fileID: 11500000, guid: a39ee7972099bd340bc620e07bde21ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _myZone: {fileID: 0}
+  _timeBetweenPoblateAnimation: 0.01
+  _timeBetweenDespoblateAnimation: 1
+  _brokenTree: {fileID: 0}
+  _treePlaceholder: {fileID: 0}
+  _tutorialLevel: 0
 --- !u!1001 &3874954639852497401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,6 +145,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d5a8605c402f11f4587bca8aa3421024, type: 2}
+    - target: {fileID: -2416733968201007103, guid: f1166f483f2fd104aacdabbca5abb96f,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f1166f483f2fd104aacdabbca5abb96f,
         type: 3}
       propertyPath: m_Name
