@@ -157,9 +157,14 @@ MonoBehaviour:
   - {fileID: 5861090540557956163, guid: bb933018d0c7f034190e797f99b306c7, type: 3}
   - {fileID: 4520457604001052136, guid: 10b3b1e9357bf134089603583284e76c, type: 3}
   - {fileID: 5238614273680237763, guid: 163ad34c0acd2f8429635702a16d56f0, type: 3}
-  spawnerTimeMin: 6
-  spawnerTimeMax: 10
-  objVelocity: 0.2
+  spawnerTimeMin: 5
+  spawnerTimeMax: 9
+  objVelocity: 0.1
+  _leftTop: {fileID: 1598014187}
+  _leftBottom: {fileID: 154035657}
+  _rightTop: {fileID: 478380926}
+  _rightBottom: {fileID: 976579369}
+  _initialNumOfPlanets: 2
 --- !u!4 &12497012
 Transform:
   m_ObjectHideFlags: 0
@@ -199,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86696256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.02, y: -0.4, z: 27.43}
+  m_LocalPosition: {x: -3.1, y: -0.62, z: 27.43}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -224,9 +229,14 @@ MonoBehaviour:
   - {fileID: 5861090540557956163, guid: bb933018d0c7f034190e797f99b306c7, type: 3}
   - {fileID: 4520457604001052136, guid: 10b3b1e9357bf134089603583284e76c, type: 3}
   - {fileID: 5238614273680237763, guid: 163ad34c0acd2f8429635702a16d56f0, type: 3}
-  spawnerTimeMin: 3
-  spawnerTimeMax: 5
-  objVelocity: 1.5
+  spawnerTimeMin: 9
+  spawnerTimeMax: 13
+  objVelocity: 0.8
+  _leftTop: {fileID: 1598014187}
+  _leftBottom: {fileID: 154035657}
+  _rightTop: {fileID: 478380926}
+  _rightBottom: {fileID: 976579369}
+  _initialNumOfPlanets: 1
 --- !u!1 &131422201
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131422201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.02, y: 0.14, z: 29.04}
+  m_LocalPosition: {x: -3.12, y: 0.06, z: 29.04}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -277,9 +287,14 @@ MonoBehaviour:
   - {fileID: 5861090540557956163, guid: bb933018d0c7f034190e797f99b306c7, type: 3}
   - {fileID: 4520457604001052136, guid: 10b3b1e9357bf134089603583284e76c, type: 3}
   - {fileID: 5238614273680237763, guid: 163ad34c0acd2f8429635702a16d56f0, type: 3}
-  spawnerTimeMin: 4
-  spawnerTimeMax: 6
-  objVelocity: 0.8
+  spawnerTimeMin: 7
+  spawnerTimeMax: 11
+  objVelocity: 0.4
+  _leftTop: {fileID: 1598014187}
+  _leftBottom: {fileID: 154035657}
+  _rightTop: {fileID: 478380926}
+  _rightBottom: {fileID: 976579369}
+  _initialNumOfPlanets: 1
 --- !u!1 &154035656
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +319,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154035656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.85, y: -1.08, z: 0}
+  m_LocalPosition: {x: -2.51, y: -1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1921964709}
@@ -1065,15 +1080,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftTop: {fileID: 1598014187}
   _leftBottom: {fileID: 154035657}
-  _rightTop: {fileID: 0}
-  _rightBottom: {fileID: 0}
-  _initialNumOfStars: 0
+  _rightTop: {fileID: 478380926}
+  _rightBottom: {fileID: 976579369}
+  _initialNumOfStars: 30
   _spawnerTimeMin: 0.5
   _spawnerTimeMax: 1
   _objVelocity: 0.2
   _starGameObject: {fileID: 1733607190277625339, guid: 21c9c46b8aa04be48aa7eb16d4a3a4f9,
     type: 3}
-  _scale: 1
+  _scale: 0.5
 --- !u!4 &1003786148
 Transform:
   m_ObjectHideFlags: 0
@@ -1082,7 +1097,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003786146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.03, y: 0.43, z: -0.68063545}
+  m_LocalPosition: {x: -3.99, y: 0.43, z: -0.68063545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1244,13 +1259,13 @@ MonoBehaviour:
   _leftBottom: {fileID: 154035657}
   _rightTop: {fileID: 478380926}
   _rightBottom: {fileID: 976579369}
-  _initialNumOfStars: 20
+  _initialNumOfStars: 30
   _spawnerTimeMin: 0.5
   _spawnerTimeMax: 1
   _objVelocity: 0.05
   _starGameObject: {fileID: 1733607190277625339, guid: 21c9c46b8aa04be48aa7eb16d4a3a4f9,
     type: 3}
-  _scale: 0.3
+  _scale: 0.15
 --- !u!4 &1257882702
 Transform:
   m_ObjectHideFlags: 0
@@ -1259,7 +1274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257882700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.04, y: -0.67, z: -0.68063545}
+  m_LocalPosition: {x: -4, y: -0.67, z: -0.68063545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1409,7 +1424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598014186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.85, y: 1.09, z: 0}
+  m_LocalPosition: {x: -2.51, y: 1.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1921964709}
@@ -1448,13 +1463,13 @@ MonoBehaviour:
   _leftBottom: {fileID: 154035657}
   _rightTop: {fileID: 478380926}
   _rightBottom: {fileID: 976579369}
-  _initialNumOfStars: 20
+  _initialNumOfStars: 30
   _spawnerTimeMin: 0.5
   _spawnerTimeMax: 1
   _objVelocity: 0.1
   _starGameObject: {fileID: 1733607190277625339, guid: 21c9c46b8aa04be48aa7eb16d4a3a4f9,
     type: 3}
-  _scale: 0.6
+  _scale: 0.3
 --- !u!4 &1820723223
 Transform:
   m_ObjectHideFlags: 0
@@ -1463,7 +1478,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820723221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.01, y: -0.15, z: -0.68063545}
+  m_LocalPosition: {x: -3.97, y: -0.15, z: -0.68063545}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
