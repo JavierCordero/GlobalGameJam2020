@@ -14,7 +14,7 @@ public class LevelSelectorManager : MonoBehaviour
 
     public SmoothCamera camera;
     public MenuPlayerMovement menuPlayerMovement;
-    public CircleInOut inOut;
+    public LevelSelectorCircleInOut inOut;
 
     private string sceneToChange = "";
 

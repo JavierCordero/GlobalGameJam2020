@@ -14,7 +14,7 @@ public class NumOfZonesCleaned : MonoBehaviour
 		if (numOfZonesCleaned < totalNumOfZonesCleaned)
 			obj.GetComponent<ChangeMyZoneScript>().despoblateZone();
 
-		else if(numOfZonesCleaned >= totalNumOfZonesCleaned)
+		else if(numOfZonesCleaned >= totalNumOfZonesCleaned && totalNumOfZonesCleaned > 1)
 		{
 			ChangeMyZoneScript [] cm = FindObjectsOfType<ChangeMyZoneScript>();
 

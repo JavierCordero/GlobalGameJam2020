@@ -11,7 +11,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 	private bool expandingZone = false;
 	public GameObject _brokenTree, _treePlaceholder;
 	public bool _tutorialLevel;
-	public int numFlowers = 5;
 	public GameObject [] _flowers;
 
 
@@ -70,7 +69,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 		selectedFlowerInTile = new int[_auxTiles.Count];
 
-		int random = numFlowers + 25;
+		int random = _flowers.Length + 20;
 
 		for(int i = 0; i < selectedFlowerInTile.Length; i++)
 		{
@@ -83,7 +82,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 	IEnumerator PoblateZone()
 	{
-
 		while(_tiles.Count > 0)
 		{
 			int rnd = Random.Range(0, _tiles.Count);
@@ -94,7 +92,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 			int index = _auxTiles.FindIndex(x => x == g);
 
-			if (selectedFlowerInTile[index] < numFlowers)
+			if (selectedFlowerInTile[index] < _flowers.Length)
 			{
 				GameObject f = Instantiate(_flowers[selectedFlowerInTile[index]], transform.position, Quaternion.identity);
 
