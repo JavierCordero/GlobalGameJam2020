@@ -6,6 +6,7 @@ public enum ItemType
 {
     Wood,
     TreeSappling,
+    Bucket,
     None
 }
 
