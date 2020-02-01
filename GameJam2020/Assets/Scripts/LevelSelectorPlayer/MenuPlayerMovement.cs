@@ -8,6 +8,8 @@ public class MenuPlayerMovement : MonoBehaviour
     [SerializeField] private float launchSpeed;
     [SerializeField] private float rotSpeed;
     [SerializeField] private float accFactor;
+    [SerializeField] private float flightSpeed;
+    [SerializeField] private float redFactor;
     [Range(0f, 1f)] [SerializeField] private float buildUpSpeed;
 
     private float minInput;
@@ -26,8 +28,13 @@ public class MenuPlayerMovement : MonoBehaviour
     [SerializeField] private bool moveIsometric;
     
     private float originalY;
+    private float offsetY = 0;
+    private float timeAccumulated = 0;
+
     private bool active = false;
     private bool launching = false;
+
+    public GameObject mesh;
 
     void Awake()
     {
@@ -88,7 +95,10 @@ public class MenuPlayerMovement : MonoBehaviour
         Vector3 finalMovement = Vector3.ClampMagnitude((hMovement + vMovement), 1.0f) * speed * Time.deltaTime;
 
         transform.position += finalMovement;
-        transform.position = new Vector3(transform.position.x, originalY, transform.position.z);
+
+        timeAccumulated += Time.deltaTime * flightSpeed;
+        //transform.position = new Vector3(transform.position.x, originalY + Mathf.Cos(timeAccumulated) / redFactor, transform.position.z);
+        mesh.transform.position = new Vector3(transform.position.x, originalY + Mathf.Cos(timeAccumulated) / redFactor, transform.position.z);
 
         // Rotation ---------------------------------------------------
         if (newMovementInput.magnitude > minInput)

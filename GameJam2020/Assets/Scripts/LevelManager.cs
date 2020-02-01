@@ -30,9 +30,13 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
 
-    public GameCircleInOut inOut;
+    [SerializeField] private float timeToChangeScene = 4f;
+    [SerializeField] private GameCircleInOut inOut;
 
+    [Header("Functions called at level start")]
     [SerializeField] private UnityEvent actionsBeforeStart = new UnityEvent();
+
+    [Header("Action to complete the level")]
     [SerializeField] private LevelAction[] levelActions;
 
     private List<LevelAction> actionsList;
@@ -107,7 +111,7 @@ public class LevelManager : MonoBehaviour
         {
             Debug.Log("LevelFinished!");
 
-            Invoke(nameof(loadScene), 3f);
+            Invoke(nameof(loadScene), timeToChangeScene);
             unlockNextLevel();
         }
     }
