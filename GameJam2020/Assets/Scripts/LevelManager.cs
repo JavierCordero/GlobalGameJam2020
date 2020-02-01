@@ -11,7 +11,8 @@ public enum ActionType
     WaterTree,
     SpawnCow,
     CraftTree,
-    CowDied
+    CowDied,
+    TreeDied
 }
 
 [System.Serializable]
@@ -99,6 +100,9 @@ public class LevelManager : MonoBehaviour
                         break;
                     case ActionType.CowDied:
                         cowsSpawned--;
+                        break;
+                    case ActionType.TreeDied:
+                        treesPlanted--;
                         break;
                 }
 

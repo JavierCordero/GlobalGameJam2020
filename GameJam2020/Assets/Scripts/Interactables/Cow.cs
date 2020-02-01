@@ -30,6 +30,7 @@ public class Cow : Interactable
         PlayerController.Instance.ClearHand();
         constructModel.SetActive(false);
         aliveModel.SetActive(true);
+        aliveModel.GetComponent<VoxelAnimator>().PlayAnimation("Idle");
 
         LevelManager.Instance.PerformAction(ActionType.SpawnCow);
 
@@ -39,7 +40,9 @@ public class Cow : Interactable
 
     IEnumerator Die()
     {
-        // ToDo: DIE Animation
+        yield return new WaitForSeconds(2f);
+
+        aliveModel.GetComponent<VoxelAnimator>().PlayAnimation("Die");
 
         yield return new WaitForSeconds(2f);
 
