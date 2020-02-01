@@ -57,6 +57,12 @@ public class Ovni : Interactable
         }
     }
 
+    public void ShowHint(string itemType)
+    {
+        ItemType.TryParse(itemType, out ItemType t);
+        ShowHint(t);
+    }
+
     public void ShowHint(ItemType itemType)
     {
         if (recipesDict.ContainsKey(itemType))
