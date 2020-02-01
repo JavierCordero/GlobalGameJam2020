@@ -52,6 +52,9 @@ public class Ovni : Interactable
                 Transform itemToHold = Instantiate(recipesDict[itemType].outputPrefab).transform;
                 PlayerController.Instance.HoldItem(itemToHold);
 
+                if(itemType == ItemType.Wood)
+                    LevelManager.Instance.PerformAction(ActionType.CraftTree);
+
                 HideHint();
             }
         }
@@ -84,7 +87,6 @@ public class Ovni : Interactable
             Recipe recipe = recipesDict[itemType];
             recipe.locked = true;
             recipesDict[itemType] = recipe;
-            Debug.Log(recipesDict[itemType].locked);
         }
     }
 

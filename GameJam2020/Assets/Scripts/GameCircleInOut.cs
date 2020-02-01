@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class GameCircleInOut : MonoBehaviour
 {
+    public GameObject black;
     public float speedIn = 2.5f;
     public float speedOut = 2.5f;
     public float scaleLimit = 10f;
 
+    private SpriteMask spriteMask;
+
     // Start is called before the first frame update
     void Start()
     {
+        spriteMask = GetComponent<SpriteMask>();
+        if (black == null)
+            black = transform.parent.GetChild(1).gameObject;
+
         StartCoroutine("circleOut");
     }
 
@@ -29,12 +36,18 @@ public class GameCircleInOut : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        black.SetActive(false);
+        spriteMask.enabled = false;
+
         yield return new WaitForEndOfFrame();        
     }
 
     IEnumerator circleIn()
     {
         yield return new WaitForSeconds(0.5f);
+
+        black.SetActive(true);
+        spriteMask.enabled = true;
 
         while (transform.localScale.x > 0)
         {

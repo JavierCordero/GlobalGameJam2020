@@ -13,6 +13,7 @@ public class AliveTree : Interactable
             {
                 bucket.TryEmptyBucket();
                 GetComponent<ChangeMyZoneScript>().poblateZone();
+                LevelManager.Instance.PerformAction(ActionType.WaterTree);
             }
         }
     }
