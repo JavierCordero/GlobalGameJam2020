@@ -34,9 +34,11 @@ public class LevelSelector : MonoBehaviour
         {
             case levelState.available:
                 meshFilter.mesh = red;
+                locked = false;
                 break;
             case levelState.done:
                 meshFilter.mesh = green;
+                locked = false;
                 break;
             case levelState.blocked:
                 meshFilter.mesh = grey;

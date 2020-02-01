@@ -33,22 +33,74 @@ public class LevelSelectorManager : MonoBehaviour
 
         player.transform.position = originalPositions[maxUnlockedIndex].transform.position + offset;
 
+        for (int i = 0; i < maxUnlockedIndex; i++)
+            originalPositions[i].setState(levelState.done);
+
+        originalPositions[maxUnlockedIndex].setState(levelState.available);
+
+        for (int i = maxUnlockedIndex + 1; i < originalPositions.Length; i++)
+            originalPositions[i].setState(levelState.blocked);
+
         if (PlayerPrefs.GetInt("lastLevelDone") == 1)
         {
             // Animacion
+            PlayerPrefs.SetInt("lastLevelDone", 0);
+            PlayerPrefs.Save();
+
+            StartCoroutine("unlockNextLevel");
         }
-        else
+    }
+
+    IEnumerator unlockNextLevel()
+    {
+        float smooth = camera.getSpeed();
+        camera.setSpeed(0.1f);
+
+        yield return new WaitForSeconds(1f);
+        
+        camera.setTarget(originalPositions[maxUnlockedIndex].transform, false);
+
+        yield return new WaitForSeconds(1f);
+
+        originalPositions[maxUnlockedIndex].setState(levelState.done);
+
+        if (maxUnlockedIndex < originalPositions.Length)
         {
-            for (int i = 0; i<maxUnlockedIndex; i++)            
-                originalPositions[i].setState(levelState.done);
+            yield return new WaitForSeconds(1f);
             
-            for (int i = 0; i < maxUnlockedIndex + 1; i++)            
-                originalPositions[i].setState(levelState.available);
+            camera.setTarget(originalPositions[maxUnlockedIndex + 1].transform, false);
 
-            for (int i = maxUnlockedIndex + 1; i < originalPositions.Length; i++)
-                originalPositions[i].setState(levelState.blocked);
+            yield return new WaitForSeconds(1f);
+
+            originalPositions[maxUnlockedIndex+1].setState(levelState.available);
         }
 
+        yield return new WaitForSeconds(1f);
+
+        camera.setTarget(player, false);
+
+        yield return new WaitForSeconds(1f);
+
+        camera.setTarget(player, true);
+        camera.setSpeed(smooth);
+        
+        
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            maxUnlockedIndex += 1;
+            PlayerPrefs.SetInt("maxUnlockedIndex",maxUnlockedIndex);
+            PlayerPrefs.Save();
+            Debug.Log(maxUnlockedIndex);
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            PlayerPrefs.SetInt("lastLevelDone", 1);
+            PlayerPrefs.Save();
+        }
     }
 
     public void loadScene(string name)

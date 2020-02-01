@@ -9,6 +9,8 @@ public class SmoothCamera : MonoBehaviour
     [SerializeField] private float smoothSpeed = 0.125f;
     public Vector3 offset;
 
+    private bool looking = true;
+
     private void FixedUpdate()
     {
         Vector3 desiredPosition = target.position + offset;
@@ -16,7 +18,24 @@ public class SmoothCamera : MonoBehaviour
 
         transform.position = smoothedPosition;
 
-        transform.LookAt(target);        
+        if(looking)
+            transform.LookAt(target);        
+    }
+
+    public void setSpeed(float v)
+    {
+        smoothSpeed = v;
+    }
+
+    public float getSpeed()
+    {
+        return smoothSpeed;
+    }
+
+    public void setTarget(Transform t, bool look = true)
+    {
+        target = t;
+        looking = look;
     }
 
 }
