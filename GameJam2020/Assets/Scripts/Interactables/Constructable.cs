@@ -5,24 +5,62 @@ using UnityEngine;
 public class Constructable : Interactable
 {
     [SerializeField] private ItemType itemNeeded;
-    [SerializeField] public GameObject objectPrefab;
     [SerializeField] public ActionType actionPerformed;
+
+    private bool constructed = false;
+    private GameObject transparentObject;
+    public GameObject contructedObject;
+
+    void Awake()
+    {
+        transparentObject = transform.GetChild(0).gameObject;
+        contructedObject = transform.GetChild(1).gameObject;
+    }
 
     public override void Interact()
     {
-        if (PlayerController.Instance.HasItem() && PlayerController.Instance.GetCurrentItem().GetItemType() == itemNeeded)
+        if (!constructed && PlayerController.Instance.HasItem() && PlayerController.Instance.GetCurrentItem().GetItemType() == itemNeeded)
         {
-            LevelManager.Instance.PerformAction(actionPerformed);
-
-            PlayerController.Instance.ClearHand();
-			objectPrefab.SetActive(true);
-
-            ChangeMyZoneScript zone = objectPrefab.GetComponent<ChangeMyZoneScript>();
-            if(zone != null)
-                zone.poblateZone();
-            
-            Destroy(this.gameObject);
+            Construct();
         }
+    }
+
+    private void Construct()
+    {
+        LevelManager.Instance.PerformAction(actionPerformed);
+        PlayerController.Instance.ClearHand();
+
+        transparentObject.SetActive(false);
+        contructedObject.SetActive(true);
+
+        ChangeMyZoneScript zone = contructedObject.GetComponent<ChangeMyZoneScript>();
+        if (zone != null)
+            zone.poblateZone();
+
+        if (actionPerformed == ActionType.PlantTree)
+            StartCoroutine(Die());
+    }
+
+    private void Deconstruct()
+    {
+        if (constructed)
+        {
+            constructed = false;
+
+            contructedObject.SetActive(false);
+            transparentObject.SetActive(true);
+
+            LevelManager.Instance.PerformAction(ActionType.TreeDied);
+        }
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(2f);
+
+        Deconstruct();
+
+        yield return null;
     }
 
     public void EnableObject()
