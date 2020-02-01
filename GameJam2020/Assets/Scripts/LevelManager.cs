@@ -11,6 +11,7 @@ public enum ActionType
     WaterTree,
     SpawnCow,
     CraftTree,
+    CraftCow,
     CowDied,
     TreeDied
 }
