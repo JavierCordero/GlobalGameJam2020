@@ -46,7 +46,7 @@ public class LevelSelectorCircleInOut : MonoBehaviour
     {
         LevelSelectorManager.instance.activePlayer(false);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
 
         while (transform.localScale.x > 0)
         {
