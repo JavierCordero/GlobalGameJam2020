@@ -291,3 +291,9 @@ MonoBehaviour:
     outputPrefab: {fileID: 8910942352746133687, guid: 90a50f9f55096ae479a306733eeeb4f3,
       type: 3}
     hintPNG: {fileID: 21300000, guid: e1e7db541ad74444097936488d840157, type: 3}
+    locked: 0
+  - itemType: 3
+    outputPrefab: {fileID: 6649934173904304352, guid: 2c39a03d297ff1d4ea781c2053ad2724,
+      type: 3}
+    hintPNG: {fileID: 21300000, guid: e1e7db541ad74444097936488d840157, type: 3}
+    locked: 0
