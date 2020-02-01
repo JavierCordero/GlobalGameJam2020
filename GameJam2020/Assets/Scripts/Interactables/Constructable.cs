@@ -9,11 +9,15 @@ public class Constructable : Interactable
 
     public override void Interact()
     {
-        if (PlayerController.Instance.GetCurrentItem().GetItemType() == itemNeeded)
+        if (PlayerController.Instance.HasItem() && PlayerController.Instance.GetCurrentItem().GetItemType() == itemNeeded)
         {
+            if (PlayerController.Instance.GetCurrentItem().GetItemType() == ItemType.TreeSappling)
+                LevelManager.Instance.PerformAction(ActionType.PlantTree);
+
             PlayerController.Instance.ClearHand();
 			objectPrefab.SetActive(true);
 			objectPrefab.GetComponent<ChangeMyZoneScript>().poblateZone();
+            
             Destroy(this.gameObject);
         }
     }
