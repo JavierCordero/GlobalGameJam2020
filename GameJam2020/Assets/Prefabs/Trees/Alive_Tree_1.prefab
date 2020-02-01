@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1619119662}
   - component: {fileID: 1928983749}
   - component: {fileID: 1928983748}
+  - component: {fileID: 7399380140792590272}
   m_Layer: 0
   m_Name: Alive_Tree_1
   m_TagString: Interactable
@@ -85,6 +86,29 @@ MonoBehaviour:
   - {fileID: 2198563943250951663, guid: 1a54ce572bafcd34aa2551b30ce78622, type: 3}
   - {fileID: 7296990479702022119, guid: 727441a52ccc41a4ba3cdaafe44262ac, type: 3}
   - {fileID: 4995892592883235662, guid: 1962e1ec4bc445247849df97270351e0, type: 3}
+--- !u!114 &7399380140792590272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919388515053903770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Chop
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &3874954639852497401
 PrefabInstance:
   m_ObjectHideFlags: 0
