@@ -37,6 +37,14 @@ public class LevelSelector : MonoBehaviour
             return null;
     }
 
+    public int getLevelIdx()
+    {
+        if (!locked)
+            return levelIndex;
+        else
+            return -1;
+    }
+
     public void setState(levelState l)
     {
         switch (l)
