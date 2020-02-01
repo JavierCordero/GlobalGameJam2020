@@ -58,4 +58,9 @@ public class Cow : Interactable
 
         yield return null;
     }
+
+    public void EnableObject()
+    {
+        transform.gameObject.SetActive(true);
+    }
 }
