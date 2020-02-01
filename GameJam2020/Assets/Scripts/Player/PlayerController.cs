@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public Item GetCurrentItem() { return currentItem; }
+    public bool HasItem() { return currentItem != null; }
 
     #endregion
 
