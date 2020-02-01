@@ -44,7 +44,7 @@ public class Ovni : Interactable
         if (PlayerController.Instance.HasItem())
         {
             ItemType itemType = PlayerController.Instance.GetCurrentItem().GetItemType();
-            
+
             if (recipesDict.ContainsKey(itemType) && !recipesDict[itemType].locked)
             {
                 PlayerController.Instance.ClearHand();
@@ -55,9 +55,9 @@ public class Ovni : Interactable
                 if(itemType == ItemType.Wood)
                     LevelManager.Instance.PerformAction(ActionType.CraftTree);
 
-                HideHint();
+				SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Ship");
 
-                SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/shiprepair");
+				HideHint();
             }
         }
     }
