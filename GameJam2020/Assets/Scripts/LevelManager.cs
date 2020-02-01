@@ -73,8 +73,14 @@ public class LevelManager : MonoBehaviour
             actionsList.Add(action);
             if (action.actionType == ActionType.PlantTree)
                 treesToPlant++;
-			if (action.actionType == ActionType.CraftTree)
+			else if (action.actionType == ActionType.CraftTree)
 				treesToCraft++;
+            else if (action.actionType == ActionType.BuildBridge)
+                bridgesToBuild++;
+            else if (action.actionType == ActionType.SpawnCow)
+                cowsToSpawn++;
+            else if (action.actionType == ActionType.WaterTree)
+                treesToWater++;
         }
 
         actionsBeforeStart.Invoke();
