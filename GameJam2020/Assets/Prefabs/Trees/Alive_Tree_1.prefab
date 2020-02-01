@@ -78,13 +78,13 @@ MonoBehaviour:
   _brokenTree: {fileID: 0}
   _treePlaceholder: {fileID: 0}
   _tutorialLevel: 0
-  numFlowers: 5
   _flowers:
-  - {fileID: 5037901670247601812, guid: b076a3c30adb40b4bb3e872f5b396dae, type: 3}
-  - {fileID: 5520449706967465220, guid: f2af782b0d7e86541bdce539e79949a1, type: 3}
-  - {fileID: 129227862406637133, guid: fce4db5dbdc401f4fba4dac11a66d70b, type: 3}
-  - {fileID: 2289864528351976257, guid: fb05ada76f857d9438a773def4cb3d77, type: 3}
-  - {fileID: 3540745226174294536, guid: 3cc36d71bb491904ea12f3daa59b6a9d, type: 3}
+  - {fileID: 2807571176048935370, guid: 3082ba46ed8549a48bdea6f5e74edd6f, type: 3}
+  - {fileID: 6555189053943587165, guid: 59bda4fac6b4f654088710fef277a840, type: 3}
+  - {fileID: 7762516331600160151, guid: 1c2f96862d2d617409c09f8138db5767, type: 3}
+  - {fileID: 2198563943250951663, guid: 1a54ce572bafcd34aa2551b30ce78622, type: 3}
+  - {fileID: 7296990479702022119, guid: 727441a52ccc41a4ba3cdaafe44262ac, type: 3}
+  - {fileID: 4995892592883235662, guid: 1962e1ec4bc445247849df97270351e0, type: 3}
 --- !u!1001 &3874954639852497401
 PrefabInstance:
   m_ObjectHideFlags: 0
