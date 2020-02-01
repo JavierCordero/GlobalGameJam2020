@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7113485869701845824}
-  - component: {fileID: 4413228913415820999}
+  - component: {fileID: 763112384748676197}
   m_Layer: 0
   m_Name: seagull
   m_TagString: Untagged
@@ -128,7 +128,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &4413228913415820999
+--- !u!114 &763112384748676197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +137,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6116860731569742163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9c3b5943c8011b4f9fd14e87481eba2, type: 3}
+  m_Script: {fileID: 11500000, guid: e138b988ddafd6a46a6e8f3d9ac78e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  animationSpeedVariation: 0.2
+  position: {x: 0, y: 0, z: 0}
+  forward: {x: 0, y: 0, z: 0}
+  avgFlockHeading: {x: 0, y: 0, z: 0}
+  avgAvoidanceHeading: {x: 0, y: 0, z: 0}
+  centreOfFlockmates: {x: 0, y: 0, z: 0}
+  numPerceivedFlockmates: 0
+  velocityModifier: 1
+  target: {fileID: 0}
+  moving: 0
