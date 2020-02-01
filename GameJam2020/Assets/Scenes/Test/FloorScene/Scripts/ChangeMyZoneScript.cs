@@ -51,7 +51,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 			foreach (GameObject g in _auxTiles)
 				_tiles.Add(g);
 
-			StartCoroutine(DespoblateZone());
+			StartCoroutine(quitZone());
 		}
 	}
 
@@ -111,9 +111,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 			last = g;
 		}
 
-        if(FindObjectOfType<NumOfZonesCleaned>())
-		    FindObjectOfType<NumOfZonesCleaned>().checkIfLevelCompleted();
-
 		expandingZone = false;
 
 		last.AddComponent<lastFlowerBehaviour>();
@@ -121,7 +118,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 	}
 
-	IEnumerator DespoblateZone()
+	IEnumerator quitZone()
 	{
 		GameObject last = null;
 

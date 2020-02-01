@@ -6,10 +6,11 @@ public class lastFlowerBehaviour : MonoBehaviour
 {
 	public GameObject myFather;
 
-    public void increase()
+	public void increase()
 	{
-        if (FindObjectOfType<NumOfZonesCleaned>())
+		if (FindObjectOfType<NumOfZonesCleaned>())
 			FindObjectOfType<NumOfZonesCleaned>().increaseNumberOfZonesCleaned(myFather);
+
 	}
 
 	public void decrease()
