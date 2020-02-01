@@ -6,6 +6,7 @@ public class MenuToroid : MonoBehaviour
 {
     public Transform cameraTransform;
     public Transform playerTransform;
+    public Transform seagullsTransform;
 
     public Vector3 offset;
 
@@ -13,5 +14,7 @@ public class MenuToroid : MonoBehaviour
     {
         cameraTransform.transform.position += offset;
         playerTransform.transform.position += offset;
+        seagullsTransform.transform.position += offset;
+
     }
 }
