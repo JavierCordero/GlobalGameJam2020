@@ -5,6 +5,9 @@ using UnityEngine;
 public class MenuPlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float launchSpeed;
+    [SerializeField] private float rotSpeed;
+    [SerializeField] private float accFactor;
     [Range(0f, 1f)] [SerializeField] private float buildUpSpeed;
 
     private float minInput;
@@ -24,6 +27,7 @@ public class MenuPlayerMovement : MonoBehaviour
     
     private float originalY;
     private bool active = false;
+    private bool launching = false;
 
     void Awake()
     {
@@ -101,4 +105,44 @@ public class MenuPlayerMovement : MonoBehaviour
     {
         active = v;
     }
+
+    public void launch()
+    {
+        if (!launching)
+        {
+            launching = true;
+            StartCoroutine("launchRoutine");
+        }
+    }
+
+    IEnumerator launchRoutine()
+    {
+        float dist = 0;
+
+        while (dist < 5)
+        {
+            dist += Time.deltaTime * launchSpeed;
+
+            transform.position -= new Vector3(0, Time.deltaTime * launchSpeed);
+            transform.Rotate(new Vector3(0, 1, 0), Time.deltaTime * rotSpeed);
+
+            yield return new WaitForEndOfFrame();
+
+        }
+
+        yield return new WaitForSeconds(0.1f);
+        dist = 0;
+
+        while (dist < 200)
+        {
+            dist += Time.deltaTime * launchSpeed;
+
+            transform.position += new Vector3(0, Time.deltaTime * launchSpeed * 5);
+            launchSpeed += Time.deltaTime * accFactor;            
+
+            yield return new WaitForEndOfFrame();
+
+        }
+    }
+    
 }

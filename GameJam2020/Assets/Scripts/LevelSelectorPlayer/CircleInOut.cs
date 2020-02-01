@@ -9,6 +9,8 @@ public class CircleInOut : MonoBehaviour
 
     public float scaleLimit = 10f;
 
+    public float exitMaskPosition = 50f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,11 @@ public class CircleInOut : MonoBehaviour
     public void sceneOut()
     {
         StartCoroutine("circleIn");
+    }
+
+    public void setExit()
+    {
+        transform.position = transform.position + transform.up * exitMaskPosition;
     }
 
     IEnumerator circleOut()

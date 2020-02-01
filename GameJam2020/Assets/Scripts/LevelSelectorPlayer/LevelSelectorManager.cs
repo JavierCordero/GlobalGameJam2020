@@ -33,6 +33,7 @@ public class LevelSelectorManager : MonoBehaviour
 
     List<LevelSelector[]> restPositions;
 
+    private bool exiting = false;
 
     private void Start()
     {
@@ -147,6 +148,10 @@ public class LevelSelectorManager : MonoBehaviour
             PlayerPrefs.SetInt("lastLevelDone", 1);
             PlayerPrefs.Save();
         }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            exitToMenu();
+        }
     }
 
     public void loadScene(string name)
@@ -163,5 +168,20 @@ public class LevelSelectorManager : MonoBehaviour
     public void activePlayer(bool v)
     {
         menuPlayerMovement.setActive(v);
+    }
+
+    public void exitToMenu()
+    {
+        if (!exiting)
+        {
+            exiting = true;
+            sceneToChange = "Menu";
+            activePlayer(false);
+            menuPlayerMovement.launch();
+            camera.setLooking(false);
+            camera.setActive(false);
+            inOut.setExit();
+            inOut.sceneOut();
+        }
     }
 }
