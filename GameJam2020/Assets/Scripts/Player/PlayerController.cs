@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentItem == null)
         {
-            Interact();
+            Interact();        
         }
     }
 
@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour
         if (interactable != null)
         {
             interactable.GetComponent<Interactable>().Interact();
+            
         }
     }
 
@@ -143,7 +144,14 @@ public class PlayerController : MonoBehaviour
                 currentItem.transform.localRotation = Quaternion.identity;
                 currentItem.GetComponent<BoxCollider>().enabled = true;
 
+                if (currentItem != null)
+                {
+                    SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Drop");
+                }
+
                 currentItem = null;
+
+               
             }
         }
     }
@@ -177,7 +185,7 @@ public class PlayerController : MonoBehaviour
     {
         currentItem = item.GetComponent<Item>();
         item.GetComponent<BoxCollider>().enabled = false;
-
+        SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Pick");
         item.parent = playerHand;
         item.localPosition = Vector3.zero;
         item.localRotation = Quaternion.identity;

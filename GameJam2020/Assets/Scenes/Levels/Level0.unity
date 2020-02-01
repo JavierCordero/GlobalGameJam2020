@@ -4276,6 +4276,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6288259972923607559, guid: 98d63ac6f13bf9048a4d031f70be01ed,
+        type: 3}
+      propertyPath: Event
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6288259972923607559, guid: 98d63ac6f13bf9048a4d031f70be01ed,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6288259972923607559, guid: 98d63ac6f13bf9048a4d031f70be01ed,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6426684856583961536, guid: 98d63ac6f13bf9048a4d031f70be01ed,
         type: 3}
       propertyPath: m_Name
