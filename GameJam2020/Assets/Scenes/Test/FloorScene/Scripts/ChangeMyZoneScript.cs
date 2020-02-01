@@ -8,6 +8,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 	public float _timeBetweenPoblateAnimation = 0.5f, _timeBetweenDespoblateAnimation = 1f;
 	private List<GameObject> _tiles, _auxTiles;
 	private bool expandingZone = false;
+	public GameObject _brokenTree, _treePlaceholder;
 
 	public void Awake()
 	{
@@ -23,8 +24,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 			StopAllCoroutines();
 			expandingZone = true;
 
-			//Debug.Log(_auxTiles);
-
 			foreach (GameObject g in _auxTiles)
 				_tiles.Add(g);
 			StartCoroutine(PoblateZone());
@@ -37,7 +36,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 		{
 			StopAllCoroutines();
 			expandingZone = false;
-			FindObjectOfType<NumOfZonesCleaned>().decreaseNumberOfZonesCleaned();
 
 			foreach (GameObject g in _auxTiles)
 				_tiles.Add(g);
@@ -72,7 +70,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 			_tiles.RemoveAt(rnd);
 
-			yield return new WaitForSeconds(_timeBetweenPoblateAnimation);
+			yield return new WaitForSeconds(_timeBetweenPoblateAnimation * Time.deltaTime);
 		}
 
 		expandingZone = false;
@@ -93,7 +91,14 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 			_tiles.RemoveAt(rnd);
 
-			yield return new WaitForSeconds(_timeBetweenDespoblateAnimation);
+			yield return new WaitForSeconds(_timeBetweenDespoblateAnimation * Time.deltaTime);
 		}
+
+		FindObjectOfType<NumOfZonesCleaned>().decreaseNumberOfZonesCleaned();
+		Instantiate(_brokenTree, transform.position, Quaternion.identity);
+		GameObject ga = Instantiate(_treePlaceholder, transform.position, Quaternion.identity);
+		ga.GetComponent<Constructable>().objectPrefab = this.gameObject;
+		ga.SetActive(false);
+		gameObject.SetActive(false);
 	}
 }
