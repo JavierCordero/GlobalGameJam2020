@@ -125,7 +125,7 @@ public class LevelSelectorManager : MonoBehaviour
 
         camera.setTarget(menuPlayerMovement.transform, false);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         menuPlayerMovement.setActive(true);
         camera.setLooking();
