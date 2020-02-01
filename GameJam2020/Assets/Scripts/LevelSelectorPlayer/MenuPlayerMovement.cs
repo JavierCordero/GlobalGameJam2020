@@ -20,6 +20,10 @@ public class MenuPlayerMovement : MonoBehaviour
     private MenuPlayerController playerController;
     private MenuInputHandler playerInput;
 
+    [SerializeField] private bool moveIsometric;
+
+    
+
     void Awake()
     {
         forward = Camera.main.transform.forward;
@@ -49,9 +53,17 @@ public class MenuPlayerMovement : MonoBehaviour
         // Movement ---------------------------------------------------
         Vector3 hMovement;
         Vector3 vMovement;
-        
-        hMovement = right * movementInput.x;
-        vMovement = forward * movementInput.y;        
+
+        if (moveIsometric)
+        {
+            hMovement = Vector3.right * movementInput.x;
+            vMovement = Vector3.forward * movementInput.y;
+        }
+        else
+        {
+            hMovement = right * movementInput.x;
+            vMovement = forward * movementInput.y;
+        }
 
         Vector3 finalMovement = Vector3.ClampMagnitude((hMovement + vMovement), 1.0f) * speed * Time.deltaTime;        
 

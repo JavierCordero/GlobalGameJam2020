@@ -21,9 +21,11 @@ public class Item : Interactable
 
     public override void Interact()
     {
-        Debug.Log("Interact");
-        Transform itemToHold = Instantiate(itemPrefab).transform;
-        PlayerController.Instance.HoldItem(itemToHold);
-        Destroy(this.gameObject);
+        if (!PlayerController.Instance.HasItem())
+        {
+            Transform itemToHold = Instantiate(itemPrefab).transform;
+            PlayerController.Instance.HoldItem(itemToHold);
+            Destroy(this.gameObject);
+        }
     }
 }

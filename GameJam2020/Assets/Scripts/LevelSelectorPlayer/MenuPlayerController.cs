@@ -15,7 +15,7 @@ public class MenuPlayerController : MonoBehaviour
     private Vector3 forward;
     private Vector3 right;
 
-    private PlayerInputHandler playerInput;
+    private PlayerInputHandler playerInput;    
 
     // Items
     private Transform playerHand;
