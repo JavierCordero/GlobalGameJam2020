@@ -9,7 +9,8 @@ public enum ActionType
     PlantTree,
     BuildBridge,
     WaterTree,
-    SpawnCow
+    SpawnCow,
+    CraftTree
 }
 
 [System.Serializable]
