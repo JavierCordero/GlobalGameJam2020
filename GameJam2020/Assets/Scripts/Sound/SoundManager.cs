@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 class soundParameters
 {
@@ -38,6 +39,7 @@ public class SoundManager : MonoBehaviour
     #endregion
 
 
+
     private void Update()
     {
         for(int i = 0; i < sounds.Count; i++)
@@ -51,8 +53,10 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(FMODUnity.StudioEventEmitter emitter)
+    public void PlaySound(FMODUnity.StudioEventEmitter emitter, string ev)
     {
+        emitter.Stop();
+        emitter.Event = ev;
         emitter.Play();
     }
 

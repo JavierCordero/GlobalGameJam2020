@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeMyZoneScript : MonoBehaviour
 {
 	public GameObject _myZone;
-	public float _timeBetweenPoblateAnimation = 0.5f, _timeBetweenDespoblateAnimation = 1f;
+	public float _timeBetweenPoblateAnimation = 1f, _timeBetweenDespoblateAnimation = 100f;
 	private List<GameObject> _tiles, _auxTiles;
 	int[] selectedFlowerInTile;
 	private bool expandingZone = false;
@@ -147,7 +147,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 		Instantiate(_brokenTree, transform.position, Quaternion.identity);
 		GameObject ga = Instantiate(_treePlaceholder, transform.position, Quaternion.identity);
-		ga.GetComponent<Constructable>().objectPrefab = this.gameObject;
+		ga.GetComponent<Constructable>().contructedObject = this.gameObject;
 		ga.SetActive(false);
 		gameObject.SetActive(false);
 	}
