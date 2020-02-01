@@ -111,6 +111,8 @@ public class ChangeMyZoneScript : MonoBehaviour
 			last = g;
 		}
 
+		FindObjectOfType<NumOfZonesCleaned>().checkIfLevelCompleted();
+
 		expandingZone = false;
 
 		last.AddComponent<lastFlowerBehaviour>();
