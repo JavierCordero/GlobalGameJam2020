@@ -11,13 +11,13 @@ class soundParameters
 
 public class SoundManager : MonoBehaviour
 {
-    List<soundParameters> sounds = new List<soundParameters>();
-
     #region instance
     private static SoundManager instance = null;
 
-    // Game Instance Singleton
-    public static SoundManager Instance
+	List<soundParameters> sounds;
+
+	// Game Instance Singleton
+	public static SoundManager Instance
     {
         get
         {
@@ -30,41 +30,29 @@ public class SoundManager : MonoBehaviour
         // if the singleton hasn't been initialized yet
         if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
+            DestroyImmediate(this.gameObject);
         }
 
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-    }
-    #endregion
 
+		sounds = new List<soundParameters>();
 
+	}
+	#endregion
 
-    private void Update()
+	public void PlaySound(FMODUnity.StudioEventEmitter emitter, string ev)
     {
-        for(int i = 0; i < sounds.Count; i++)
-        {
-            sounds[i].delay -= Time.deltaTime;
-            if(sounds[i].delay <= 0)
-            {
-                sounds[i].emitter.Play();
-                sounds.RemoveAt(i);
-            }
-        }
-    }
-
-    public void PlaySound(FMODUnity.StudioEventEmitter emitter, string ev)
-    {
-        emitter.Stop();
-        emitter.Event = ev;
-        emitter.Play();
-    }
+		emitter.Stop();
+		emitter.Event = ev;
+		emitter.Play();
+	}
 
     public void PlaySoundWithDelay(FMODUnity.StudioEventEmitter emitter, float delay)
     {
-        soundParameters aux_ = new soundParameters();
-        aux_.emitter = emitter;
-        aux_.delay = delay;
-        sounds.Add(aux_);
-    }
+		soundParameters aux_ = new soundParameters();
+		aux_.emitter = emitter;
+		aux_.delay = delay;
+		sounds.Add(aux_);
+	}
 }
