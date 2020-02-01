@@ -14,11 +14,6 @@ public class MenuLetters : MonoBehaviour
     public float _timeBtwLetterDestroy;
     public float _timeBtwLetterCreate;
 
-    private bool _destroying;
-    private bool _creating;
-
-    private bool _animationInProcess;
-    private float _actualTime;
 
     // Start is called before the first frame update
     void Start()
@@ -34,44 +29,37 @@ public class MenuLetters : MonoBehaviour
         {
             StartAnimation(true);
         }
-        if (_animationInProcess)
-        {
-            _actualTime += Time.deltaTime;
-            if (_destroying)
-            {
-                if(_actualTime >= _timeBtwLetterDestroy)
-                {
-                    _particleSystems[_pairIndex - 1].Play();
-                    Destroy(_pair[_pairIndex - 1].gameObject);
-                    _pairIndex--;
-                    _actualTime = 0;
-                }
-            }
-            else if (_creating)
-            {
-                if(_actualTime >= _timeBtwLetterCreate)
-                {
-                    _planet[_planetIndex].SetActive(true);
-                    _planetIndex++;
-                    _actualTime = 0;
-                }
-            }
+    }
 
-            if (_pairIndex == 0)
-            {
-                _destroying = false;
-                _creating = true;
-            }
-            else if (_planetIndex == _planet.Length)
-            {
-                _creating = false;
-            }
+    private void DestroyLetter()
+    {
+        _particleSystems[_pairIndex - 1].Play();
+        Destroy(_pair[_pairIndex - 1].gameObject);
+        _pairIndex--;
+
+        if (_pairIndex == 0)
+        {
+            Invoke("CreateLetter", _timeBtwLetterCreate);
+        }
+        else
+        {
+            Invoke("DestroyLetter", _timeBtwLetterDestroy);
+        }
+    }
+
+    private void CreateLetter()
+    {
+        _planet[_planetIndex].SetActive(true);
+        _planetIndex++;
+
+        if (_planetIndex != _planet.Length)
+        {
+            Invoke("CreateLetter", _timeBtwLetterCreate);
         }
     }
 
     public void StartAnimation(bool b)
     {
-        _animationInProcess = b;
-        _destroying = true;
+        Invoke("DestroyLetter", _timeBtwLetterDestroy);
     }
 }
