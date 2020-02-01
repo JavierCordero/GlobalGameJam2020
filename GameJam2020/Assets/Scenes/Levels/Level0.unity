@@ -1433,6 +1433,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: blockroad4
       objectReference: {fileID: 0}
+    - target: {fileID: 1614839102771419549, guid: e78d186e9895e604ab55c6b8e15390b7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: dc32b781d8e962043a7c87a9a7f90299,
+        type: 3}
     - target: {fileID: 2029380776169901390, guid: e78d186e9895e604ab55c6b8e15390b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2687,6 +2693,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: blockroad4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1614839102771419549, guid: e78d186e9895e604ab55c6b8e15390b7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: dc32b781d8e962043a7c87a9a7f90299,
+        type: 3}
     - target: {fileID: 2029380776169901390, guid: e78d186e9895e604ab55c6b8e15390b7,
         type: 3}
       propertyPath: m_LocalPosition.x
