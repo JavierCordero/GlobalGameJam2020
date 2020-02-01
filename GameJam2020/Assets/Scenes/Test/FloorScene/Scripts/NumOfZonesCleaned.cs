@@ -26,22 +26,10 @@ public class NumOfZonesCleaned : MonoBehaviour
 	{
 		numOfZonesCleaned++;
 
-		if (numOfZonesCleaned < totalNumOfZonesCleaned)
+        if (numOfZonesCleaned < totalNumOfZonesCleaned)
 		{
-			obj.GetComponent<ChangeMyZoneScript>().despoblateZone();
+            obj.GetComponent<ChangeMyZoneScript>().despoblateZone();
 		}
-
-		//else if (numOfZonesCleaned >= totalNumOfZonesCleaned && totalNumOfZonesCleaned > 1)
-		//{
-		//	ChangeMyZoneScript[] cm = FindObjectsOfType<ChangeMyZoneScript>();
-
-		//	foreach (ChangeMyZoneScript c in cm)
-		//	{
-		//		c.poblateZone();
-		//	}
-		//}
-
-		//Destroy(this);
 	}
 
 	public void decreaseNumberOfZonesCleaned()

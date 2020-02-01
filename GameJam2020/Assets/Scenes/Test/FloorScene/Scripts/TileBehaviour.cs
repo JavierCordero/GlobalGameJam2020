@@ -24,7 +24,8 @@ public class TileBehaviour : MonoBehaviour
 		}
 
 	    gameObject.transform.localScale = new Vector3(maxSize, transform.localScale.y, maxSize);
-		if (GetComponent<lastFlowerBehaviour>())
+
+        if (GetComponent<lastFlowerBehaviour>())
 			GetComponent<lastFlowerBehaviour>().increase();
 	}
 
