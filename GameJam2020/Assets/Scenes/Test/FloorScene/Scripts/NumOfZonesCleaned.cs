@@ -28,7 +28,7 @@ public class NumOfZonesCleaned : MonoBehaviour
 
 		numOfZonesCleaned++;
 
-        if (numOfZonesCleaned < totalNumOfZonesCleaned)
+        if (numOfZonesCleaned < totalNumOfZonesCleaned && obj.GetComponent<ChangeMyZoneScript>())
 		{
             obj.GetComponent<ChangeMyZoneScript>().despoblateZone();
 		}
