@@ -50,7 +50,9 @@ public class LevelManager : MonoBehaviour
 		actionsList.Add(l);
 	}
 
+    [HideInInspector]
     public int treesToPlant = 0;
+    [HideInInspector]
     public int treesPlanted = 0;
 
     private int bridgesToBuild = 0;
