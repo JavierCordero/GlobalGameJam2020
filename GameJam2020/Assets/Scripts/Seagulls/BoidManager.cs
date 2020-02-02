@@ -39,16 +39,12 @@ public class BoidManager : MonoBehaviour
    
     private void Awake()
     {
-        if (Instance == null) instance = this;
-        else Destroy(this.gameObject);
        
         if (target1Active)
             currTarg = target1;
         else currTarg = target2;
 
-       
-
-        
+      
     }
     public GameObject SpawnInit()
     {
@@ -171,6 +167,7 @@ public class BoidManager : MonoBehaviour
 
     IEnumerator updateTarget()
     {
+        yield return new WaitForSeconds(12);
 
         Debug.Log("CAMBIO");
         Transform t;
@@ -185,7 +182,7 @@ public class BoidManager : MonoBehaviour
             boids[i].Initialize(settings, currTarg);
         }
 
-        yield return new WaitForSeconds(12);
+       
 
         changeTargetPoint();
 
