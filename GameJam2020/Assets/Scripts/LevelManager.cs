@@ -13,7 +13,8 @@ public enum ActionType
     CraftTree,
     CraftCow,
     CowDied,
-    TreeDied
+    TreeDied,
+    PickUpItem
 }
 
 [System.Serializable]

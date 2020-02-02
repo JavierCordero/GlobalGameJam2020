@@ -7425,7 +7425,7 @@ GameObject:
   - component: {fileID: 1299487307}
   - component: {fileID: 1299487308}
   m_Layer: 8
-  m_Name: Blanck
+  m_Name: Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
