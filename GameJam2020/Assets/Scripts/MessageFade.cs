@@ -5,12 +5,8 @@ using UnityEngine;
 public class MessageFade : MonoBehaviour
 {
     public float speed = 5f;
-    SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    public SpriteRenderer [] spriteRenderer;
+    
 
     public void FadeIn()
     {
@@ -26,33 +22,45 @@ public class MessageFade : MonoBehaviour
     {
         Color c;
 
-        while (spriteRenderer.color.a < 1)
+        while (spriteRenderer[0].color.a < 1)
         {
-            c = spriteRenderer.color;
-            c.a += Time.deltaTime * speed;
-            spriteRenderer.color = c;
+            for (int i = 0; i<spriteRenderer.Length; i++) {
+                c = spriteRenderer[i].color;
+                c.a += Time.deltaTime * speed;
+                spriteRenderer[i].color = c;
+            }
             yield return new WaitForEndOfFrame();
         }
 
-        c = spriteRenderer.color;
-        c.a = 1;
-        spriteRenderer.color = c;
+        for (int i = 0; i < spriteRenderer.Length; i++)
+        {
+            c = spriteRenderer[i].color;
+            c.a = 1;
+            spriteRenderer[i].color = c;
+        }
     }
 
     IEnumerator fadeOut()
     {
         Color c;
 
-        while (spriteRenderer.color.a > 0)
+        while (spriteRenderer[0].color.a > 0)
         {
-            c = spriteRenderer.color;
-            c.a -= Time.deltaTime * speed;
-            spriteRenderer.color = c;
+            for (int i = 0; i<spriteRenderer.Length; i++)
+            {
+                c = spriteRenderer[i].color;
+                c.a -= Time.deltaTime * speed;
+                spriteRenderer[i].color = c;
+            }
+            
             yield return new WaitForEndOfFrame();
         }
 
-        c = spriteRenderer.color;
-        c.a = 0;
-        spriteRenderer.color = c;
+        for (int i = 0; i < spriteRenderer.Length; i++)
+        {
+            c = spriteRenderer[i].color;
+            c.a -= Time.deltaTime * speed;
+            spriteRenderer[i].color = c;
+        }
     }
 }
