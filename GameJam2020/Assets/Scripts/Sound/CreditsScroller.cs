@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CreditsScroller : MonoBehaviour
 {
@@ -61,10 +62,32 @@ public class CreditsScroller : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(5f);
 
-        // Credits finished
-        Application.Quit(0);
-        //Debug.Log("Quitting application...");
+		// Credits finished
+		time = 0f;
+		percent = 0f;
+		lastTime = Time.realtimeSinceStartup;
 
-        yield return null;
+		// Black fade ----------------------
+
+
+		do
+		{
+			time += Time.realtimeSinceStartup - lastTime;
+			lastTime = Time.realtimeSinceStartup;
+			percent = Mathf.Clamp01(time / blackDuration);
+
+			Color c = black.color;
+			c.a = Mathf.Clamp01(percent);
+			black.color = c;
+
+			yield return null;
+		} while (percent < 1);
+
+		yield return new WaitForSecondsRealtime(0.5f);
+
+		SceneManager.LoadScene("Menu");
+		//Debug.Log("Quitting application...");
+
+		yield return null;
     }
 }

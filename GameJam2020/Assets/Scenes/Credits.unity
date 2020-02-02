@@ -239,7 +239,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 116807451}
-  - component: {fileID: 116807450}
   m_Layer: 0
   m_Name: CreditsManager
   m_TagString: Untagged
@@ -247,26 +246,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &116807450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 116807449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f53b5c7138b2a4439adf1cd55e9cb12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollDelay: 1
-  scrollTime: 22.5
-  scrollSpeed: 45
-  fadeSpeed: 0.4
-  black: {fileID: 1353887934}
-  credits:
-  - {fileID: 1737787308}
-  - {fileID: 1986226019}
 --- !u!4 &116807451
 Transform:
   m_ObjectHideFlags: 0
@@ -1059,7 +1038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1353887932
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1734,6 +1713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 20
   finalPosition: {fileID: 174672790}
+  blackDuration: 2
+  black: {fileID: 1353887934}
 --- !u!1 &1986226019
 GameObject:
   m_ObjectHideFlags: 0
