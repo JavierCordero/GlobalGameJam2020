@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameCircleInOut : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameCircleInOut : MonoBehaviour
     public float speedIn = 2.5f;
     public float speedOut = 2.5f;
     public float scaleLimit = 10f;
+
+    public CinemachineVirtualCamera vcam;
 
     private SpriteMask spriteMask;
 
@@ -38,6 +41,8 @@ public class GameCircleInOut : MonoBehaviour
 
         black.SetActive(false);
         spriteMask.enabled = false;
+        if(vcam != null)
+            vcam.enabled = true;
 
         yield return new WaitForEndOfFrame();        
     }

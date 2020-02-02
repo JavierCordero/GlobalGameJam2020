@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2043756869300962930}
   - component: {fileID: 2043756869300962941}
   - component: {fileID: 2043756869300962940}
-  - component: {fileID: 2043756869300962931}
   m_Layer: 0
   m_Name: Model
   m_TagString: Interactable
@@ -40,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2043756869300962929}
-  m_Mesh: {fileID: -2432090755550338912, guid: 3627b6e355cc7474ea68839da56d9abe, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: 867e7477793467f478a521cacea4d0a9, type: 3}
 --- !u!23 &2043756869300962940
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -80,22 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2043756869300962931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043756869300962929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 317ce0c81476eba4a9e76a5ae81e03d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 709bc0126d1c7654db6d56aad0429870, type: 2}
-  animations:
-  - {fileID: 11400000, guid: bcf2ed0f240780348a160c1223f9f25d, type: 2}
-  initialAnimation: Idle
 --- !u!1 &6649934173904304352
 GameObject:
   m_ObjectHideFlags: 0
