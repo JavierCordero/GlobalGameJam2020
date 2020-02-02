@@ -147,7 +147,7 @@ public class LevelManager : MonoBehaviour
 			treesCrafted >= treesToCraft)
         {
             Debug.Log("LevelFinished!");
-
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
             Invoke(nameof(loadScene), timeToChangeScene);
             unlockNextLevel();
         }

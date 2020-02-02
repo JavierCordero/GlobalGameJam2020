@@ -59,6 +59,7 @@ public class Ovni : Interactable
 
                 GetComponent<FMODUnity.StudioEventEmitter>().Play();
 
+
                 HideHint();
             }
         }
