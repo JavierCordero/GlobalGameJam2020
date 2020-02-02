@@ -28,6 +28,7 @@ public class Item : Interactable
         {
             Transform itemToHold = Instantiate(itemPrefab).transform;
             PlayerController.Instance.HoldItem(itemToHold);
+            LevelManager.Instance.PerformAction(ActionType.PickUpItem);
             Destroy(this.gameObject);
         }
     }
