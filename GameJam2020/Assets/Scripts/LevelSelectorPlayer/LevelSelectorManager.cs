@@ -63,8 +63,6 @@ public class LevelSelectorManager : MonoBehaviour
 
         if (Globals.lastLevelDone)
         {
-            Globals.lastLevelDone = false;            
-
             menuPlayerMovement.setActive(false);
 
             StartCoroutine("unlockNextLevel");
@@ -141,6 +139,7 @@ public class LevelSelectorManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.85f);
 
+        Globals.lastLevelDone = false;
         menuPlayerMovement.setActive(true);
         camera.setLooking();
         camera.setSpeed(smooth);        
