@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ChangeMyZoneScript : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 	public GameObject _brokenTree, _treePlaceholder;
 	public bool _tutorialLevel;
 	public GameObject [] _flowers;
-
 
 	public void Awake()
 	{
@@ -31,10 +31,14 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 	public void poblateZone()
 	{
+		Debug.Log("Im poblating this nigga ass place.");
+
 		if (!expandingZone)
 		{
 			StopAllCoroutines();
 			expandingZone = true;
+
+			_tiles.Clear();
 
 			foreach (GameObject g in _auxTiles)
 				_tiles.Add(g);
@@ -47,6 +51,8 @@ public class ChangeMyZoneScript : MonoBehaviour
 		if (!expandingZone)
 		{
 			StopAllCoroutines();
+
+			_tiles.Clear();
 
 			foreach (GameObject g in _auxTiles)
 				_tiles.Add(g);
@@ -61,7 +67,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 		{
 			if (t != _myZone.transform && t.GetComponent<TileBehaviour>())
 			{
-				_tiles.Add(t.gameObject);
 				_auxTiles.Add(t.gameObject);
 			}
 		}
@@ -100,18 +105,21 @@ public class ChangeMyZoneScript : MonoBehaviour
 				f.transform.parent = g.transform;
 				f.transform.localPosition = new Vector3(0, 0.5f, 0);
 				f.transform.localScale = new Vector3(1, 25, 1);
-				//g.transform.GetChild(selectedFlowerInTile[index]).gameObject.SetActive(true);
 			}
+
 			tb.startGrowAnimation();
 
 			_tiles.RemoveAt(rnd);
 
-			yield return new WaitForSeconds(_timeBetweenPoblateAnimation * Time.deltaTime);
-
 			last = g;
+
+			yield return new WaitForSeconds(_timeBetweenPoblateAnimation * Time.deltaTime);	
 		}
 
 		expandingZone = false;
+
+		if (last.GetComponent<lastFlowerBehaviour>())
+			Destroy(last.GetComponent<lastFlowerBehaviour>());
 
 		last.AddComponent<lastFlowerBehaviour>();
 		last.GetComponent<lastFlowerBehaviour>().myFather = gameObject;
@@ -139,19 +147,33 @@ public class ChangeMyZoneScript : MonoBehaviour
 			last = g;
 		}
 
+		if (last.GetComponent<lastFlowerBehaviour>())
+			Destroy(last.GetComponent<lastFlowerBehaviour>());
+
 		last.AddComponent<lastFlowerBehaviour>();
 		last.GetComponent<lastFlowerBehaviour>().myFather = gameObject;
 
 		Instantiate(_brokenTree, transform.position, Quaternion.identity);
 		GameObject ga = Instantiate(_treePlaceholder, transform.position, Quaternion.identity);
-		ga.GetComponent<Constructable>().contructedObject = this.gameObject;
 		ga.SetActive(false);
-		FindObjectOfType<LevelManager>().treesPlanted--;
 
-		LevelAction l = new LevelAction();
-		l.actionType = ActionType.PlantTree;
+		ga.transform.GetChild(1).GetComponent<ChangeMyZoneScript>()._myZone = gameObject.GetComponent<ChangeMyZoneScript>()._myZone;
+		ga.transform.GetChild(1).GetComponent<ChangeMyZoneScript>()._brokenTree = gameObject.GetComponent<ChangeMyZoneScript>()._brokenTree;
+		ga.transform.GetChild(1).GetComponent<ChangeMyZoneScript>()._treePlaceholder = gameObject.GetComponent<ChangeMyZoneScript>()._treePlaceholder;
+		ga.transform.GetChild(1).GetComponent<ChangeMyZoneScript>()._timeBetweenDespoblateAnimation = gameObject.GetComponent<ChangeMyZoneScript>()._timeBetweenDespoblateAnimation;
+		ga.transform.GetChild(1).GetComponent<ChangeMyZoneScript>()._timeBetweenPoblateAnimation = gameObject.GetComponent<ChangeMyZoneScript>()._timeBetweenPoblateAnimation;
 
-		FindObjectOfType<LevelManager>().addToActionList(l);
-		gameObject.SetActive(false);
+		LevelManager.Instance.addToActionList(new LevelAction(ActionType.TreeDied));
+		LevelManager.Instance.PerformAction(ActionType.TreeDied);
+
+		LevelManager.Instance.addToActionList(new LevelAction(ActionType.PlantTree));
+
+		UnityEvent ev = new UnityEvent();
+
+		ev.AddListener(ga.GetComponent<Constructable>().EnableObject);
+
+		LevelManager.Instance.addToActionList(new LevelAction(ActionType.CraftTree, ev));
+
+		DestroyImmediate(transform.parent.gameObject);
 	}
 }
