@@ -12,7 +12,7 @@ public class CreditsScroll : MonoBehaviour
 
 
     public GameObject[] credits;
-    public GameObject world;
+    //public GameObject world;
 
     bool scrolling = false;
 
@@ -37,11 +37,11 @@ public class CreditsScroll : MonoBehaviour
         {
             float dst = scrollSpeed * Time.deltaTime;
 
-            world.transform.position += new Vector3(0, dst / 1000.0f, 0);
+            //world.transform.position += new Vector3(0, dst / 1000.0f, 0);
 
             for (int i = 0; i<credits.Length; i++)
             {
-                credits[i].transform.position += new Vector3(0, dst * 10, 0);
+                credits[i].transform.position += new Vector3(0, dst, 0);
             }            
         }
     }

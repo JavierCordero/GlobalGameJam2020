@@ -15,6 +15,7 @@ public class LevelSelectorManager : MonoBehaviour
     public SmoothCamera camera;
     public MenuPlayerMovement menuPlayerMovement;
     public LevelSelectorCircleInOut inOut;
+    public CircleFadeOut fadeOutScript;
 
     private string sceneToChange = "";
 
@@ -161,7 +162,9 @@ public class LevelSelectorManager : MonoBehaviour
 
     public void sceneOut()
     {
-        inOut.sceneOut();
+        //AQUI LLAMO AL METODO QUE HACE EL FADE OUT 
+        //inOut.sceneOut();
+        fadeOutScript.exit();
     }
 
     public void changeScene()
@@ -184,8 +187,9 @@ public class LevelSelectorManager : MonoBehaviour
             menuPlayerMovement.launch();
             camera.setLooking(false);
             camera.setActive(false);
-            inOut.setExit();
-            inOut.sceneOut();
+            // inOut.setExit();
+            //inOut.sceneOut();
+            fadeOutScript.exit();
         }
     }
 }
