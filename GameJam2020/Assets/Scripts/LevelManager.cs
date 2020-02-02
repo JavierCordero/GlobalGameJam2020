@@ -24,10 +24,17 @@ public struct LevelAction
     public LevelAction(ActionType action)
     {
         actionType = action;
-        functionsWhenFinished = new UnityEvent();;
+        functionsWhenFinished = new UnityEvent();
+
     }
 
-    public ActionType actionType;
+	public LevelAction(ActionType action, UnityEvent ev)
+	{
+		actionType = action;
+		functionsWhenFinished = ev;
+	}
+
+	public ActionType actionType;
     public UnityEvent functionsWhenFinished;
 }
 
