@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 10f)] [SerializeField] private float maxWeightHeld = 10;
     [Range(0f, 1f)] [SerializeField] private float buildUpSpeed;
     [SerializeField] private bool moveIsometric;
+    public ParticleSystem dustParticles;
 
     private float minInput;
     private float buildUpRot;
@@ -78,7 +79,12 @@ public class PlayerMovement : MonoBehaviour
 
         string holding = (playerController.HasItem() ? "Holding" : "");
         if (finalMovement.magnitude > 0)
+        {
             animator.PlayAnimation("Walking" + holding);
+            dustParticles.Play();
+
+        }
+           
         else
             animator.PlayAnimation("Idle" + holding);
 
