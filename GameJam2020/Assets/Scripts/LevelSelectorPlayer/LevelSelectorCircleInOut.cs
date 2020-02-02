@@ -14,7 +14,7 @@ public class LevelSelectorCircleInOut : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("circleOut");
+        //StartCoroutine("circleOut");
     }
 
     public void sceneOut()
