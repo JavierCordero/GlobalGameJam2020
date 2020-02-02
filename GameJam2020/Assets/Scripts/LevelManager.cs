@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public enum ActionType
 {
@@ -42,6 +43,8 @@ public class LevelManager : MonoBehaviour
 
     [Header("Action to complete the level")]
     [SerializeField] private LevelAction[] levelActions;
+
+    public CinemachineVirtualCamera cam;
 
     private List<LevelAction> actionsList;
 
@@ -160,6 +163,7 @@ public class LevelManager : MonoBehaviour
 
     public void loadScene()
     {
+        cam.enabled = false;
         inOut.sceneOut();
     }
 
