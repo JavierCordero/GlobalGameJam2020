@@ -9083,6 +9083,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1010806028257210607, guid: b430da530b0fee149b4b27dea8ce1daf,
+        type: 3}
+      propertyPath: Event
+      value: event:/Irrigate
+      objectReference: {fileID: 0}
     - target: {fileID: 2489998985960015526, guid: b430da530b0fee149b4b27dea8ce1daf,
         type: 3}
       propertyPath: m_Name
