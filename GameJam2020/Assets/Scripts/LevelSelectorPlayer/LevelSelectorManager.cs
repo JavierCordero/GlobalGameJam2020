@@ -30,6 +30,7 @@ public class LevelSelectorManager : MonoBehaviour
     public LevelSelector[] restPositions3;
     public LevelSelector[] restPositions4;
     public LevelSelector[] restPositions5;
+    public LevelSelector[] restPositions6;
 
     List<LevelSelector[]> restPositions;
 
@@ -43,7 +44,8 @@ public class LevelSelectorManager : MonoBehaviour
             Destroy(this.gameObject);
 
         restPositions = new List<LevelSelector[]>();
-        
+
+        restPositions.Insert(0, restPositions6);
         restPositions.Insert(0, restPositions5);
         restPositions.Insert(0, restPositions4);
         restPositions.Insert(0, restPositions3);
