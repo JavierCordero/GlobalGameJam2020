@@ -41,6 +41,7 @@ public class MainMenuUfo : MonoBehaviour
         GetComponent<FMODUnity.StudioEventEmitter>().Play();
         animator.SetTrigger("Leave");
         yield return new WaitForSeconds(2f);
+        StopAllCoroutines();
         levelLoader.LoadNextLevel();
     }
 
