@@ -13,7 +13,8 @@ public enum ActionType
     CraftTree,
     CraftCow,
     CowDied,
-    TreeDied
+    TreeDied,
+    PickUpItem
 }
 
 [System.Serializable]
@@ -146,7 +147,7 @@ public class LevelManager : MonoBehaviour
 			treesCrafted >= treesToCraft)
         {
             Debug.Log("LevelFinished!");
-
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
             Invoke(nameof(loadScene), timeToChangeScene);
             unlockNextLevel();
         }

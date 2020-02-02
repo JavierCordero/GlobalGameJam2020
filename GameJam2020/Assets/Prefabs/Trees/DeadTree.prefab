@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/Chop
-  PlayEvent: 0
+  PlayEvent: 2
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0

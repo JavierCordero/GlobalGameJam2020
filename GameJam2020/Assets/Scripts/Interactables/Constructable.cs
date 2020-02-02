@@ -38,7 +38,10 @@ public class Constructable : Interactable
             zone.poblateZone();
 
         if (actionPerformed == ActionType.PlantTree)
+        {
             StartCoroutine(Die());
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        }
 
         if(actionPerformed == ActionType.BuildBridge)
         {
@@ -71,6 +74,11 @@ public class Constructable : Interactable
     public void EnableObject()
     {
         transform.gameObject.SetActive(true);
+    }
+
+    public void EnableObjectWithDelay(float delay)
+    {
+        Invoke(nameof(EnableObject), delay);
     }
 
     public void DisableObject()
