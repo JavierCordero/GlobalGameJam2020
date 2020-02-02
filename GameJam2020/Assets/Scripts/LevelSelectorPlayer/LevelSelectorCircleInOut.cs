@@ -56,7 +56,7 @@ public class LevelSelectorCircleInOut : MonoBehaviour
 
         transform.localScale = Vector3.zero;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         LevelSelectorManager.instance.changeScene();
     }
