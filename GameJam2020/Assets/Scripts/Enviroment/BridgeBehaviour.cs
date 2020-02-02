@@ -11,5 +11,6 @@ public class BridgeBehaviour : MonoBehaviour
 		waterTileUnderMe.GetComponent<Collider>().enabled = false;
 		transform.GetChild(0).gameObject.SetActive(true);
 		GetComponent<MeshRenderer>().enabled = false;
+		GetComponent<FMODUnity.StudioEventEmitter>().Play();
 	}
 }

@@ -143,12 +143,16 @@ public class PlayerController : MonoBehaviour
                 currentItem.transform.parent = null;
                 currentItem.transform.localRotation = Quaternion.identity;
                 currentItem.GetComponent<BoxCollider>().enabled = true;
+<<<<<<< HEAD
+                
+=======
 
                 //if (currentItem != null)
                 //{
                 //    SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Drop");
                 //}
 
+>>>>>>> 588fc87fd97712dbccca94cbec82548f78b463c2
                 currentItem = null;
             }
         }
@@ -181,12 +185,20 @@ public class PlayerController : MonoBehaviour
     // Set item in player hand
     public void HoldItem(Transform item)
     {
+
+        if (currentItem == null)
+        {
+            GetComponent<FMODUnity.StudioEventEmitter>().Event = "event:/Pick";
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        }
+
         currentItem = item.GetComponent<Item>();
         item.GetComponent<BoxCollider>().enabled = false;
         
         item.parent = playerHand;
         item.localPosition = Vector3.zero;
         item.localRotation = Quaternion.identity;
+        
     }
 
     public void ClearHand()
