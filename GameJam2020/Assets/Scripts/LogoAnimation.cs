@@ -31,11 +31,14 @@ public class LogoAnimation : MonoBehaviour
             yield return new WaitForSeconds(timeBetween);
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(timeBetween);
 
         GetComponent<Animator>().enabled = true;
         yield return new WaitForSeconds(0.03f);
         image.sprite = sprites[sprites.Length-1];
+
+        yield return new WaitForSeconds(0.7f);
+        GetComponent<Animator>().SetTrigger("Idle");
 
         yield return null;
     }
