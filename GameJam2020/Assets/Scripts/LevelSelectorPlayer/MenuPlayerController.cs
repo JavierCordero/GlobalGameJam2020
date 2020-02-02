@@ -23,7 +23,9 @@ public class MenuPlayerController : MonoBehaviour
     public float GetBuildUpRot() { return buildUpRot; }
 
     private string levelToChange = null;
-    private int levelToChangeIdx = -1;    
+    private int levelToChangeIdx = -1;
+
+    public MessageFade message;
     
     #endregion
 
@@ -43,7 +45,8 @@ public class MenuPlayerController : MonoBehaviour
         {
             levelToChange = result.getLevel();
             levelToChangeIdx = result.getLevelIdx();
-            Debug.Log(levelToChange);
+            if(levelToChangeIdx != -1)
+                message.FadeIn();
         }
     }
 
@@ -53,6 +56,7 @@ public class MenuPlayerController : MonoBehaviour
         {
             levelToChange = null;
             Debug.Log(levelToChange);
+            message.FadeOut();
         }
     }    
 
