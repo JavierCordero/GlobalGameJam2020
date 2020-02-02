@@ -405,6 +405,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1693082162}
+    - target: {fileID: 2314424082183329287, guid: e05027a4184b1444a9c0cd3ae5fe6c62,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05027a4184b1444a9c0cd3ae5fe6c62, type: 3}
 --- !u!114 &66132557 stripped
@@ -414,7 +419,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 66132556}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -2907,6 +2912,7 @@ MonoBehaviour:
   speedIn: 1.5
   speedOut: 1.5
   scaleLimit: 1
+  vcam: {fileID: 66132557}
 --- !u!331 &473266130
 SpriteMask:
   m_ObjectHideFlags: 0
@@ -3803,6 +3809,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ConstructBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676308396728575008, guid: bfaa822f28de2d044ab6aa1fa943ab3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfaa822f28de2d044ab6aa1fa943ab3e, type: 3}
@@ -4760,11 +4771,11 @@ Transform:
   - {fileID: 353354305}
   - {fileID: 1362468265}
   - {fileID: 1119895403}
-  - {fileID: 896670456}
-  - {fileID: 679506463}
-  - {fileID: 2014430522}
   - {fileID: 1464680315}
+  - {fileID: 896670456}
+  - {fileID: 2014430522}
   - {fileID: 80852855}
+  - {fileID: 679506463}
   - {fileID: 484614989}
   - {fileID: 119015529}
   - {fileID: 1101140513}
