@@ -49,12 +49,12 @@ public class Boid : MonoBehaviour {
         cachedTransform = transform;
 
         OnEnable();
-        BoidManager.Instance.AddBoidToArray(this);
+        //BoidManager.Instance.AddBoidToArray(this);
     }
 
     private void OnEnable()
     {
-        BoidManager.Instance.InitializeBoid(this);
+        //BoidManager.Instance.InitializeBoid(this);
     }
 
     public void Initialize (BoidSettings settings, Transform target) {

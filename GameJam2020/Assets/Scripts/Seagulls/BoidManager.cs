@@ -40,11 +40,8 @@ public class BoidManager : MonoBehaviour
     private void Awake()
     {
        
-        if (target1Active)
-            currTarg = target1;
-        else currTarg = target2;
 
-      
+   
     }
     public GameObject SpawnInit()
     {
@@ -70,6 +67,11 @@ public class BoidManager : MonoBehaviour
 
         for (int i = 0; i < boidsNumber; i++)
         {
+            int r = Random.Range(0, 2);
+            if (r == 0)
+                currTarg = target1;
+            else currTarg = target2;
+
             GameObject go = SpawnInit();
             Boid b = go.GetComponent<Boid>();
 
@@ -170,15 +172,16 @@ public class BoidManager : MonoBehaviour
         yield return new WaitForSeconds(12);
 
         Debug.Log("CAMBIO");
-        Transform t;
-        if (currTarg == target1)
-            currTarg = target2;
-        else currTarg = target1;
+
+        
 
         for (int i = 0; i < boidsNumber; i++)
         {
 
-
+            int r = Random.Range(0, 2);
+            if (r == 0)
+                currTarg = target1;
+            else currTarg = target2;
             boids[i].Initialize(settings, currTarg);
         }
 
