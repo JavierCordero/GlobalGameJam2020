@@ -155,8 +155,7 @@ public class LevelManager : MonoBehaviour
 
     private void unlockNextLevel()
     {
-        PlayerPrefs.SetInt("lastLevelDone", 1);
-        PlayerPrefs.Save();
+        Globals.lastLevelDone = true;
     }
 
     public void loadScene()

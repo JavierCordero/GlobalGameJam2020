@@ -64,7 +64,7 @@ public class MenuPlayerController : MonoBehaviour
         if(levelToChange != null)
         {
             Debug.Log("Cambio al nivel: " + levelToChange);
-            PlayerPrefs.SetInt("maxUnlockedIndex", levelToChangeIdx);
+            Globals.actualLevel = levelToChangeIdx;
             LevelSelectorManager.instance.loadScene(levelToChange);
         }
         else

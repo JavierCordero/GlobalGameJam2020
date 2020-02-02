@@ -21,9 +21,7 @@ public class CreditsScroll : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("maxUnlockedIndex", 0);
-        PlayerPrefs.SetInt("lastLevelDone", 0);
-        PlayerPrefs.Save();
+
     }
 
     // Start is called before the first frame update

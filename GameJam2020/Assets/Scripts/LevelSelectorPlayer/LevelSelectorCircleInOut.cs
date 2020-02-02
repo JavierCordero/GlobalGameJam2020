@@ -39,7 +39,10 @@ public class LevelSelectorCircleInOut : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
-        LevelSelectorManager.instance.activePlayer(true);
+        if (!Globals.lastLevelDone)
+        {
+            LevelSelectorManager.instance.activePlayer(true);
+        }
     }
 
     IEnumerator circleIn()
