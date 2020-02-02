@@ -30,11 +30,12 @@ public class CreditsScroll : MonoBehaviour
         {
             float dst = scrollSpeed * Time.deltaTime;
 
+            world.transform.position += new Vector3(0, dst / 1000.0f, 0);
+
             for (int i = 0; i<credits.Length; i++)
             {
-                credits[i].transform.position += new Vector3(0, dst, 0);
-            }
-            world.transform.position += new Vector3(0, dst/10.0f, 0);
+                credits[i].transform.position += new Vector3(0, dst * 10, 0);
+            }            
         }
     }
 

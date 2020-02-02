@@ -10558,6 +10558,16 @@ PrefabInstance:
       propertyPath: _timeBetweenDespoblateAnimation
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 182813413, guid: dcf84507c3e4c4044aefae30873251e5, type: 3}
+      propertyPath: _brokenTree
+      value: 
+      objectReference: {fileID: 2269397857501264826, guid: 776588e5e075ba944a31aa141f198f8a,
+        type: 3}
+    - target: {fileID: 182813413, guid: dcf84507c3e4c4044aefae30873251e5, type: 3}
+      propertyPath: _treePlaceholder
+      value: 
+      objectReference: {fileID: 1136706101375453227, guid: dcf84507c3e4c4044aefae30873251e5,
+        type: 3}
     - target: {fileID: 1136706101375453227, guid: dcf84507c3e4c4044aefae30873251e5,
         type: 3}
       propertyPath: m_Name
@@ -13675,6 +13685,16 @@ PrefabInstance:
       propertyPath: _timeBetweenPoblateAnimation
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 182813413, guid: dcf84507c3e4c4044aefae30873251e5, type: 3}
+      propertyPath: _brokenTree
+      value: 
+      objectReference: {fileID: 2269397857501264826, guid: 776588e5e075ba944a31aa141f198f8a,
+        type: 3}
+    - target: {fileID: 182813413, guid: dcf84507c3e4c4044aefae30873251e5, type: 3}
+      propertyPath: _treePlaceholder
+      value: 
+      objectReference: {fileID: 1136706101375453227, guid: dcf84507c3e4c4044aefae30873251e5,
+        type: 3}
     - target: {fileID: 1136706101375453227, guid: dcf84507c3e4c4044aefae30873251e5,
         type: 3}
       propertyPath: m_Name
