@@ -33,7 +33,7 @@ public class LevelLoader : MonoBehaviour
     {
         transition.SetTrigger("Exit");
 
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSeconds(transitionTime + 0.5f);
 
         Application.Quit();
         Debug.Log("Adios");
