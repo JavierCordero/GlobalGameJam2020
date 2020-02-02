@@ -24,6 +24,7 @@ public class Bucket : Item
         {
             meshFilter.mesh = fullBucket;
             bucketIsFull = true;
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
         }
     }
 
@@ -33,6 +34,7 @@ public class Bucket : Item
         {
             meshFilter.mesh = emptyBucket;
             bucketIsFull = false;
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
         }
     }
 
