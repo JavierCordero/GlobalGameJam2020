@@ -156,7 +156,7 @@ public class LevelManager : MonoBehaviour
             cowsSpawned >= cowsToSpawn &&
 			treesCrafted >= treesToCraft)
         {
-            Debug.Log("LevelFinished!");
+            //Debug.Log("LevelFinished!");
             GetComponent<FMODUnity.StudioEventEmitter>().Play();
             Invoke(nameof(loadScene), timeToChangeScene);
             unlockNextLevel();
@@ -166,6 +166,19 @@ public class LevelManager : MonoBehaviour
     private void unlockNextLevel()
     {
         Globals.lastLevelDone = true;
+    }
+
+    public void exitLevel()
+    {
+        // No te has pasado el nivel
+        if(!(treesPlanted >= treesToPlant &&
+            treesWatered >= treesToWater &&
+            bridgesBuilt >= bridgesToBuild &&
+            cowsSpawned >= cowsToSpawn &&
+            treesCrafted >= treesToCraft))
+        {
+            loadScene();
+        }
     }
 
     public void loadScene()

@@ -34,6 +34,7 @@ public class PlayerInputHandler : MonoBehaviour
         playerInputActions.PlayerControls.Move.canceled += Move_Cancelled;
         playerInputActions.PlayerControls.Use.performed += Use_Performed;
         playerInputActions.PlayerControls.PickUpRelease.performed += PickUpRealease_Performed;
+        playerInputActions.MainMenuController.ExitGame.performed += Exit_Performed;
     }
 
     void OnDisable()
@@ -42,6 +43,7 @@ public class PlayerInputHandler : MonoBehaviour
         playerInputActions.PlayerControls.Move.canceled -= Move_Cancelled;
         playerInputActions.PlayerControls.Use.performed -= Use_Performed;
         playerInputActions.PlayerControls.PickUpRelease.performed -= PickUpRealease_Performed;
+        playerInputActions.MainMenuController.ExitGame.performed -= Exit_Performed;
 
         playerInputActions.Disable();
     }
@@ -63,6 +65,11 @@ public class PlayerInputHandler : MonoBehaviour
     private void Use_Performed(InputAction.CallbackContext context)
     {
         // ToDo: Use Item
+    }
+
+    private void Exit_Performed(InputAction.CallbackContext context)
+    {
+        LevelManager.Instance.loadScene();
     }
 
 }
