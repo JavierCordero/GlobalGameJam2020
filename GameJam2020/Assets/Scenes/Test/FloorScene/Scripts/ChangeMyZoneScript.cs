@@ -32,7 +32,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 	public void poblateZone()
 	{
-		Debug.Log("Im poblating this nigga ass place.");
 
 		if (!expandingZone)
 		{
@@ -84,7 +83,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 			selectedFlowerInTile[i] = rnd;
 			plantAlreadyCreated[i] = false;
 		}
-
 	}
 
 	IEnumerator PoblateZone()
@@ -127,11 +125,12 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 		last.AddComponent<lastFlowerBehaviour>();
 		last.GetComponent<lastFlowerBehaviour>().myFather = gameObject;
-
 	}
 
 	IEnumerator quitZone()
 	{
+		expandingZone = false;
+
 		GameObject last = null;
 
 		while (_tiles.Count > 0)
