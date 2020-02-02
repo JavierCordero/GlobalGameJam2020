@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fire : Interactable
 {
+    [SerializeField] private GameObject[] neighbourFires;
+
     public override void Interact()
     {
         if (PlayerController.Instance.HasItem() && PlayerController.Instance.GetCurrentItem().GetItemType() == ItemType.Bucket)
@@ -13,6 +15,11 @@ public class Fire : Interactable
             {
                 bucket.TryEmptyBucket();
                 //LevelManager.Instance.PerformAction(ActionType.WaterTree);
+
+                foreach (var f in neighbourFires)
+                {
+                    Destroy(f);
+                }
 
                 Destroy(this.gameObject);
             }
