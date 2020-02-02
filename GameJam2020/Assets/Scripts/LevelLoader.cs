@@ -10,7 +10,7 @@ public class LevelLoader : MonoBehaviour
 
    
 
-   public void LoadNextLevel()
+    public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex+1));
     }
@@ -22,6 +22,21 @@ public class LevelLoader : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(levelIndex);
+    }
+
+    public void exitLevel()
+    {
+        StartCoroutine("ExitLevel");
+    }
+
+    IEnumerator ExitLevel()
+    {
+        transition.SetTrigger("Exit");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        Application.Quit();
+        Debug.Log("Adios");
     }
 }
 
