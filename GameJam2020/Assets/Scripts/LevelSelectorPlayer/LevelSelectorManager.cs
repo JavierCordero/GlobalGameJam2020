@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public static class Globals
+{
+    public static int actualLevel = 0;
+    public static bool lastLevelDone = false;    
+}
 
 public class LevelSelectorManager : MonoBehaviour
 {
     public static LevelSelectorManager instance;
 
-    public int numNiveles = 6;
+    public int numNiveles = 7;
 
     int maxUnlockedIndex;
 
@@ -54,13 +59,11 @@ public class LevelSelectorManager : MonoBehaviour
         restPositions.Insert(0, restPositions1);
         restPositions.Insert(0, restPositions0);
 
-        maxUnlockedIndex = PlayerPrefs.GetInt("maxUnlockedIndex");
+        maxUnlockedIndex = Globals.actualLevel;
 
-        if (PlayerPrefs.GetInt("lastLevelDone") == 1)
+        if (Globals.lastLevelDone)
         {
-            // Animacion
-            PlayerPrefs.SetInt("lastLevelDone", 0);
-            PlayerPrefs.Save();
+            Globals.lastLevelDone = false;            
 
             menuPlayerMovement.setActive(false);
 
@@ -116,7 +119,7 @@ public class LevelSelectorManager : MonoBehaviour
         }
         originalPositions[maxUnlockedIndex].activeParticles(particles.green);
 
-        if (maxUnlockedIndex < originalPositions.Length)
+        if (maxUnlockedIndex < originalPositions.Length - 1)
         {
             yield return new WaitForSeconds(1f);
             
