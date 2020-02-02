@@ -59,6 +59,11 @@ public class PlayerController : MonoBehaviour
         {
             Gizmos.color = Color.green;
             Gizmos.DrawWireCube(Vector3Int.RoundToInt(transform.position + transform.forward), pickUpZoneSize);
+
+            Gizmos.color = Color.blue;
+            Vector2 pos = GetCenterPos2D();
+            Vector3 p = new Vector3(pos.x, 1.1f, pos.y);
+            Gizmos.DrawWireCube(p, new Vector3(0.9f, 0.9f, 0.9f));
         }
     }
 
@@ -120,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 pos = GetCenterPos2D();
 
-        Collider[] objects = Physics.OverlapBox(new Vector3(pos.x, 1.1f, pos.y), new Vector3(0.9f, 0.9f, 0.9f));
+        Collider[] objects = Physics.OverlapBox(new Vector3(pos.x, 1.1f, pos.y), new Vector3(0.45f, 0.45f, 0.45f));
 
         foreach (Collider o in objects)
         {
