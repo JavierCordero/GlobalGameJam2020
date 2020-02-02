@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7039398627964125226}
   - component: {fileID: 7039398627964125225}
   - component: {fileID: -4862714868311489761}
+  - component: {fileID: 7016107695335737095}
   m_Layer: 0
   m_Name: DeadTree
   m_TagString: Interactable
@@ -86,6 +87,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!65 &7016107695335737095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2269397857501264826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 2, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &4553987433233387787
 PrefabInstance:
   m_ObjectHideFlags: 0

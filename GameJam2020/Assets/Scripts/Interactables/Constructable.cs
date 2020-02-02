@@ -41,6 +41,7 @@ public class Constructable : Interactable
         {
             StartCoroutine(Die());
             GetComponent<FMODUnity.StudioEventEmitter>().Play();
+            GetComponent<BoxCollider>().isTrigger = false;
         }
 
         if(actionPerformed == ActionType.BuildBridge)
