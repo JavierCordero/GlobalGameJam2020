@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AliveTree : Interactable
+public class Fire : Interactable
 {
     public override void Interact()
     {
@@ -12,8 +12,9 @@ public class AliveTree : Interactable
             if (bucket.IsBucketFull())
             {
                 bucket.TryEmptyBucket();
-                GetComponent<ChangeMyZoneScript>().poblateZone();
-                LevelManager.Instance.PerformAction(ActionType.WaterTree);
+                //LevelManager.Instance.PerformAction(ActionType.WaterTree);
+
+                Destroy(this.gameObject);
             }
         }
     }

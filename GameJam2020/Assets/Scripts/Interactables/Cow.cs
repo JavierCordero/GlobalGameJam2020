@@ -34,6 +34,8 @@ public class Cow : Interactable
 
         GetComponent<FMODUnity.StudioEventEmitter>().Play();
 
+        LevelManager.Instance.addToActionList(new LevelAction(ActionType.CowDied));
+        LevelManager.Instance.addToActionList(new LevelAction(ActionType.SpawnCow));
         LevelManager.Instance.PerformAction(ActionType.SpawnCow);
 
         if (!LevelManager.Instance.AllTreesArePlanted())
