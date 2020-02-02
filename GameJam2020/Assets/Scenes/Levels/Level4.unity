@@ -7698,6 +7698,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cefb6bb84ccf4c498c08d76ccf76ac2, type: 3}
+--- !u!114 &1599384696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2314424082183329287, guid: e05027a4184b1444a9c0cd3ae5fe6c62,
+    type: 3}
+  m_PrefabInstance: {fileID: 66132556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1609006651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7895,6 +7907,11 @@ PrefabInstance:
       propertyPath: levelActions.Array.data[0].functionsWhenFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Wood
       objectReference: {fileID: 0}
+    - target: {fileID: 5338627985948253314, guid: e5c9a452d3ef3c143ada4b2a618eb1e0,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1599384696}
     - target: {fileID: 5338627985948253315, guid: e5c9a452d3ef3c143ada4b2a618eb1e0,
         type: 3}
       propertyPath: m_Name

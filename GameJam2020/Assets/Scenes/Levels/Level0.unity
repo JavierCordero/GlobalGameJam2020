@@ -3451,6 +3451,18 @@ PrefabInstance:
       objectReference: {fileID: 159722438}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05027a4184b1444a9c0cd3ae5fe6c62, type: 3}
+--- !u!114 &958865579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2314424082183329287, guid: e05027a4184b1444a9c0cd3ae5fe6c62,
+    type: 3}
+  m_PrefabInstance: {fileID: 958865578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &962008263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7736076211654422734, guid: eb0b70aedd2f89b41a4148821cf65d23,
@@ -6956,6 +6968,11 @@ PrefabInstance:
       propertyPath: timeToChangeScene
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5338627985948253314, guid: e5c9a452d3ef3c143ada4b2a618eb1e0,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 958865579}
     - target: {fileID: 5338627985948253315, guid: e5c9a452d3ef3c143ada4b2a618eb1e0,
         type: 3}
       propertyPath: m_Name

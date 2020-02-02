@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDrawGizmos()
     {
+#if EDITOR
         if (EditorApplication.isPlaying)
         {
             Gizmos.color = Color.green;
@@ -65,7 +66,9 @@ public class PlayerController : MonoBehaviour
             Vector3 p = new Vector3(pos.x, 1.1f, pos.y);
             Gizmos.DrawWireCube(p, new Vector3(0.9f, 0.9f, 0.9f));
         }
+#endif
     }
+
 
     Vector2Int GetCenterPos2D()
     {
