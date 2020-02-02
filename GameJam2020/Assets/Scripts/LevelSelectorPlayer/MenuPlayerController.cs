@@ -55,7 +55,6 @@ public class MenuPlayerController : MonoBehaviour
         if (other.GetComponent<LevelSelector>() != null)
         {
             levelToChange = null;
-            Debug.Log(levelToChange);
             message.FadeOut();
         }
     }    

@@ -4983,7 +4983,7 @@ PrefabInstance:
     - target: {fileID: 5338627985948253314, guid: e5c9a452d3ef3c143ada4b2a618eb1e0,
         type: 3}
       propertyPath: treesToPlant
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5338627985948253314, guid: e5c9a452d3ef3c143ada4b2a618eb1e0,
         type: 3}

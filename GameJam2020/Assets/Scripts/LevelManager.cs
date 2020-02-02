@@ -50,9 +50,7 @@ public class LevelManager : MonoBehaviour
 		actionsList.Add(l);
 	}
 
-    [HideInInspector]
     public int treesToPlant = 0;
-    [HideInInspector]
     public int treesPlanted = 0;
 
     private int bridgesToBuild = 0;
@@ -97,7 +95,6 @@ public class LevelManager : MonoBehaviour
 
     public void PerformAction(ActionType actionType)
     {
-        Debug.Log(actionType);
         if (actionsList.Count > 0)
         {
             bool found = false;
