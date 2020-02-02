@@ -73,6 +73,11 @@ public class Constructable : Interactable
         transform.gameObject.SetActive(true);
     }
 
+    public void EnableObjectWithDelay(float delay)
+    {
+        Invoke(nameof(EnableObject), delay);
+    }
+
     public void DisableObject()
     {
         transform.gameObject.SetActive(false);

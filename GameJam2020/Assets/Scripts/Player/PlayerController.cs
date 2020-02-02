@@ -143,16 +143,7 @@ public class PlayerController : MonoBehaviour
                 currentItem.transform.parent = null;
                 currentItem.transform.localRotation = Quaternion.identity;
                 currentItem.GetComponent<BoxCollider>().enabled = true;
-<<<<<<< HEAD
-                
-=======
 
-                //if (currentItem != null)
-                //{
-                //    SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Drop");
-                //}
-
->>>>>>> 588fc87fd97712dbccca94cbec82548f78b463c2
                 currentItem = null;
             }
         }
