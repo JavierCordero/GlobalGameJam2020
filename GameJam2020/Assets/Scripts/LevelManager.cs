@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour
 	{
 		actionsList.Add(l);
 	}
-
+    
     public int treesToPlant = 0;
     public int treesPlanted = 0;
 
