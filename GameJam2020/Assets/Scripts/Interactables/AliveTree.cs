@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class AliveTree : Interactable
 {
-    void Start()
-    {
-        //if(!LevelManager.Instance.AllTreesArePlanted())
-    }
-
     public override void Interact()
     {
         if (PlayerController.Instance.HasItem() && PlayerController.Instance.GetCurrentItem().GetItemType() == ItemType.Bucket)

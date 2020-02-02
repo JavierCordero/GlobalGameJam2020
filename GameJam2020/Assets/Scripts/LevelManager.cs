@@ -20,7 +20,7 @@ public enum ActionType
 [System.Serializable]
 public struct LevelAction
 {
-    LevelAction(ActionType action)
+    public LevelAction(ActionType action)
     {
         actionType = action;
         functionsWhenFinished = new UnityEvent();;
@@ -95,6 +95,7 @@ public class LevelManager : MonoBehaviour
 
     public void PerformAction(ActionType actionType)
     {
+        Debug.Log(actionType);
         if (actionsList.Count > 0)
         {
             bool found = false;
