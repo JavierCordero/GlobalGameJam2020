@@ -31,7 +31,8 @@ public class MenuInputHandler : MonoBehaviour
 
         playerInputActions.MenuPlayerControls.Move.performed += Move_Performed;
         playerInputActions.MenuPlayerControls.Move.canceled += Move_Cancelled;
-        playerInputActions.MenuPlayerControls.Use.performed += Use_Performed;
+        playerInputActions.MenuPlayerControls.Use.performed += Use_Performed; 
+        playerInputActions.MainMenuController.ExitGame.performed += Exit_Performed;
     }
 
     void OnDisable()
@@ -39,6 +40,7 @@ public class MenuInputHandler : MonoBehaviour
         playerInputActions.PlayerControls.Move.performed -= Move_Performed;
         playerInputActions.PlayerControls.Move.canceled -= Move_Cancelled;
         playerInputActions.PlayerControls.Use.performed -= Use_Performed;
+        playerInputActions.MainMenuController.ExitGame.performed -= Exit_Performed;
 
         playerInputActions.Disable();
     }
@@ -55,5 +57,10 @@ public class MenuInputHandler : MonoBehaviour
     private void Use_Performed(InputAction.CallbackContext context)
     {
         menuPlayerController.chooseLevel();
+    }
+
+    private void Exit_Performed(InputAction.CallbackContext context)
+    {
+        menuPlayerController.Exit();
     }
 }
