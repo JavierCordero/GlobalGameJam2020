@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6856775081552801539}
   - component: {fileID: 6856775081552801540}
   - component: {fileID: 64189730}
+  - component: {fileID: -5972938842083465917}
   m_Layer: 0
   m_Name: fire
   m_TagString: Interactable
@@ -123,3 +124,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4cfbba07787b04da6509ae81fe8a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neighbourFires: []
+--- !u!114 &-5972938842083465917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856775081552801538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Fire
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 2
