@@ -42,7 +42,7 @@ public class LevelSelectorManager : MonoBehaviour
 
     List<LevelSelector[]> restPositions;
 
-    private bool exiting = false;
+    private bool exiting = false;    
 
     private void Start()
     {
@@ -110,6 +110,8 @@ public class LevelSelectorManager : MonoBehaviour
         float smooth = camera.getSpeed();
         camera.setSpeed(0.1f);
 
+        bool credits = false;
+
         yield return new WaitForSeconds(1f);
         
         camera.setTarget(originalPositions[maxUnlockedIndex].transform, false);
@@ -138,6 +140,10 @@ public class LevelSelectorManager : MonoBehaviour
             }
             originalPositions[maxUnlockedIndex + 1].activeParticles(particles.red);
         }
+        else
+        {
+            credits = true;
+        }
 
         yield return new WaitForSeconds(1f);
 
@@ -145,17 +151,17 @@ public class LevelSelectorManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.85f);
 
-        Globals.lastLevelDone = false;
-        menuPlayerMovement.setActive(true);
-        camera.setLooking();
-        camera.setSpeed(smooth);        
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (credits)
         {
-            exitToMenu();
+            yield return new WaitForSeconds(0.5f);
+            exitToCredits();
+        }
+        else
+        {
+            Globals.lastLevelDone = false;
+            menuPlayerMovement.setActive(true);
+            camera.setLooking();
+            camera.setSpeed(smooth);
         }
     }
 
@@ -198,6 +204,20 @@ public class LevelSelectorManager : MonoBehaviour
             // inOut.setExit();
             //inOut.sceneOut();
             fadeOutScript.exit();
+        }
+    }
+
+    public void exitToCredits()
+    {
+        if (!exiting)
+        {
+            exiting = true;
+            sceneToChange = "Credits";
+            activePlayer(false);
+            menuPlayerMovement.launch();
+            camera.setLooking(false);
+            camera.setActive(false);
+            fadeOutScript.exit();            
         }
     }
 }

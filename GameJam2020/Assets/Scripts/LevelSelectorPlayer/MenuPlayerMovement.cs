@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class MenuPlayerMovement : MonoBehaviour
     [SerializeField] private float launchSpeed;
     [SerializeField] private float landSpeed;
     [SerializeField] private float rotSpeed;
+    [SerializeField] private float finalRotSpeed;
     [SerializeField] private float accFactor;
     [SerializeField] private float flightSpeed;
     [SerializeField] private float redFactor;
@@ -165,6 +167,11 @@ public class MenuPlayerMovement : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
         }
+    }
+
+    public void LastLaunch()
+    {
+        StartCoroutine("launchRoutine");        
     }
 
     IEnumerator landRoutine()
