@@ -945,7 +945,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547524383}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d6a417f055df374eb529ab5b9a5dd77, type: 3}
   m_Name: 
@@ -1005,13 +1005,14 @@ GameObject:
   - component: {fileID: 715921940}
   - component: {fileID: 715921939}
   - component: {fileID: 715921941}
+  - component: {fileID: 715921942}
   m_Layer: 0
   m_Name: Hint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &715921939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1093,6 +1094,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 0.1
   speed: 2
+--- !u!95 &715921942
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715921938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a29278b7227a79f41afcd4c9d9b7a043, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &827059018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animateOnStart: 1
+  UfoHint: {fileID: 715921938}
+  mainMenuUfo: {fileID: 547524386}
   delay: 3
   sprites:
   - {fileID: 21300000, guid: 8197203f43e2be349bccb75bdd679168, type: 3}

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class LogoAnimation : MonoBehaviour
 {
     [SerializeField] private bool animateOnStart = false;
+    [SerializeField] private GameObject UfoHint;
+    [SerializeField] private MainMenuUfo mainMenuUfo;
     [SerializeField] private float delay = 2f;
     [SerializeField] private Sprite[] sprites;
     [SerializeField] private float timeBetween = 0.4f;
@@ -39,6 +41,8 @@ public class LogoAnimation : MonoBehaviour
 
         yield return new WaitForSeconds(0.7f);
         GetComponent<Animator>().SetTrigger("Idle");
+        UfoHint.SetActive(true);
+        mainMenuUfo.enabled = true;
 
         yield return null;
     }

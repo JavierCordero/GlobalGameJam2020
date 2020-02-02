@@ -27,6 +27,13 @@ public class MainMenuUfo : MonoBehaviour
         playerInputActions.MainMenuController.ExitGame.performed += ExitGameAnim;
     }
 
+    void OnDisable()
+    {
+        playerInputActions.Disable();
+
+        playerInputActions.MainMenuController.StartGame.performed -= StartGameAnim;
+        playerInputActions.MainMenuController.ExitGame.performed -= ExitGameAnim;
+    }
 
     private void StartGameAnim(InputAction.CallbackContext context)
     {
