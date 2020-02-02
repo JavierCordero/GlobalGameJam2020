@@ -44,7 +44,8 @@ public class Cow : Interactable
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(2f);
+		LevelManager.Instance.PerformAction(ActionType.CowDied);
+		yield return new WaitForSeconds(2f);
 
         aliveModel.GetComponent<VoxelAnimator>().PlayAnimation("Die");
 
@@ -54,7 +55,7 @@ public class Cow : Interactable
         bone.position = transform.position - transform.forward;
         bone.parent = null;
 
-        LevelManager.Instance.PerformAction(ActionType.CowDied);
+        
        
         aliveModel.SetActive(false);
         constructModel.SetActive(true);
