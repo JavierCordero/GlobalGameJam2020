@@ -100,16 +100,14 @@ public class PlayerController : MonoBehaviour
     {
         GameObject interactable = null;
 
-        Collider[] objects = Physics.OverlapBox(transform.position + (transform.forward * 0.5f), pickUpZoneSize);
-
-        Vector3 aimTarget = transform.position + transform.forward;
+        Collider[] objects = Physics.OverlapBox(transform.position + (transform.forward * 0.2f), pickUpZoneSize);
 
         float minDistance = float.MaxValue;
         foreach (Collider o in objects)
         {
             if (o.CompareTag("Interactable"))
             {
-                float objDistance = Vector3.Distance(aimTarget, o.transform.position);
+                float objDistance = Vector3.Distance(transform.position, o.transform.position);
                 if (objDistance < minDistance)
                 {
                     minDistance = objDistance;
