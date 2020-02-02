@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
 	{
 		actionsList.Add(l);
 	}
-
+    
     public int treesToPlant = 0;
     public int treesPlanted = 0;
 
@@ -155,8 +155,7 @@ public class LevelManager : MonoBehaviour
 
     private void unlockNextLevel()
     {
-        PlayerPrefs.SetInt("lastLevelDone", 1);
-        PlayerPrefs.Save();
+        Globals.lastLevelDone = true;
     }
 
     public void loadScene()
