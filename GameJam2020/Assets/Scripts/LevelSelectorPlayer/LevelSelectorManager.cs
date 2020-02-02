@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public static class Globals
 {
     public static int actualLevel = 0;
-    public static bool lastLevelDone = false;    
+    public static int maxLevel = 0;
+    public static bool lastLevelDone = false;
+    
 }
 
 public class LevelSelectorManager : MonoBehaviour
@@ -59,14 +61,18 @@ public class LevelSelectorManager : MonoBehaviour
         restPositions.Insert(0, restPositions1);
         restPositions.Insert(0, restPositions0);
 
-        maxUnlockedIndex = Globals.actualLevel;
+        maxUnlockedIndex = Globals.maxLevel;
 
-        if (Globals.lastLevelDone)
+        if (Globals.lastLevelDone && Globals.actualLevel > maxUnlockedIndex)
         {
             menuPlayerMovement.setActive(false);
-
+            Globals.maxLevel = Globals.actualLevel;
             StartCoroutine("unlockNextLevel");
-        }        
+        }
+        else
+        {
+            menuPlayerMovement.setActive(true);
+        }
 
         if (maxUnlockedIndex >= originalPositions.Length)
             maxUnlockedIndex = originalPositions.Length - 1;
