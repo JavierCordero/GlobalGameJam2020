@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5338627985948253325}
   - component: {fileID: 5338627985948253314}
+  - component: {fileID: 4320417750007447152}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -43,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1348b8955ed34f44a338dd214d1a9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToChangeScene: 4
+  inOut: {fileID: 0}
+  actionsBeforeStart:
+    m_PersistentCalls:
+      m_Calls: []
   levelActions:
   - actionType: 0
     functionsWhenFinished:
@@ -59,3 +65,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  treesToPlant: 0
+  treesPlanted: 0
+--- !u!114 &4320417750007447152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338627985948253315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Success
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
