@@ -162,7 +162,9 @@ public class LevelSelectorManager : MonoBehaviour
 
     public void sceneOut()
     {
-        inOut.sceneOut();
+        //AQUI LLAMO AL METODO QUE HACE EL FADE OUT 
+        //inOut.sceneOut();
+        fadeOutScript.exit();
     }
 
     public void changeScene()
