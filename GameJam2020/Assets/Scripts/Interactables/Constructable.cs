@@ -39,6 +39,11 @@ public class Constructable : Interactable
 
         if (actionPerformed == ActionType.PlantTree)
             StartCoroutine(Die());
+
+        if(actionPerformed == ActionType.BuildBridge)
+        {
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        }
     }
 
     private void Deconstruct()

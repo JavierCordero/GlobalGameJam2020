@@ -55,7 +55,7 @@ public class Ovni : Interactable
                 if(itemType == ItemType.Wood)
                     LevelManager.Instance.PerformAction(ActionType.CraftTree);
 
-				SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Ship");
+                GetComponent<FMODUnity.StudioEventEmitter>().Play();
 
 				HideHint();
             }

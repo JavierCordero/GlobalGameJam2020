@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: 
+  Event: event:/Pick
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -281,8 +281,8 @@ MonoBehaviour:
   Preload: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &2831738501030427833
 MonoBehaviour:
   m_ObjectHideFlags: 0
