@@ -683,6 +683,11 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 1255030657}
+    - target: {fileID: 2314424082183329287, guid: e05027a4184b1444a9c0cd3ae5fe6c62,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e05027a4184b1444a9c0cd3ae5fe6c62, type: 3}
 --- !u!114 &85210564 stripped
@@ -692,7 +697,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 85210563}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
@@ -16840,6 +16845,7 @@ MonoBehaviour:
   speedIn: 1.5
   speedOut: 1.5
   scaleLimit: 1
+  vcam: {fileID: 85210564}
 --- !u!331 &1936707078
 SpriteMask:
   m_ObjectHideFlags: 0

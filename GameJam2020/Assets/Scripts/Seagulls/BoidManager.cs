@@ -36,13 +36,7 @@ public class BoidManager : MonoBehaviour
     static BoidManager instance;
 
 
-   
-    private void Awake()
-    {
-       
-
-   
-    }
+ 
     public GameObject SpawnInit()
     {
        
@@ -64,6 +58,16 @@ public class BoidManager : MonoBehaviour
     private void Start()
     {
         boxColl = GetComponent<BoxCollider>();
+
+        Debug.Log("Global lvl: " + Globals.maxLevel);
+        if (Globals.maxLevel > 3)
+            boidsNumber = 200;
+        else if (Globals.maxLevel > 1)
+            boidsNumber = 120;
+        else boidsNumber = 0;
+
+        if (!(boidsNumber > 0))
+            return;
 
         for (int i = 0; i < boidsNumber; i++)
         {
@@ -110,18 +114,18 @@ public class BoidManager : MonoBehaviour
                 boidData[i].direction = boids[i].forward;
             }
 
-            var boidBuffer = new ComputeBuffer(numBoids, BoidData.Size);
-            boidBuffer.SetData(boidData);
+            //var boidBuffer = new ComputeBuffer(numBoids, BoidData.Size);
+            //boidBuffer.SetData(boidData);
 
             //compute.SetBuffer (0, "boids", boidBuffer);
             //compute.SetInt    ("numBoids", boids.Count);
             //compute.SetFloat  ("viewRadius", settings.perceptionRadius);
             //compute.SetFloat  ("avoidRadius", settings.avoidanceRadius);
 
-            int threadGroups = Mathf.CeilToInt(numBoids / (float)threadGroupSize);
+           // int threadGroups = Mathf.CeilToInt(numBoids / (float)threadGroupSize);
             //compute.Dispatch (0, threadGroups, 1, 1);
 
-            boidBuffer.GetData(boidData);
+           // boidBuffer.GetData(boidData);
 
             for (int i = 0; i < boids.Count; i++)
             {
@@ -133,7 +137,7 @@ public class BoidManager : MonoBehaviour
                 boids[i].UpdateBoid();
             }
 
-            boidBuffer.Release();
+            //boidBuffer.Release();
         }
     }
 
