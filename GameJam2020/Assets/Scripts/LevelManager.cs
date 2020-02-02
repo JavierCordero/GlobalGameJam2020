@@ -156,7 +156,7 @@ public class LevelManager : MonoBehaviour
             cowsSpawned >= cowsToSpawn &&
 			treesCrafted >= treesToCraft)
         {
-            Debug.Log("LevelFinished!");
+            //Debug.Log("LevelFinished!");
             GetComponent<FMODUnity.StudioEventEmitter>().Play();
             Invoke(nameof(loadScene), timeToChangeScene);
             unlockNextLevel();

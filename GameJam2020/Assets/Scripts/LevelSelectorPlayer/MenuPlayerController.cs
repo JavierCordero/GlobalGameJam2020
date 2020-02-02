@@ -74,4 +74,9 @@ public class MenuPlayerController : MonoBehaviour
             Debug.Log("levelToChange es null");
         }
     }
+
+    public void Exit()
+    {
+        LevelSelectorManager.instance.exitToMenu();
+    }
 }

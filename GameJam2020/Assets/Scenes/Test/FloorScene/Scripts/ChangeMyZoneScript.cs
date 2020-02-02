@@ -8,6 +8,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 	public GameObject _myZone;
 	public float _timeBetweenPoblateAnimation = 1f, _timeBetweenDespoblateAnimation = 100f;
 	private List<GameObject> _tiles, _auxTiles;
+	bool[] plantAlreadyCreated;
 	int[] selectedFlowerInTile;
 	private bool expandingZone = false;
 	public GameObject _brokenTree, _treePlaceholder;
@@ -31,7 +32,6 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 	public void poblateZone()
 	{
-		Debug.Log("Im poblating this nigga ass place.");
 
 		if (!expandingZone)
 		{
@@ -72,6 +72,7 @@ public class ChangeMyZoneScript : MonoBehaviour
 		}
 
 		selectedFlowerInTile = new int[_auxTiles.Count];
+		plantAlreadyCreated = new bool[_auxTiles.Count];
 
 		int random = _flowers.Length + 20;
 
@@ -80,8 +81,8 @@ public class ChangeMyZoneScript : MonoBehaviour
 			int rnd = Random.Range(0, random);
 
 			selectedFlowerInTile[i] = rnd;
+			plantAlreadyCreated[i] = false;
 		}
-
 	}
 
 	IEnumerator PoblateZone()
@@ -98,8 +99,9 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 			int index = _auxTiles.FindIndex(x => x == g);
 
-			if (selectedFlowerInTile[index] < _flowers.Length)
+			if (selectedFlowerInTile[index] < _flowers.Length && !plantAlreadyCreated[index])
 			{
+				plantAlreadyCreated[index] = true;
 				GameObject f = Instantiate(_flowers[selectedFlowerInTile[index]], transform.position, Quaternion.identity);
 
 				f.transform.parent = g.transform;
@@ -123,11 +125,12 @@ public class ChangeMyZoneScript : MonoBehaviour
 
 		last.AddComponent<lastFlowerBehaviour>();
 		last.GetComponent<lastFlowerBehaviour>().myFather = gameObject;
-
 	}
 
 	IEnumerator quitZone()
 	{
+		expandingZone = false;
+
 		GameObject last = null;
 
 		while (_tiles.Count > 0)
