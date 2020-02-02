@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
     {
         GameObject interactable = null;
 
-        Collider[] objects = Physics.OverlapBox(transform.position + transform.forward, pickUpZoneSize);
+        Collider[] objects = Physics.OverlapBox(transform.position + (transform.forward * 0.5f), pickUpZoneSize);
 
         Vector3 aimTarget = transform.position + transform.forward;
 
@@ -120,11 +120,11 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 pos = GetCenterPos2D();
 
-        Collider[] objects = Physics.OverlapBox(new Vector3(pos.x, 1, pos.y), new Vector3(0.9f, 0.9f, 0.9f));
+        Collider[] objects = Physics.OverlapBox(new Vector3(pos.x, 1.1f, pos.y), new Vector3(0.9f, 0.9f, 0.9f));
 
         foreach (Collider o in objects)
         {
-            if (o.CompareTag("Interactable"))
+            if (o.tag != "Player")
                 return false;
         }
 
@@ -143,12 +143,16 @@ public class PlayerController : MonoBehaviour
                 currentItem.transform.parent = null;
                 currentItem.transform.localRotation = Quaternion.identity;
                 currentItem.GetComponent<BoxCollider>().enabled = true;
+<<<<<<< HEAD
+                
+=======
 
-                if (currentItem != null)
-                {
-                    SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Drop");
-                }
+                //if (currentItem != null)
+                //{
+                //    SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Drop");
+                //}
 
+>>>>>>> 588fc87fd97712dbccca94cbec82548f78b463c2
                 currentItem = null;
             }
         }
@@ -181,12 +185,20 @@ public class PlayerController : MonoBehaviour
     // Set item in player hand
     public void HoldItem(Transform item)
     {
+
+        if (currentItem == null)
+        {
+            GetComponent<FMODUnity.StudioEventEmitter>().Event = "event:/Pick";
+            GetComponent<FMODUnity.StudioEventEmitter>().Play();
+        }
+
         currentItem = item.GetComponent<Item>();
         item.GetComponent<BoxCollider>().enabled = false;
         
         item.parent = playerHand;
         item.localPosition = Vector3.zero;
         item.localRotation = Quaternion.identity;
+        
     }
 
     public void ClearHand()

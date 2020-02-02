@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollisionTag: 
-  Event: event:/Ship
+  Event: event:/Shiprepair
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1

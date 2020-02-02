@@ -572,64 +572,21 @@ PrefabInstance:
     - target: {fileID: 8744237249516316145, guid: 29bde562525b90f4ebed82a053814235,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 8744237249516316145, guid: 29bde562525b90f4ebed82a053814235,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 8744237249516316145, guid: 29bde562525b90f4ebed82a053814235,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1462742156, guid: 29bde562525b90f4ebed82a053814235, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29bde562525b90f4ebed82a053814235, type: 3}
---- !u!1 &222356411
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 222356413}
-  - component: {fileID: 222356412}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &222356412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222356411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2061cda7ca2f79429f823d24c38916f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &222356413
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222356411}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0350852, y: -1.4380832, z: 0.9987745}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241237781
 GameObject:
   m_ObjectHideFlags: 0

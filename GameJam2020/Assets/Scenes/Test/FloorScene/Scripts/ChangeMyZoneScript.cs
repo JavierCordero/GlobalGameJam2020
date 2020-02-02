@@ -146,6 +146,12 @@ public class ChangeMyZoneScript : MonoBehaviour
 		GameObject ga = Instantiate(_treePlaceholder, transform.position, Quaternion.identity);
 		ga.GetComponent<Constructable>().contructedObject = this.gameObject;
 		ga.SetActive(false);
+		FindObjectOfType<LevelManager>().treesPlanted--;
+
+		LevelAction l = new LevelAction();
+		l.actionType = ActionType.PlantTree;
+
+		FindObjectOfType<LevelManager>().addToActionList(l);
 		gameObject.SetActive(false);
 	}
 }

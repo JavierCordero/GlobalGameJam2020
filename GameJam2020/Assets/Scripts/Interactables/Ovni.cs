@@ -54,10 +54,16 @@ public class Ovni : Interactable
 
                 if(itemType == ItemType.Wood)
                     LevelManager.Instance.PerformAction(ActionType.CraftTree);
+                else if (itemType == ItemType.Bone)
+                    LevelManager.Instance.PerformAction(ActionType.CraftCow);
 
-				SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Ship");
+<<<<<<< HEAD
+                GetComponent<FMODUnity.StudioEventEmitter>().Play();
+=======
+                //SoundManager.Instance.PlaySound(GetComponent<FMODUnity.StudioEventEmitter>(), "event:/Ship");
+>>>>>>> 588fc87fd97712dbccca94cbec82548f78b463c2
 
-				HideHint();
+                HideHint();
             }
         }
     }

@@ -32,6 +32,8 @@ public class Cow : Interactable
         aliveModel.SetActive(true);
         aliveModel.GetComponent<VoxelAnimator>().PlayAnimation("Idle");
 
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
+
         LevelManager.Instance.PerformAction(ActionType.SpawnCow);
 
         if (!LevelManager.Instance.AllTreesArePlanted())
@@ -57,5 +59,10 @@ public class Cow : Interactable
         constructed = false;
 
         yield return null;
+    }
+
+    public void EnableObject()
+    {
+        transform.gameObject.SetActive(true);
     }
 }

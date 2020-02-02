@@ -38,7 +38,7 @@ public class MainMenuUfo : MonoBehaviour
     }
     IEnumerator StartGameAnimation()
     {
-
+        GetComponent<FMODUnity.StudioEventEmitter>().Play();
         animator.SetTrigger("Leave");
         yield return new WaitForSeconds(2f);
         levelLoader.LoadNextLevel();
@@ -48,6 +48,5 @@ public class MainMenuUfo : MonoBehaviour
     {
         animator.SetTrigger("Exit");
         yield return new WaitForSeconds(2f);
-        Debug.Log("HOLA");
     }
 }
