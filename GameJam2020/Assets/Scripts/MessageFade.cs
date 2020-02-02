@@ -10,11 +10,13 @@ public class MessageFade : MonoBehaviour
 
     public void FadeIn()
     {
+        StopAllCoroutines();
         StartCoroutine("fadeIn");
     }
 
     public void FadeOut()
     {
+        StopAllCoroutines();
         StartCoroutine("fadeOut");
     }
 

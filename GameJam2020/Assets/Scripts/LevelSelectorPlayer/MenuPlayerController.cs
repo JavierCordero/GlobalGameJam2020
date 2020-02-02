@@ -45,8 +45,10 @@ public class MenuPlayerController : MonoBehaviour
         {
             levelToChange = result.getLevel();
             levelToChangeIdx = result.getLevelIdx();
-            if(levelToChangeIdx != -1)
+            if (levelToChangeIdx != -1)
+            {
                 message.FadeIn();
+            }
         }
     }
 
