@@ -47,6 +47,7 @@ public class Constructable : Interactable
         if(actionPerformed == ActionType.BuildBridge)
         {
             GetComponent<FMODUnity.StudioEventEmitter>().Play();
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 

@@ -81,13 +81,13 @@ public class PlayerController : MonoBehaviour
     {
         if (currentItem == null)
         {
-            Interact();        
+            Interact(false);        
         }
     }
 
-    private void Interact()
+    private void Interact(bool reachFurther)
     {
-        GameObject interactable = GetInteractable();
+        GameObject interactable = GetInteractable(reachFurther);
 
         if (interactable != null)
         {
@@ -96,11 +96,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    GameObject GetInteractable()
+    GameObject GetInteractable(bool reachFurther)
     {
         GameObject interactable = null;
 
-        Collider[] objects = Physics.OverlapBox(transform.position + (transform.forward * 0.2f), pickUpZoneSize);
+        Collider[] objects = Physics.OverlapBox(transform.position + (transform.forward * (reachFurther? 0.6f : 0.2f)), pickUpZoneSize);
 
         float minDistance = float.MaxValue;
         foreach (Collider o in objects)
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!CanReleaseItem())
         {
-            Interact();
+            Interact(true);
         }
 
         return false;
